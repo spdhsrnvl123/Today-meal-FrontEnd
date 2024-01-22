@@ -24,10 +24,17 @@
       "dom"
     ]
   },
+  "exclude": [
+    "node_modules", // node_modules 디렉토리를 제외
+    "src/app/services/kakao-api/kakao-api.component.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+//    ----------------------
+    "enableIvy": false
   }
+
 }
