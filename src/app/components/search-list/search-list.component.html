@@ -1,0 +1,12 @@
+<li class="item" *ngIf="data !='' ">
+  <span>{{data.place_name}}</span>
+  <div>
+    <span>{{data.road_address_name}}</span>
+    <span>{{data.address_name}}</span>
+    <span>{{data.phone}}</span>
+  </div>
+  <button type="button" class="register" (click)="register(data.id)">등록</button>
+  <p *ngIf="exist">
+    {{exist.status}}
+  </p>
+</li>
