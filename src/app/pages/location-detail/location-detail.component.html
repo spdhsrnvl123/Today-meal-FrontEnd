@@ -1,12 +1,19 @@
-<ul>
   <mat-card class="example-card" >
-    <img mat-card-image *ngIf="data.img else loading" [src]="data.img" />
-    <ng-template #loading>이미지 없음</ng-template>
-    <mat-card-title>{{data.title}}</mat-card-title>
-    <mat-card-content>
+    <div class="img-box">
+      <img mat-card-image *ngIf="data.img else loading" [src]="data.img" />
+      <ng-template #loading>이미지 없음</ng-template>
+    </div>
+    <div class="description-box">
+      <mat-card-title>{{data.title}}</mat-card-title>
       <p>
         {{data.category}}
       </p>
-    </mat-card-content>
+      <div class="description-box-inner">
+        <h2>상세정보</h2>
+        <span>{{data.addr}}</span>
+        <span>{{data.phonenum}}</span>
+        <div class="line"></div>
+        <h2>메뉴</h2>
+      </div>
+    </div>
   </mat-card>
-</ul>
