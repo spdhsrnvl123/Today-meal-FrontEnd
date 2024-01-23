@@ -3,6 +3,7 @@ import {ApiService} from "../../services/api/api.service";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {NgForOf, NgIf} from "@angular/common";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -14,7 +15,7 @@ import {NgForOf, NgIf} from "@angular/common";
 export class CardComponent implements OnInit{
   data : any = [];
 
-  constructor(private apiService : ApiService) {
+  constructor(private apiService : ApiService, private route:ActivatedRoute,private router : Router) {
   }
 
   ngOnInit() {
@@ -24,4 +25,7 @@ export class CardComponent implements OnInit{
     });
   }
 
+  gotoLocation(id : any) {
+    this.router.navigate([`/location/`,id])
+  }
 }

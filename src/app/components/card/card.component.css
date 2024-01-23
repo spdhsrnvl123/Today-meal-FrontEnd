@@ -1,11 +1,27 @@
+ul{
+  display: flex;
+  background-color: red;
+}
+
 .example-card {
-  max-width: 400px;
-  margin : 28px;
+  max-width: 9%;
+
+}
+img{
+  width: 100%;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
-img{
+button:nth-child(1){
+  background-color: #9B782A;
+  color:white;
+  font-weight: bold;
+}
+button:nth-child(2){
+  background-color: #FEAF01;
+  color:white;
+  font-weight: bold;
 }
