@@ -26,4 +26,9 @@ export class ApiService {
     return this.http.get("http://localhost:8000/location");
   }
 
+  // 각 장소 조회
+  locationEachData(id:any){
+    return this.http.get(`http://localhost:8000/location/${id}`);
+  }
+
 }

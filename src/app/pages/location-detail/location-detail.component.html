@@ -1,0 +1,12 @@
+<ul>
+  <mat-card class="example-card" >
+    <img mat-card-image *ngIf="data.img else loading" [src]="data.img" />
+    <ng-template #loading>이미지 없음</ng-template>
+    <mat-card-title>{{data.title}}</mat-card-title>
+    <mat-card-content>
+      <p>
+        {{data.category}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</ul>
