@@ -1,10 +1,13 @@
 <nav>
-  <div class="logo">logo</div>
-<h1 class="title">오늘 점심은 뭐 먹지?</h1>
-<ul>
-  <li>홈</li>
-  <li>장소관리</li>
-  <li>마이페이지</li>
-  <li>로그아웃</li>
-</ul>
+  <div class="title-box">
+    <h1 class="title">
+      <a routerLink="main">오늘 점심은 뭐 먹지?</a>
+    </h1>
+  </div>
+  <ul class="menu-box">
+    <li routerLinkActive="active"><a routerLink="main">홈</a></li>
+    <li routerLinkActive="active"><a routerLink="register">장소관리</a></li>
+    <li routerLinkActive="active"><a routerLink="mypage">마이페이지</a></li>
+    <li routerLinkActive="active"><a routerLink="logout">로그아웃</a></li>
+  </ul>
 </nav>

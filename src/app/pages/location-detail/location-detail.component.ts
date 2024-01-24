@@ -13,20 +13,22 @@ import {NgForOf, NgIf} from "@angular/common";
   imports: [MatCardModule, MatButtonModule, NgIf, NgForOf]
 })
 export class LocationDetailComponent implements OnInit{
-  data : any = [];
-  constructor(private route : ActivatedRoute,private apiService : ApiService) {
-  }
+  data : any = {};
+  menuDataList : any = [];
+
+  constructor(private route : ActivatedRoute,private apiService : ApiService) {}
+  
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
     //각 장소 조회
     this.apiService.locationEachData(id).subscribe((data: any) => {
       this.data = data[0];
-      console.log(this.data);
     });
 
     //각 메뉴 조회
     this.apiService.menuGetData(id).subscribe((data: any) => {
-      console.log(data)
+      this.menuDataList = data;
+      console.log(this.menuDataList);
     });
   }
 }
