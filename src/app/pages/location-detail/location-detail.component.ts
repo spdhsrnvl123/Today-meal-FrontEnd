@@ -18,10 +18,15 @@ export class LocationDetailComponent implements OnInit{
   }
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.apiService.locationEachData(id).subscribe(data => {
-      // @ts-ignore
+    //각 장소 조회
+    this.apiService.locationEachData(id).subscribe((data: any) => {
       this.data = data[0];
       console.log(this.data);
+    });
+
+    //각 메뉴 조회
+    this.apiService.menuGetData(id).subscribe((data: any) => {
+      console.log(data)
     });
   }
 }

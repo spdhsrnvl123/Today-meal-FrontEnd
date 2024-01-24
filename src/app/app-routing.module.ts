@@ -8,8 +8,8 @@ import {LocationDetailComponent} from "./pages/location-detail/location-detail.c
 export const routes: Routes = [
   {path: 'start', component: StartPageComponent},
   {path: 'main', component:MainPageComponent},
-  {path : 'location/:id', component:LocationDetailComponent},
-  {path:'register', component:RegisterPageComponent}
+  {path: 'location/:id', component:LocationDetailComponent},
+  {path: 'register', component:RegisterPageComponent}
 ];
 
 @NgModule({

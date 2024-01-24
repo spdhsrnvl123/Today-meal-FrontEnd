@@ -31,4 +31,9 @@ export class ApiService {
     return this.http.get(`http://localhost:8000/location/${id}`);
   }
 
+  // 각 메뉴 조회
+  menuGetData(id:any){
+    return this.http.get(`http://localhost:8000/menu/${id}`);
+  }
+
 }
