@@ -24,15 +24,15 @@ export class KakaoAPIComponent implements OnInit, AfterViewInit{
 
   map : any;
   ngAfterViewInit() {
-    console.log(this.myDiv?.nativeElement)
-    console.log(this.a);
-    console.log(this.b);
+    // console.log(this.myDiv?.nativeElement)
+    // console.log(this.a);
+    // console.log(this.b);
 
-    console.log(this.map)
+    // console.log(this.map)
 
   }
   real(){
-    console.log(1)
+    // console.log(1)
   }
 
 
@@ -43,7 +43,7 @@ export class KakaoAPIComponent implements OnInit, AfterViewInit{
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
       };
-    console.log(mapOption)
+    // console.log(mapOption)
 
     this.a = mapContainer;
     this.b = mapOption;

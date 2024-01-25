@@ -17,7 +17,6 @@ export class SearchListComponent implements OnChanges{
   }
 
   register(id:number){
-    console.log(id);
     this.apiService.registerData(id).subscribe(data =>this.exist = data);
   }
 

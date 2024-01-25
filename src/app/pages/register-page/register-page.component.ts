@@ -7,7 +7,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 })
 
 export class RegisterPageComponent{
-
+  delete_active = "delete_active"
   constructor() {
 
   }

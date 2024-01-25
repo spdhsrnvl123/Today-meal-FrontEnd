@@ -1,7 +1,9 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from "../../services/api/api.service";
-import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -10,9 +12,11 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, NgForOf, NgIf, NgOptimizedImage],
+  imports: [MatCardModule, MatIconModule, MatDividerModule, MatButtonModule ,NgForOf, NgIf, NgOptimizedImage],
 })
 export class CardComponent implements OnInit{
+  @Input() delete_active = '';
+
   data : any = [];
 
   constructor(private apiService : ApiService, private route:ActivatedRoute,private router : Router) {
@@ -20,12 +24,15 @@ export class CardComponent implements OnInit{
 
   ngOnInit() {
     this.apiService.locationData().subscribe(data =>{
-      console.log(data);
       this.data = data;
     });
+    console.log(this.delete_active)
   }
 
   gotoLocation(id : any) {
     this.router.navigate([`/location/`,id])
+  }
+  locationDelete(id:any){
+    console.log(id)
   }
 }

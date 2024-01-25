@@ -1,2 +1,17 @@
-<h1>등록페이지</h1>
-<app-kakao-api></app-kakao-api>
+<div class="register-container">
+  <div class="register-content">
+    <h1>장소 등록하기</h1>
+    <div class="map-box">
+        <app-kakao-api></app-kakao-api>
+    </div>
+  </div>
+  <div class="delete-container">
+    <h1>오늘 삭제 예정인 장소</h1>
+    <div class="delete-content">
+    </div>
+  </div>
+</div>
+<div class="location-container">
+  <h1>장소</h1>
+  <app-card [delete_active]="delete_active"></app-card>
+</div>
