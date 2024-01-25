@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
+  private api :String = "http://localhost:8000";
   constructor(private http: HttpClient) {
   }
 
@@ -18,22 +17,22 @@ export class ApiService {
         Authorization: 'my-auth-token'
       })
     }
-    return this.http.post("http://localhost:8000/register", id, httpOptions)
+    return this.http.post(`${this.api}/register`, id, httpOptions)
   }
 
   // 장소 조회
   locationData(){
-    return this.http.get("http://localhost:8000/location");
+    return this.http.get(`${this.api}/location`);
   }
 
   // 각 장소 조회
   locationEachData(id:any){
-    return this.http.get(`http://localhost:8000/location/${id}`);
+    return this.http.get(`${this.api}/location/${id}`);
   }
 
   // 각 메뉴 조회
   menuGetData(id:any){
-    return this.http.get(`http://localhost:8000/menu/${id}`);
+    return this.http.get(`${this.api}/menu/${id}`);
   }
 
 }
