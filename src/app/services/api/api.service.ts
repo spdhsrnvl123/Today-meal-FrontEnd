@@ -30,9 +30,15 @@ export class ApiService {
     return this.http.get(`${this.api}/location/${id}`);
   }
 
+  // 장소 삭제
+  locationDeleteData(id:any){
+    return this.http.get(`${this.api}/location/delete/${id}`);
+  }
+
   // 각 메뉴 조회
   menuGetData(id:any){
     return this.http.get(`${this.api}/menu/${id}`);
   }
+
 
 }

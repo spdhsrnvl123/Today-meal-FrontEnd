@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {ApiService} from "../../services/api/api.service";
+import {CardComponent} from "../card/card.component";
 
 @Component({
   selector: 'app-search-list',

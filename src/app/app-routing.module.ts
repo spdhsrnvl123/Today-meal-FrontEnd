@@ -6,7 +6,11 @@ import {RegisterPageComponent} from "./pages/register-page/register-page.compone
 import {LocationDetailComponent} from "./pages/location-detail/location-detail.component";
 
 export const routes: Routes = [
-  {path: 'start', component: StartPageComponent},
+  {
+    path: 'start',
+    component: StartPageComponent,
+
+  },
   {path: 'main', component:MainPageComponent},
   {path: 'location/:id', component:LocationDetailComponent},
   {path: 'register', component:RegisterPageComponent}

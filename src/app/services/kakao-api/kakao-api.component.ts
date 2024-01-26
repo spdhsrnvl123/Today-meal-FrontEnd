@@ -66,7 +66,7 @@ export class KakaoAPIComponent implements OnInit, AfterViewInit{
   // @ts-ignore
   searchPlaces(f: NgForm) {
     var ps = new kakao.maps.services.Places();
-    console.log(ps)
+    console.log(1)
     // console.log(f.value.title)
     let title = f.value.title;`anga`
     if (!title.replace(/^\s+|\s+$/g, '')) {
