@@ -14,6 +14,7 @@ import {MainPageComponent} from "./pages/main-page/main-page.component";
 import {CardComponent} from "./components/card/card.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
+import { DeleteLoadingListComponent } from './components/delete-loading-list/delete-loading-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {MatCardModule} from "@angular/material/card";
     SearchListComponent,
     NavComponent,
     MainPageComponent,
+    DeleteLoadingListComponent,
   ],
   imports: [
     BrowserModule,

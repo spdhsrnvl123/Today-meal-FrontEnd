@@ -161,48 +161,13 @@ export class KakaoAPIComponent implements OnInit, AfterViewInit{
 
   data : any;
   getListItem(index:any, places:any) {
-
     this.data = places;
-
-    // var el = document.createElement('li'),
-    //   itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
-    //     '<div class="info">' +
-    //     '   <h5>' + places.place_name + '</h5>';
-    //
-    // if (places.road_address_name) {
-    //   itemStr += '    <span>' + places.road_address_name + '</span>' +
-    //     '   <span class="jibun gray">' +  places.address_name  + '</span>';
-    // } else {
-    //   itemStr += '    <span>' +  places.address_name  + '</span>';
-    // }
-    //
-    // itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-    //   '</div>';
-    // itemStr += '<button type="button" class="register">등록</button>'
-    //
-    // // let buttonElement = el.nativeElement.querySelector('.register');
-    //
-    // el.innerHTML = itemStr;
-    // el.className = 'item';
-    // console.log(el)
-    // console.log(el.lastChild)
-    //
-    // //id값 셋팅
-    // // @ts-ignore
-    // el.lastChild.id = places.id;
-    //
-    // // @ts-ignore
-    // el.lastChild.addEventListener("click",this.register())
-
-    // return el;
-
   }
 
   register(){
     console.log(123)
   }
 
-  // ------------------------------------------------------------------
   // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
   addMarker(position:any, idx:any) {
     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
@@ -270,7 +235,6 @@ export class KakaoAPIComponent implements OnInit, AfterViewInit{
   }
 
 
-  //-------------------------------------------------------------------
   // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
   // 인포윈도우에 장소명을 표시합니다
   // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다

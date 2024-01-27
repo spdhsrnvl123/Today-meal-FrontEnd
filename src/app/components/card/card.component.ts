@@ -1,47 +1,44 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ApiService} from "../../services/api/api.service";
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {MatCardModule} from "@angular/material/card";
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
   standalone: true,
-  imports: [MatCardModule, MatIconModule, MatDividerModule, MatButtonModule, NgForOf, NgIf, NgOptimizedImage, AsyncPipe],
+  imports: [
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
+    NgForOf,
+    NgIf,
+    NgOptimizedImage,
+    AsyncPipe,
+  ],
 })
-export class CardComponent implements OnInit{
-  @Input() delete_active = '';
+export class CardComponent implements OnChanges {
+  @Input() delete_active: String = '';
+  @Input() data: any = [];
+  @Output() delete_item_id = new EventEmitter<string>();
+  @Output() detail_item_id = new EventEmitter<string>();
 
-  data : any = [];
-
-  constructor(private apiService : ApiService, private route:ActivatedRoute,private router : Router) {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    console.log(this.data);
   }
 
-  ngOnInit() {
-    this.apiService.locationData().subscribe(data =>{
-      this.data = data;
-    });
-    console.log(this.delete_active)
+  //부모컴포넌트에게 삭제 id값 넘겨주는 메소드
+  parentDeleteReq(id: any) {
+    this.delete_item_id.emit(id);
   }
 
-  gotoLocation(id : any) {
-    this.router.navigate([`/location/`,id])
+  //부모컴포넌트에게  id값 넘겨주는 메소드
+  parentDetailReq(id: any) {
+    this.detail_item_id.emit(id);
   }
-  getData(){
-    this.apiService.locationData().subscribe(data => {
-      this.data = data;
-    });
-  }
-
-  locationDelete(id:any){
-    this.apiService.locationDeleteData(id).subscribe(data=>
-      this.getData()
-    );
-  }
-
 }

@@ -8,10 +8,21 @@
   <div class="delete-container">
     <h1>오늘 삭제 예정인 장소</h1>
     <div class="delete-content">
+      <app-delete-loading-list 
+      (cancel_item_id)="loadingCancel($event)"
+      [loadingData]="loadingData"
+      >
+      </app-delete-loading-list>
     </div>
   </div>
 </div>
 <div class="location-container">
   <h1>장소</h1>
-  <app-card [delete_active]="delete_active"></app-card>
+  <app-card 
+    [data]="data" 
+    [delete_active]="delete_active"
+    (delete_item_id)="locationDelete($event)"
+    (detail_item_id)="locationDetail($event)"
+  >
+  </app-card>
 </div>
