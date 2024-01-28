@@ -1,0 +1,17 @@
+    <div id="menu_wrap" class="bg_white">
+      <div class="option">
+        <div>
+          <form (ngSubmit)="searchPlaces(f)" #f="ngForm">
+            키워드 : <input type="text" id="keyword" size="15" name="title" ngModel>
+            <button type="submit">검색하기</button>
+          </form>
+        </div>
+      </div>
+    <hr>
+    <ul id="placesList">
+    </ul>
+    <div id="pagination"></div>
+      <ul id="resultList">
+        <app-search-list *ngFor="let item of place" [data]="item"></app-search-list>
+      </ul>
+  </div>
