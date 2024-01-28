@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./start-page.component.css']
 })
 export class StartPageComponent {
-
+  
 }

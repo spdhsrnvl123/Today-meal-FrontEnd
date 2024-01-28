@@ -1,0 +1,51 @@
+<div class="sign-content">
+  <h1>회원가입</h1>
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>이름을 입력해주세요.</mat-label>
+      <input matInput placeholder="Placeholder" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <input 
+        matInput 
+        placeholder="아이디를 입력해주세요." 
+        minlength="3"
+        id="name"
+        name="name"
+    />
+    </mat-form-field>
+    <button mat-raised-button>중복검사</button>
+    <mat-form-field>
+      <mat-label>비밀번호를 입력해주세요.</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>비밀번호를 입력해주세요.</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+    <button mat-raised-button>계정 생성하기</button>
+  </form>
+  <a>이미 계정이 있으신가요? 로그인</a>
+    <br />
+    <br />
+    <button routerLinkActive="active"><a routerLink="/main">홈</a></button>
+</div>
