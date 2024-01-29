@@ -1,39 +1,67 @@
 <div class="sign-content">
   <h1>회원가입</h1>
-  <form>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
     <mat-form-field appearance="fill">
       <mat-label>이름을 입력해주세요.</mat-label>
       <input matInput placeholder="Placeholder" />
     </mat-form-field>
+    <div *ngIf="id.invalid && (id.dirty || id.touched)" style="color:red">3글자 이상 작성해주세요.</div>
     <mat-form-field appearance="fill">
-      <input 
-        matInput 
-        placeholder="아이디를 입력해주세요." 
+      <input
+        matInput
+        placeholder="아이디를 입력해주세요."
+        id="id"
+        name="id"
+        ngModel
         minlength="3"
-        id="name"
-        name="name"
+        #id="ngModel"
     />
     </mat-form-field>
-    <button mat-raised-button>중복검사</button>
+    <span style="font-size: 24px" (click)="duplicateTest()" mat-raised-button>중복검사</span>
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      style="color:red"
+    >10글자 이상 특수문자를 포함시켜주세요.</div>
     <mat-form-field>
       <mat-label>비밀번호를 입력해주세요.</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" />
+      <input
+        matInput [type]="hide ? 'password' : 'text'"
+        type="password"
+        id="password"
+        name="password"
+        ngModel
+        (ngModelChange)="passwordCompare_1($event)"
+        pattern="^(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{10,}$"
+        #password="ngModel"
+      />
       <button
         mat-icon-button
         matSuffix
         (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
       >
         <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
       </button>
     </mat-form-field>
+    <div
+      *ngIf="!passwordConfirm && (password_2.dirty || password_2.touched)"
+      style="color:red"
+    >비밀번호가 일치하지 않습니다.</div>
     <mat-form-field>
       <mat-label>비밀번호를 입력해주세요.</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" />
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        type="password"
+        id="password_2"
+        name="password_2"
+        ngModel
+        #password_2="ngModel"
+        (ngModelChange)="passwordCompare_2($event)"
+      />
       <button
         mat-icon-button
         matSuffix
+        type="submit"
         (click)="hide = !hide"
         [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide"
@@ -45,7 +73,4 @@
     <button mat-raised-button>계정 생성하기</button>
   </form>
   <a>이미 계정이 있으신가요? 로그인</a>
-    <br />
-    <br />
-    <button routerLinkActive="active"><a routerLink="/main">홈</a></button>
 </div>

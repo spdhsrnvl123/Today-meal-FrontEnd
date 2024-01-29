@@ -16,9 +16,11 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import { DeleteLoadingListComponent } from './components/delete-loading-list/delete-loading-list.component';
 import { KakaoFormComponent } from './components/kakao-form/kakao-form.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {SignUpComponent} from "./components/sign-up/sign-up.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     DeleteLoadingListComponent,
     KakaoFormComponent,
     SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     CardComponent,
     MatButtonModule,
     MatCardModule,
-    SignUpComponent,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],

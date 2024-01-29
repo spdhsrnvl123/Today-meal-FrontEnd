@@ -1,19 +1,34 @@
-import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import {Component, ViewChild} from '@angular/core';
+import {FormsModule, NgForm} from '@angular/forms';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule,FormsModule],
 })
-export class SignUpComponent {
+export class SignUpComponent{
+  @ViewChild('f') signupForm : NgForm | undefined;
   hide = true;
-  
-  
+  password_1 :String = '';
+  password_2 :String  = '';
+  passwordConfirm : any;
+
+  onSubmit(){
+    console.log(this.signupForm)
+  }
+
+  duplicateTest(){
+    console.log(1)
+  }
+
+  passwordCompare_1($event: any){
+    this.password_1 = $event
+  }
+  passwordCompare_2($event: any){
+    this.password_2 = $event
+    this.passwordConfirm =this.password_1 == this.password_2
+    console.log(this.passwordConfirm)
+  }
+
 }

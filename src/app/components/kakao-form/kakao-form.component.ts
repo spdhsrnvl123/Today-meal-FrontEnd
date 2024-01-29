@@ -44,13 +44,12 @@ export class KakaoFormComponent {
       alert('검색 결과 중 오류가 발생했습니다.');
       return;
     }
+
   };
 
   //배열형태로 만듬
   place: any = [];
   displayPlaces(places: any) {
-    console.log(places);
-
     this.place = places;
 
     let listEl: any = document.getElementById('placesList'),
@@ -62,7 +61,7 @@ export class KakaoFormComponent {
       // 마커를 생성하고 지도에 표시합니다
       let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
         itemEl = this.getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-        
+
       // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
       // LatLngBounds 객체에 좌표를 추가합니다
       bounds.extend(placePosition);
