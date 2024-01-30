@@ -3,13 +3,18 @@
   <form (ngSubmit)="onSubmit()" #f="ngForm">
     <mat-form-field appearance="fill">
       <mat-label>이름을 입력해주세요.</mat-label>
-      <input matInput placeholder="Placeholder" />
+      <input
+        matInput
+        id="name"
+        name="name"
+        ngModel
+      />
     </mat-form-field>
     <div *ngIf="id.invalid && (id.dirty || id.touched)" style="color:red">3글자 이상 작성해주세요.</div>
     <mat-form-field appearance="fill">
+      <mat-label>아이디를 입력해주세요.</mat-label>
       <input
         matInput
-        placeholder="아이디를 입력해주세요."
         id="id"
         name="id"
         ngModel

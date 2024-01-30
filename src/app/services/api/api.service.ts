@@ -48,4 +48,15 @@ export class ApiService {
   loadingCancel(id:any){
     return this.http.get(`${this.api}/loading/cancel/${id}`);
   }
+
+  //회원가입 유저 정보 저장
+  joinReq(userData: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'my-auth-token',
+      }),
+    };
+    return this.http.post(`${this.api}/join`, userData, httpOptions);
+  }
 }
