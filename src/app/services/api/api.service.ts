@@ -21,7 +21,14 @@ export class ApiService {
 
   // 등록된 장소 조회
   locationData() {
-    return this.http.get(`${this.api}/location`);
+    const sessionId = '3DB867074B841FF51BCD0F9E148A4D2D';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer JSESSIONID=' + sessionId,
+      }),
+    };
+    return this.http.get(`${this.api}/location`,httpOptions);
   }
 
   // 삭제 대기 장소 조회
