@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class SignInComponent {
 
+  protected readonly onsubmit = onsubmit;
 }

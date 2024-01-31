@@ -1,6 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from '@angular/forms';
-import {NgIf} from "@angular/common";
 import {ApiService} from "../../services/api/api.service";
 import {Router} from "@angular/router";
 
@@ -10,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent{
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router:Router) {}
 
   @ViewChild('f') signupForm : NgForm | undefined;
   hide = true;
@@ -27,8 +26,12 @@ export class SignUpComponent{
       "password" : this.signupForm?.form.value.password,
     }
 
-    this.apiService.joinReq(this.joinData).subscribe(data => console.log(data))
-
+    this.apiService.joinReq(this.joinData).subscribe(data =>{
+        if (data == 1){
+          this.router.navigate(["/start/signin"]);
+        }
+      }
+    )
   }
 
   duplicateTest(){
