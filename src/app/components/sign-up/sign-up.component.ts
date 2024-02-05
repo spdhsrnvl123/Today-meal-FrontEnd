@@ -35,7 +35,12 @@ export class SignUpComponent{
   }
 
   duplicateTest(){
-    console.log(1)
+    let user_id = this.signupForm?.form.value.id
+    this.apiService.duplicationReq(user_id).subscribe((data)=>{
+      if(data){
+
+      }
+    })
   }
 
   passwordCompare_1($event: any){

@@ -6,7 +6,20 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class ApiService {
   private api: String = 'http://localhost:8000';
-  constructor(private http: HttpClient) {}
+  headerOption: any = {};
+  constructor(private http: HttpClient) {
+
+  }
+
+  setHeaderOption = (token: string) => {
+    sessionStorage.setItem("accessToken",token);
+    this.headerOption = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
+      }),
+    }
+  }
 
   // 등록 요청
   registerData(id: number) {
@@ -68,9 +81,19 @@ export class ApiService {
     return this.http.post(`${this.api}/join`, userData, httpOptions);
   }
 
+  //아이디 중복 검사
+  duplicationReq(user_id:any){
+    return this.http.get(`${this.api}/duplication/${user_id}`)
+  }
+
   //로그인
   loginReq(userData: any) {
-    console.log(userData)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>',
+        Authorization: 'my-auth-token',
+      }),
+    };
     return this.http.post(`${this.api}/login`, userData);
   }
 
