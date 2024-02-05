@@ -46,5 +46,4 @@ export class SignUpComponent{
     this.passwordConfirm =this.password_1 == this.password_2
     console.log(this.passwordConfirm)
   }
-
 }

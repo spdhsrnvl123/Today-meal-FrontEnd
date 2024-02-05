@@ -1,6 +1,6 @@
 <div class="sign-content">
   <h1>로그인</h1>
-  <form action="/loginProc" #f="ngForm">
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
       <input
         matInput
         id="id"

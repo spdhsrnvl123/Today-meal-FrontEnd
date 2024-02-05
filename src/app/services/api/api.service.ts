@@ -58,6 +58,7 @@ export class ApiService {
 
   //회원가입 유저 정보 저장
   joinReq(userData: any) {
+    console.log(userData)
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -66,4 +67,11 @@ export class ApiService {
     };
     return this.http.post(`${this.api}/join`, userData, httpOptions);
   }
+
+  //로그인
+  loginReq(userData: any) {
+    console.log(userData)
+    return this.http.post(`${this.api}/login`, userData);
+  }
+
 }
