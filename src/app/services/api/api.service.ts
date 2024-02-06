@@ -23,13 +23,7 @@ export class ApiService {
 
   // 등록 요청
   registerData(id: number) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'my-auth-token',
-      }),
-    };
-    return this.http.post(`${this.api}/register`, id, httpOptions);
+    return this.http.post(`${this.api}/register`, id, this.headerOption);
   }
 
   // 등록된 장소 조회

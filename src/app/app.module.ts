@@ -21,6 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
+import { FoodRainComponent } from './components/food-rain/food-rain.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -34,21 +36,23 @@ import {SignUpComponent} from "./components/sign-up/sign-up.component";
     DeleteLoadingListComponent,
     KakaoFormComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    FoodRainComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    CardComponent,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatInputModule,
-    MatFormFieldModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        CardComponent,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatInputModule,
+        MatFormFieldModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

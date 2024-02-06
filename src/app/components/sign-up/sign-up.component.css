@@ -1,46 +1,70 @@
-.sign-content {
+.signupContent {
   position: absolute;
   top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.sign-content h1 {
+
+/*제목*/
+.signupContent h1 {
   text-align: center;
   margin-bottom: 80px;
   color: #043133;
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 600;
 }
 
-.sign-content form {
-}
-
-.sign-content mat-form-field {
-  width: 500px;
+/*입력박스*/
+.signupContent mat-form-field {
+  width: 600px;
   margin-bottom: 25px;
+  margin-top: 5px;
 }
 
-.sign-content mat-form-field input{
+.signupContent mat-label {
+  font-size: 20px;
+  color: #838383;
+}
+
+.signupContent mat-form-field input {
   font-size: 26px;
   height: 30px;
 }
+
+
 form span {
   font-size: 20px;
   margin-left: 6px;
+  font-weight: 500;
 }
 
-form button{
+.duplicationButton{
+  position: absolute;
+  z-index: 99;
+  top:276.6px;
+  border-radius: 0;
+  right: -1px;
   font-size: 26px;
-  padding: 30px;
+  font-weight: bold;
+  height: 63px;
+}
+
+.generateButton{
   position: absolute;
   bottom: -13%;
   left:50%;
   transform: translate(-50%,-50%);
+  font-size: 26px;
+  padding: 30px;
+  font-weight: bold;
+  border-radius: 0;
 }
-a{
-    position: absolute;
+
+a {
+  position: absolute;
   bottom: -17%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 18px;
+  color: #4D5959;
 }
