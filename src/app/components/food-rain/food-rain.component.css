@@ -1,0 +1,121 @@
+
+img:nth-child(1) {
+  position: absolute;
+  z-index : -1;
+  top:14%;
+  left:17%;
+  width: 130px;
+  animation: represent 2s ease-in-out infinite alternate;
+}
+img:nth-child(2) {
+  position: absolute;
+  z-index: -1;
+  top: 60%;
+  left: 3%;
+  width: 100px;
+  transform:rotate(-20deg);
+  animation: represent 1.2s ease-in-out infinite alternate;
+}
+img:nth-child(3) {
+  position: absolute;
+  z-index: -1;
+  right: 10%;
+  bottom: 25%;
+  width: 90px;
+  animation: represent 3s ease-in-out infinite alternate;
+}
+
+img:nth-child(4) {
+  position: absolute;
+  z-index: -1;
+  right: 3%;
+  top: 5%;
+  width: 160px;
+  animation: represent 4s ease-in-out infinite alternate;
+}
+
+img:nth-child(5) {
+  position: absolute;
+  top: 23%;
+  right: 34%;
+  width: 140px;
+  transform: rotate(20deg);
+  animation: represent 1s ease-in-out infinite alternate;
+}
+img:nth-child(6) {
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  bottom: 5%;
+  width: 113px;
+  transform: rotate(30deg);
+  animation: represent 2s ease-in-out infinite alternate;
+}
+img:nth-child(7) {
+  position: absolute;
+  z-index: -1;
+  top: 1%;
+  left: 35%;
+  transform:rotate(-35deg);
+  width: 113px;
+  animation: represent 3s ease-in-out infinite alternate;
+}
+img:nth-child(8) {
+  position: absolute;
+  z-index: -1;
+  right: 33%;
+  bottom: 22%;
+  transform: rotate(-10deg);
+  width: 110px;
+  animation: represent 4s ease-in-out infinite alternate;
+}
+img:nth-child(9) {
+  position: absolute;
+  z-index: -1;
+  left: 23%;
+  bottom: 25%;
+  width: 132px;
+  animation: represent 3s ease-in-out infinite alternate;
+}
+img:nth-child(10) {
+  position: absolute;
+  z-index: -1;
+  right: 17%;
+  bottom: 6%;
+  width: 129px;
+  animation: represent 2s ease-in-out infinite alternate;
+}
+img:nth-child(11) {
+  position: absolute;
+  z-index: -1;
+  left: 34%;
+  bottom: 2%;
+  width: 129px;
+  animation: represent 3s ease-in-out infinite alternate;
+}
+img:nth-child(12) {
+  position: absolute;
+  z-index: -1;
+  top: 2%;
+  left:2%;
+  transform: rotate(-7deg);
+  width: 90px;
+  animation: represent 4s ease-in-out infinite alternate;
+}
+img:nth-child(13) {
+  position: absolute;
+  z-index: -1;
+  top: 27%;
+  left:3%;
+  width: 104px;
+  animation: represent 2s ease-in-out infinite alternate;
+}
+
+@keyframes represent {
+  0%{
+    transform: translateY(0px);
+  }
+  100%{
+    transform : translateY(-20px);
+  }
+}
