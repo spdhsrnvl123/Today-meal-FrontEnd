@@ -1,11 +1,46 @@
-.sign-content{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+.sign-content {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-h1 {
+.sign-content h1 {
+  text-align: center;
+  margin-bottom: 80px;
   color: #043133;
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 600;
+}
+
+.sign-content form {
+}
+
+.sign-content mat-form-field {
+  width: 500px;
+  margin-bottom: 25px;
+}
+
+.sign-content mat-form-field input{
+  font-size: 26px;
+  height: 30px;
+}
+form span {
+  font-size: 20px;
+  margin-left: 6px;
+}
+
+form button{
+  font-size: 26px;
+  padding: 30px;
+  position: absolute;
+  bottom: -13%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+a{
+    position: absolute;
+  bottom: -17%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size: 18px;
 }
