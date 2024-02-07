@@ -13,6 +13,18 @@
     >
       3글자 이상 작성해주세요.
     </span>
+    <span
+      *ngIf="duplicationConfirm"
+      style="color: blue"
+    >
+      사용할 수 있는 아이디입니다.
+    </span>
+    <span
+      *ngIf="duplicationConfirmReject"
+      style="color: red"
+    >
+      사용할 수 없는 아이디입니다.
+    </span>
     <mat-form-field appearance="fill">
       <mat-label>아이디를 입력해주세요(3글자 이상)</mat-label>
       <input
@@ -28,11 +40,13 @@
       class="duplicationButton"
       mat-flat-button
       color="accent"
+      type="button"
     >중복검사
     </button>
     <span>비밀번호</span>
     <span
-      *ngIf="password.invalid && (password.dirty || password.touched)"
+      *ngIf="passwordFirst.invalid &&
+       (passwordFirst.dirty || passwordFirst.touched)"
       style="color: red"
     >
       10글자 이상 특수문자를 포함시켜주세요.
@@ -41,19 +55,19 @@
       <mat-label>비밀번호를 입력해주세요(10글자 이상, 특수문자 포함)</mat-label>
       <input
         matInput
-        [type]="hide ? 'password' : 'text'"
         type="password"
-        id="password"
-        name="password"
+        id="passwordFirst"
+        name="passwordFirst"
         ngModel
-        (ngModelChange)="passwordCompare_1($event)"
+
         pattern="^(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{10,}$"
-        #password="ngModel"
+        #passwordFirst="ngModel"
       />
     </mat-form-field>
     <span>비밀번호 확인</span>
     <span
-      *ngIf="!passwordConfirm && (password_2.dirty || password_2.touched)"
+      *ngIf="!(passwordFirst.value == passwordSecond.value)
+      && (passwordSecond.dirty ||passwordSecond.touched)"
       style="color: red"
     >
       비밀번호가 일치하지 않습니다.
@@ -62,13 +76,11 @@
       <mat-label>비밀번호를 입력해주세요.</mat-label>
       <input
         matInput
-        [type]="hide ? 'password' : 'text'"
         type="password"
-        id="password_2"
-        name="password_2"
+        id="passwordSecond"
+        name="passwordSecond"
         ngModel
-        #password_2="ngModel"
-        (ngModelChange)="passwordCompare_2($event)"
+        #passwordSecond="ngModel"
       />
     </mat-form-field>
     <br/>

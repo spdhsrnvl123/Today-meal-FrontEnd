@@ -12,21 +12,19 @@ export class SignUpComponent{
   constructor(private apiService: ApiService, private router:Router) {}
 
   @ViewChild('f') signupForm : NgForm | undefined;
-  hide = true;
-  password_1 :String = '';
-  password_2 :String  = '';
-  passwordConfirm : any;
-  joinData  = {};
+  // joinData  = {};
+  duplicationConfirm = false;
+  duplicationConfirmReject = false;
 
   onSubmit(){
-    // console.log(this.signupForm?.form.value)
-    this.joinData = {
+    console.log(this.signupForm)
+    let joinData = {
       "user_id" : this.signupForm?.form.value.id,
       "name" : this.signupForm?.form.value.name,
-      "password" : this.signupForm?.form.value.password,
+      "password" : this.signupForm?.form.value.passwordFirst,
     }
 
-    this.apiService.joinReq(this.joinData).subscribe(data =>{
+    this.apiService.joinReq(joinData).subscribe(data =>{
         if (data == 1){
           this.router.navigate(["/start/signin"]);
         }
@@ -34,21 +32,20 @@ export class SignUpComponent{
     )
   }
 
+  //아이디 중복 검사
   duplicateTest(){
-    let user_id = this.signupForm?.form.value.id
-    this.apiService.duplicationReq(user_id).subscribe((data)=>{
-      if(data){
+    console.log();
 
+    let id = this.signupForm?.form.value.id
+    this.apiService.duplicationReq(id).subscribe((data)=>{
+      console.log(data)
+      if(data == 1){
+        this.duplicationConfirm = true;
+        this.duplicationConfirmReject = false;
+      }else{
+        this.duplicationConfirmReject = true;
+        this.duplicationConfirm = false;
       }
     })
-  }
-
-  passwordCompare_1($event: any){
-    this.password_1 = $event
-  }
-  passwordCompare_2($event: any){
-    this.password_2 = $event
-    this.passwordConfirm =this.password_1 == this.password_2
-    console.log(this.passwordConfirm)
   }
 }

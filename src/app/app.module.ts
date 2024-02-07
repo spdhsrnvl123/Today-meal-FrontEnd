@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import { FoodRainComponent } from './components/food-rain/food-rain.component';
 import {NgOptimizedImage} from "@angular/common";
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {NgOptimizedImage} from "@angular/common";
     KakaoFormComponent,
     SignInComponent,
     SignUpComponent,
-    FoodRainComponent
+    FoodRainComponent,
+    ModalComponent
   ],
     imports: [
         BrowserModule,
