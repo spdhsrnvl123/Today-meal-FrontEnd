@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
+
 export class MainPageComponent implements OnInit{
   data: any = [];
 
@@ -14,12 +15,12 @@ export class MainPageComponent implements OnInit{
 
   //초기 등록된 장소 조회
   ngOnInit() {
-    this.getData();
+    this.locationGetDataHandler();
   }
 
   //등록된 장소 조회
-  getData() {
-    this.apiService.locationData().subscribe((data) => {
+  locationGetDataHandler() {
+    this.apiService.locationGetData().subscribe((data) => {
       this.data = data;
     });
   }

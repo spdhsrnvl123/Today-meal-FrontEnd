@@ -21,27 +21,21 @@ export class SignInComponent {
         password: this.signInForm.form.value.password
       };
 
-
       // FormData 객체 생성
       const formData = new FormData();
       formData.append('user_id', singData.user_id);
       formData.append('password', singData.password);
 
-
-      // console.log(formData)
-
-      // FormData를 API 서비스로 전송
+      // FormData를 API 서비스로 전달
       this.apiService.loginReq(formData).subscribe((response: any) => {
-        console.log(response)
         if (response.accessToken) {
-          //headerOption
+          //headerOption에 서버에 응답받은 accessToken을 전달
           this.apiService.setHeaderOption(response.accessToken)
           this.router.navigate(["/main"]);
         } else {
           console.error('accessToken not found in response.');
         }
       });
-
     }
   }
 }

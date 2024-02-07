@@ -22,7 +22,7 @@ export class RegisterPageComponent implements OnInit {
 
   //등록된 장소 조회
   getData() {
-    this.apiService.locationData().subscribe((data) => {
+    this.apiService.locationGetData().subscribe((data) => {
       this.data = data;
     });
   }
