@@ -1,11 +1,47 @@
-.sign-content{
+.signInContent{
   position: absolute;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
 }
-h1 {
+.signInContent h1 {
+  text-align: center;
+  margin-bottom: 80px;
   color: #043133;
   font-size: 48px;
   font-weight: 600;
+}
+form span {
+  font-size: 20px;
+  margin-left: 6px;
+  font-weight: 500;
+}
+.signInContent mat-form-field input {
+  font-size: 20px;
+  height: 30px;
+}
+
+.signInContent mat-form-field {
+  width: 600px;
+  margin-bottom: 25px;
+  margin-top: 5px;
+}
+
+.signInButton{
+  position: absolute;
+  bottom: -26%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size: 26px;
+  padding: 30px;
+  font-weight: bold;
+  border-radius: 0;
+}
+a {
+  position: absolute;
+  bottom: -37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #4D5959;
 }

@@ -15,7 +15,7 @@ export class SignInComponent {
   constructor(private apiService: ApiService, private router: Router) {}
 
   onSubmit() {
-    if (this.signInForm && this.signInForm.valid) {
+    if (this.signInForm) {
       const singData = {
         user_id: this.signInForm.form.value.id,
         password: this.signInForm.form.value.password
