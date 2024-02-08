@@ -1,0 +1,36 @@
+.subTitleBox{
+  position: relative;
+  display: inline-block;
+  /* background-color: red; */
+}
+
+img{
+  position: absolute;
+  top:-12px;
+  left:-33px;
+  width: 30px;
+}
+.subTitle {
+  border-bottom: 10px;
+  display: inline-block; /* 추가 */
+  position: relative;
+  white-space: nowrap; /* 추가 */
+  width: auto; /* 수정 */
+}
+.subTitle::after {
+  content: "";
+  position: absolute;
+  z-index: 99;
+  width: 103%;
+  height: 8px;
+  bottom: 8%;
+  left: -1%;
+  border-radius: 50px;
+  background-color: #FBE0DC;
+}
+
+h2 {
+  font-weight: 700;
+  width: 100%;
+  font-size: 35px;
+}
