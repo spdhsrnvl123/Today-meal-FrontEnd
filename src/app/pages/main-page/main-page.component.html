@@ -1,10 +1,14 @@
 <main>
   <app-nav></app-nav>
-  <section>중간섹션</section>
-  <div class="section-4">
-    <div class="card-container">
-      <h2>투표 장소</h2>
-      <app-card [data]="data"></app-card>
+  <section>
+    <div class="myVote">
+      <app-sub-title>
+        <h2>내가 투표한 장소</h2>
+      </app-sub-title>
     </div>
-  </div>
+  </section>
+  <app-sub-title>
+    <h2>투표 장소</h2>
+  </app-sub-title>
+  <app-card [data]="data"></app-card>
 </main>

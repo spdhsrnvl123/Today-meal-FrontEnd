@@ -3,24 +3,25 @@ ul {
   justify-content: center;
 }
 
-.example-card {
+.exampleCard {
   width: 209px;
   height: 316px;
   margin-left: 20px;
   margin-right: 24px;
   border-radius: 10px;
   border: 1px solid #e3e3e3;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: #f6f6f6;
+  box-shadow: none;
 }
 
-.example-button-container {
+.exampleButtonContainers {
   position: absolute;
   z-index: 99;
   right: -10%;
   top: -5%;
 }
 
-.img-box-1 {
+.imgBoxOne {
   position: relative;
   top: 4%;
   left: 7.5%;
@@ -32,7 +33,7 @@ ul {
   border-bottom-right-radius: 70px;
 }
 
-.img-box-2 {
+.imgBoxTwo {
   position: absolute;
   top: 3%;
   left: 0.2%;
@@ -44,7 +45,7 @@ ul {
   border-bottom-right-radius: 70px;
 }
 
-.img-box-1 .img-box-2 img {
+.imgBoxOne .imgBoxTwo img {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -52,9 +53,9 @@ ul {
   height: 153px;
 }
 
-.text-box {
+.textBox {
   position: absolute;
-  top: 86%;
+  top: 79%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -63,22 +64,36 @@ ul {
   background-size: cover;
 }
 mat-card-title {
-  font-size: 15px;
-  text-align: center;
+  font-size: 1.3rem;
   margin-bottom: 4px;
+  text-align: center;
 }
 p {
   text-align: center;
   line-height: 0px;
 }
 .category {
+  font-size: 0.7rem;
+  width: 4.5em;
+  padding: 0.05em;
   color: #53595F;
-  text-align: center;
-  border-radius: 30px;
+  border-radius:30px;
   background: rgba(18, 170, 115, 0.18);
-}
-
-mat-card-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonBox button{
+  width : 5.5em;
+  padding: 1em 0.1em;
+  font-size: 1rem;
+  margin: 0 5px;
+  box-shadow: none;
 }
