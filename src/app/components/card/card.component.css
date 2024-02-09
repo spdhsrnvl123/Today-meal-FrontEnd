@@ -1,17 +1,21 @@
 ul {
   display: flex;
   justify-content: center;
+  flex-wrap: nowrap; /* 카드가 넘칠 때 스크롤이 표시되도록 함 */
+  overflow-x: auto; /*가로 방향으로 스크롤이 나타나도록 함 */
+  padding-left: 60px;
 }
 
 .exampleCard {
-  width: 209px;
+  flex: 0 0 auto; /* 각 카드의 크기를 자동으로 설정하여 고정된 너비를 가짐 */
+  width: 209px; /* 원하는 너비 */
   height: 316px;
-  margin-left: 20px;
-  margin-right: 24px;
+  margin: 0 10px; /* 여백 추가 */
   border-radius: 10px;
   border: 1px solid #e3e3e3;
-  background-color: #f6f6f6;
+  background-color: #ffffff;
   box-shadow: none;
+  
 }
 
 .exampleButtonContainers {

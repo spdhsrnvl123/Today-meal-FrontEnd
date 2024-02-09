@@ -1,7 +1,7 @@
 <ul *ngIf="data">
   <mat-card class="exampleCard" *ngFor="let item of data">
     <!-- 장소등록페이지면    -->
-    <!-- <div *ngIf="delete_active" class="exampleButtonContainer">
+    <div *ngIf="delete_active" class="exampleButtonContainer">
       <button
         (click)="parentDeleteReq(item.id)"
         mat-fab
@@ -10,7 +10,7 @@
       >
         <mat-icon>X</mat-icon>
       </button>
-    </div> -->
+    </div>
     <div class="imgBoxOne">
       <div class="imgBoxTwo">
         <img
