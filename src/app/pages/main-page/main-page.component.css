@@ -8,4 +8,89 @@ h2{
 }
 section{
   height: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.section001{
+  transform: translate(-7px,132px);
+}
+
+.myVote{
+  background-color: #ffffff;
+  width: 437px;
+  height: 316px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+}
+.myVote img{
+  width: 200px;
+  height: 280px;
+  transform: translate(20px,20px);
+}
+
+.description{
+  transform: translate(26px,30px);
+  text-align: center;
+}
+
+.description h2{
+  font-size: 28px;
+}
+
+.description .category {
+  font-size: 0.7rem;
+  width: 4.5em;
+  padding: 0.05em;
+  color: #53595F;
+  border-radius:30px;
+  background: rgba(18, 170, 115, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 13px;
+}
+.description p{
+  font-size: 15px;
+  font-weight:400;
+}
+
+.subTitleBox{
+  text-align: center;
+  transform: translate(0px,-25px);
+}
+
+/* ------------ */
+.section002{
+  transform: translate(-120px,133px);
+}
+.section002 .rankBox{
+  display: flex;
+  flex-direction: column;
+}
+.section002 .rankBox img{
+  width: 361px;
+  height: 78px;
+  padding-bottom: 20px;
+}
+/* ------------ */
+
+/* ------------ */
+.section003{
+  transform: translate(-120px,133px);
+}
+/* ------------ */
+
+.buttonBox button{
+  width : 5.5em;
+  padding: 1em 0.1em;
+  font-size: 1rem;
+  margin:  5px;
+  box-shadow: none;
+}
+footer{
+  width: 90%;
+  margin: 0 auto;
 }
