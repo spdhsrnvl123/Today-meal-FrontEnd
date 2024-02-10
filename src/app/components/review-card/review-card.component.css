@@ -1,0 +1,80 @@
+img {
+  width: 140px;
+  height: 259px;
+  transform: translate(0, 57px);
+  padding-right: 15px;
+}
+
+.reviewCardBox h2 {
+  transform: translate(24px, -360px);
+  font-size: 25px;
+}
+
+.reviewCardBox h3 {
+  transform: translate(44px, -240px);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.reviewCardBox p {
+  transform: translate(50px, -250px);
+  font-size: 16px;
+}
+
+.category {
+  font-size: 0.7rem;
+  width: 4.5em;
+  padding: 0.05em;
+  color: #53595f;
+  border-radius: 30px;
+  background: rgba(18, 170, 115, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transform: translate(0px, -260px);
+}
+
+.imgBoxOne {
+  transform: translate(10px, -200px);
+  width: 118px;
+  height: 111px;
+  background-color: #d8cbf6;
+  border-radius: 40px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+}
+
+.imgBoxTwo {
+  transform: translate(0px, 7px);
+  width: 108px;
+  height: 102px;
+  background-color: #e2f3d1;
+  border-radius: 40px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+}
+
+.imgBoxOne .imgBoxTwo img {
+  transform: translate(0.3px, 7.3px);
+  width: 107.3px;
+  height: 95px;
+  border-radius: 50%;
+  border-top-right-radius: 24.8%;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonBox button {
+  width: 4em;
+  height: 1em;
+  padding: 1em 0.1em;
+  font-size: 0.8rem;
+  margin: 0 5px;
+  box-shadow: none;
+  transform: translate(2px, -265px);
+}
