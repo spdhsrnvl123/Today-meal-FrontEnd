@@ -36,11 +36,9 @@
           <h2>투표 순위</h2>
         </app-sub-title>
       </div>
-      <div class="rankBox">
-        <img src="app/assets/card.png" alt="card">
-        <img src="app/assets/card.png" alt="card">
-        <img src="app/assets/card.png" alt="card">
-      </div>
+      <ul>
+        <app-rank-card />
+      </ul>
     </div>
     <div class="section003">
       <div class="subTitleBox">
@@ -48,6 +46,11 @@
           <h2>지난 투표 결과</h2>
         </app-sub-title>
       </div>
+      <ul class="reviewBox">
+        <app-review-card />
+        <app-review-card />
+        <app-review-card />
+      </ul>
     </div>
   </section>
   <footer>

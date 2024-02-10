@@ -24,6 +24,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FoodRainComponent } from './components/food-rain/food-rain.component';
 import { NgOptimizedImage } from '@angular/common';
 import { SubTitleComponent } from './components/sub-title/sub-title.component';
+import { RankCardComponent } from './components/rank-card/rank-card.component';
+import { ReviewCardComponent } from './components/review-card/review-card.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { SubTitleComponent } from './components/sub-title/sub-title.component';
     SignUpComponent,
     FoodRainComponent,
     SubTitleComponent,
+    RankCardComponent,
+    ReviewCardComponent,
   ],
   imports: [
     BrowserModule,
