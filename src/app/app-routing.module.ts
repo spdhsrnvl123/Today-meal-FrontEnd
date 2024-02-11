@@ -17,14 +17,20 @@ export const routes: Routes = [
         component: SignInComponent,
       },
       {
-        path:'signup',
-        component:SignUpComponent
-      }
+        path: 'signup',
+        component: SignUpComponent,
+      },
     ],
   },
   {
     path: 'main',
     component: MainPageComponent,
+    children: [
+      {
+        path: 'location/:id',
+        component: LocationDetailComponent,
+      },
+    ],
   },
   {
     path: 'location/:id',

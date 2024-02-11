@@ -26,6 +26,8 @@ import { NgOptimizedImage } from '@angular/common';
 import { SubTitleComponent } from './components/sub-title/sub-title.component';
 import { RankCardComponent } from './components/rank-card/rank-card.component';
 import { ReviewCardComponent } from './components/review-card/review-card.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { LocationDetailComponent } from './pages/location-detail/location-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ReviewCardComponent } from './components/review-card/review-card.compon
     SubTitleComponent,
     RankCardComponent,
     ReviewCardComponent,
+    ModalComponent,
+    LocationDetailComponent
   ],
   imports: [
     BrowserModule,
