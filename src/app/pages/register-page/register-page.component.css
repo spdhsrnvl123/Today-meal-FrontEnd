@@ -3,21 +3,52 @@
     display: flex;
 }
 
-h1{
-    font-size: 40px;
-    font-weight: 500;
-    margin-bottom: 23px;
+.subTitleBox{
+    transform: translate(40px);
+    margin-bottom: 20px;
 }
 
-.map-box{
-    width: 742px;
-    height: 403px;
-    border: 1px solid #AAA2A2;
+.subTitleBox h2{
+    font-size:35px;
+    font-weight: bold;
+}
+
+.registerContent .searchResult{
+    width:341px;
+    height: 357px;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: #EFF0F2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.registerContent{
+    transform: translate(-190px,0);
+    display: flex;
+    align-items: center;
+}
+
+.registerContent .mapBox{
+    transform: translate(30px,40px);
+    width: 681px;
+    height: 415px;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid #D8D8D8;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.delete-container h1{
-    margin-left: 50px;
+.delete-container{
+    margin-left: 10px;
+}
+
+.deleteMessage{
+    font-size: 28px;
+    transform: translate(0%,220%);
+    text-align: center;
+    line-height: 34px;
 }
 
 .delete-content{
@@ -25,12 +56,12 @@ h1{
     height: 378px;
     border-radius: 10px;
     border: 1px solid #E3E3E3;
-    background: #EFF0F2;
+    background-color: #EFF0F2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left: 50px;
+    margin-left: 47px;
 }
-.location-container{
-    margin-top: 30px;
+.locationContainer{
+    margin-top: 50px;
 }
 
 .delete-content{

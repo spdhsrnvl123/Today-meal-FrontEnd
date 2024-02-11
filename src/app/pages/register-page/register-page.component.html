@@ -1,25 +1,42 @@
 <app-nav></app-nav>
 <div class="register-container">
-  <div class="register-content">
-    <h1>장소 등록하기</h1>
-    <app-kakao-form></app-kakao-form>
-    <div class="map-box">
-        <app-kakao-api></app-kakao-api>
-    </div>
+  <div class="subTitleBox">
+    <app-sub-title>
+      <h2>장소 등록하기</h2>
+    </app-sub-title>
   </div>
-  <div class="delete-container">
-    <h1>오늘 삭제 예정인 장소</h1>
-    <div class="delete-content">
-      <app-delete-loading-list
-      (cancel_item_id)="loadingCancel($event)"
-      [loadingData]="loadingData"
-      >
-      </app-delete-loading-list>
+  <div class="registerContent">
+    <div class="searchResult">
+      <app-kakao-form></app-kakao-form>
+    </div>
+    <div class="mapBox">
+      <app-kakao-api></app-kakao-api>
+    </div>
+    <div class="delete-container">
+      <div class="subTitleBox">
+        <app-sub-title>
+          <h2>오늘 삭제 예정인 장소</h2>
+        </app-sub-title>
+      </div>
+      <div class="delete-content">
+        <div class="deleteMessage" *ngIf="loadingData.length == 0">
+          삭제 예정인 장소가<br /> 없습니다.
+        </div>
+        <app-delete-loading-list
+          (cancel_item_id)="loadingCancel($event)"
+          [loadingData]="loadingData"
+        >
+        </app-delete-loading-list>
+      </div>
     </div>
   </div>
 </div>
-<div class="location-container">
-  <h1>장소</h1>
+<div class="locationContainer">
+  <div class="subTitleBox">
+    <app-sub-title>
+      <h2>장소 리스트</h2>
+    </app-sub-title>
+  </div>
   <app-card
     [data]="data"
     [delete_active]="delete_active"
