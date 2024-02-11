@@ -1,26 +1,36 @@
-<div class="modal-box">
-  <mat-card class="example-card">
-    <div class="img-box">
+<div class="modalContent">
+  <div class="descBox">
+    <h1>{{ data.title }}</h1>
+    <div class="imgBox">
       <img mat-card-image *ngIf="data.img; else loading" [src]="data.img" />
       <ng-template #loading>이미지 없음</ng-template>
     </div>
-    <div class="description-box">
-      <mat-card-title>{{ data.title }}</mat-card-title>
-      <div class="category-box">
-        {{ data.category }}
-      </div>
+    <div class="detailBox">
       <h2>상세정보</h2>
-      <div class="detail-information">
-        <span>{{ data.addr }}</span>
-        <span>{{ data.phonenum }}</span>
-        <div class="line"></div>
-      </div>
-      <div class="menu-title">메뉴</div>
-      <div class="menu-box" *ngFor="let menuData of menuDataList.slice(0,7)">
-        <span>{{ menuData.menu }}</span>
-        <span>{{ menuData.price == "" ? "가격정보 없음": "가격 :" + menuData.price }}</span>
-        <span>{{ menuData.description == "" ? "상세설명 없음": menuData.description }}</span>
-      </div>
+      <p>{{ data.addr }}</p>
+      <p>{{ data.phonenum }}</p>
+      <p>운영시간 : 매일 10:30 ~ 21:00</p>
+      <p>휴게시간 : 매일 15:30 ~ 17:00</p>
     </div>
-  </mat-card>
+  </div>
+  <div class="addInfo">
+    <h2>메뉴</h2>
+    <div class="categoryBox">
+      {{ data.category }}
+    </div>
+    <div class="menuBox" *ngFor="let menuData of menuDataList.slice(0, 7)">
+      <span>{{ menuData.menu }}</span>
+      <span>{{
+        menuData.price == "" ? "가격정보 없음" : "가격 :" + menuData.price
+      }}</span>
+      <span>{{
+        menuData.description == "" ? "상세설명 없음" : menuData.description
+      }}</span>
+    </div>
+        <!-- <button
+      mat-raised-button
+      color="accent"
+    >리뷰보기
+    </button> -->
+  </div>
 </div>

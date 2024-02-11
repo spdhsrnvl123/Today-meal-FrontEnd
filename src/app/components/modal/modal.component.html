@@ -1,0 +1,8 @@
+<div class="modalContainer" *ngIf="status">
+  <div class="modalSection" [style]="modalStyle">
+    <ng-content></ng-content>
+    <button mat-fab matTooltip="Accent" (click)="modalClose()" color="primary">
+    X
+  </button>
+  </div>
+</div>

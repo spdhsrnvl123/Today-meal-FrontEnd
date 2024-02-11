@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import { ModalStatusService } from 'src/app/services/modal-status.service';
 
 @Component({
   selector: 'app-card',
@@ -22,10 +23,13 @@ import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
   ],
 })
 export class CardComponent implements OnChanges {
+  constructor(private modalStatus : ModalStatusService){}
+
   @Input() delete_active: String = '';
   @Input() data: any = [];
   @Output() delete_item_id = new EventEmitter<string>();
   @Output() detail_item_id = new EventEmitter<string>();
+  @Output() modlaStatus = new EventEmitter<Boolean>();
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -37,8 +41,9 @@ export class CardComponent implements OnChanges {
     this.delete_item_id.emit(id);
   }
 
-  //부모컴포넌트에게  id값 넘겨주는 메소드
+  //부모컴포넌트에게 id값 넘겨주는 메소드
   parentDetailReq(id: any) {
     this.detail_item_id.emit(id);
+    this.modalStatus.modalStatusSwitch(true);
   }
 }

@@ -2,7 +2,7 @@
   <app-nav></app-nav>
   <section>
     <div class="section001">
-      <div class="subTitleBox">
+      <div class="subTitleBox" >
         <app-sub-title>
           <h2>내가 투표한 장소</h2>
         </app-sub-title>
@@ -59,6 +59,17 @@
         <h2>투표 장소</h2>
       </app-sub-title>
     </div>
-    <app-card [data]="data"></app-card>
+    <app-card 
+    [data]="data" 
+    (detail_item_id)="locationDetail($event)"
+    (modlaStatus)="modalStatusChange($event)"
+    >
+    </app-card>
+    <app-modal
+    [width]='975'
+    [height]='805'
+    >
+      <router-outlet></router-outlet>
+    </app-modal>
   </footer>
 </main>
