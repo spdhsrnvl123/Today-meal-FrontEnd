@@ -6,6 +6,7 @@ import {LocationDetailComponent} from "./pages/location-detail/location-detail.c
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { StartPageComponent } from './pages/start-page/start-page.component';
+import { MyPageComponent } from './pages/my-page/my-page.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterPageComponent,
   },
+  {
+    path: 'mypage',
+    component:MyPageComponent
+  }
 ];
 
 @NgModule({
