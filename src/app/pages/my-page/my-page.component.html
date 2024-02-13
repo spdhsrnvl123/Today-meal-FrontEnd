@@ -25,17 +25,20 @@
   <button class="resignButton" mat-raised-button (click)="resignHandler()">회원탈퇴</button>
   <div class="resignMessage">탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요.</div>
 </div>
-<app-modal
-  [width]="608"
-  [height]="306"
->
-  <h2>회원탈퇴</h2>
-  <mat-form-field>
-    <mat-label>비밀번호를 입력해주세요.</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
+<!--<div *ngIf="status">-->
+  <app-modal
+    [width]="608"
+    [height]="306"
+    (pathMove)="cancelHandler($event)"
+  >
+    <h2>회원탈퇴</h2>
+    <mat-form-field>
+      <mat-label>비밀번호를 입력해주세요.</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
     <button class="modalConfirm" mat-raised-button>탈퇴하기</button>
-</app-modal>
+  </app-modal>
+<!--</div>-->

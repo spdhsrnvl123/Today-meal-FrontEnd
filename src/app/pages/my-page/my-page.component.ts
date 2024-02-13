@@ -7,6 +7,7 @@ import {ModalStatusService} from "../../services/modal-status.service";
   styleUrls: ['./my-page.component.css']
 })
 export class MyPageComponent {
+  status = false;
   constructor(
     private modalStatus: ModalStatusService
   ) {
@@ -15,7 +16,12 @@ export class MyPageComponent {
   hide = true;
 
   resignHandler(){
+    this.status = true;
     this.modalStatus.modalStatusSwitch(true);
+  }
+
+  cancelHandler(close:any){
+    this.status = close
   }
 
 }
