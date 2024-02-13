@@ -37,3 +37,33 @@ a{
   transition: all 0.1s;
 }
 
+/* 모달 내부 스타일링*/
+h2{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.modalConfirm{
+  font-size: 25px;
+  padding : 30px 10px;
+  position: absolute;
+  top:80%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background-color: #00CAD1;
+}
+
+.questionBox{
+  background-color: #D7E9FF;
+  width:100px;
+  height:100px;
+  border-radius: 50%;
+  font-size: 80px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}

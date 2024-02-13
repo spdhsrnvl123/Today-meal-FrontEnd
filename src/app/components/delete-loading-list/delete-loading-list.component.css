@@ -1,6 +1,6 @@
 ul li {
   position: relative;
-  width: 274px;
+  width: 250px;
   height: 74px;
   border-radius: 20px;
   background: #fff;
@@ -15,9 +15,9 @@ svg:nth-child(1) {
 }
 button{
   position: absolute;
-  top:-10%;
-  right: -1.5%;
-  /* background-color: red; */
+  top:10px;
+  left: 2px;
+  /*background-color: red;*/
   background-color: transparent;
   border: 0;
   width: 43px;

@@ -23,8 +23,8 @@ img{
   z-index: 99;
   width: 103%;
   height: 8px;
-  bottom: 8%;
-  left: -1%;
+  bottom: -5px;
+  left: -1px;
   border-radius: 50px;
   background-color: #FBE0DC;
 }

@@ -60,14 +60,14 @@ h1 {
 
 .addInfo .categoryBox {
   background-color: red;
-  width: 3.8em;
+  width: 6em;
   background: rgba(18, 170, 115, 0.18);
   color: #7d7d7d;
   font-size: 1.3rem;
   border-radius: 30px;
   padding: 0.5em;
   text-align: center;
-  transform: translate(221%, 160%);
+  transform: translate(183px, 60px);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 

@@ -42,7 +42,7 @@ section{
 
 .description .category {
   font-size: 0.7rem;
-  width: 4.5em;
+  width: 6em;
   padding: 0.05em;
   color: #53595F;
   border-radius:30px;
@@ -51,7 +51,7 @@ section{
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-bottom: 13px;
+  margin-bottom: 12px;
 }
 .description p{
   font-size: 15px;

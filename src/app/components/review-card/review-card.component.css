@@ -11,19 +11,19 @@ img {
 }
 
 .reviewCardBox h3 {
-  transform: translate(44px, -240px);
+  transform: translate(37px, -240px);
   font-size: 20px;
   font-weight: bold;
 }
 
 .reviewCardBox p {
-  transform: translate(50px, -250px);
+  transform: translate(45px, -254px);
   font-size: 16px;
 }
 
 .category {
   font-size: 0.7rem;
-  width: 4.5em;
+  width: 6em;
   padding: 0.05em;
   color: #53595f;
   border-radius: 30px;

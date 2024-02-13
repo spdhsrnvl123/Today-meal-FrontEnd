@@ -34,7 +34,7 @@
 
 .category {
   font-size: 0.7rem;
-  width: 4.5em;
+  width: 6em;
   padding: 0.05em;
   color: #53595f;
   border-radius: 30px;
@@ -44,5 +44,5 @@
   align-items: center;
   margin: 0 auto;
   margin-bottom: 13px;
-  transform: translate(-10px, -208px);
+  transform: translate(0px, -208px);
 }

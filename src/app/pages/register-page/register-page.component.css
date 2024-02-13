@@ -1,10 +1,10 @@
 .register-container{
-    margin-top: 23px;
+    margin-top: 33px;
     display: flex;
 }
 
 .subTitleBox{
-    transform: translate(40px);
+    transform: translate(50px);
     margin-bottom: 20px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .registerContent{
-    transform: translate(-190px,0);
+    transform: translate(-220px,0);
     display: flex;
     align-items: center;
 }
