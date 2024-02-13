@@ -45,3 +45,10 @@ a {
   font-size: 18px;
   color: #4D5959;
 }
+
+p{
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}

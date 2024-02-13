@@ -9,7 +9,7 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
-
+  errorStatus : any = false;
   @ViewChild('f') signInForm: NgForm | undefined;
 
   constructor(private apiService: ApiService, private router: Router) {}
@@ -35,7 +35,8 @@ export class SignInComponent {
         } else {
           console.error('accessToken not found in response.');
         }
-      });
+
+      },error => this.errorStatus = true);
     }
   }
 }
