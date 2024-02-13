@@ -1,0 +1,24 @@
+.passwordChangeBox h1{
+  font-size: 25px;
+  color : #4D5959;
+  transform: translate(0px,59px);
+}
+.passwordChangeBox{
+  display: flex;
+  flex-direction: column;
+  transform: translate(0px,-20px);
+}
+.passwordChangeBox mat-form-field{
+  width:359px;
+  margin: 0 auto;
+  padding-top: 13px;
+}
+.buttonBox{
+  display: flex;
+  justify-content: center;
+}
+.buttonBox button{
+  font-size: 25px;
+  margin: 3px;
+  padding: 25px;
+}

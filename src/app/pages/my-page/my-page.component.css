@@ -47,12 +47,18 @@ h1 {
 }
 
 .nameBox,
-.idBox,
-.passwordBox {
+.idBox {
   display: flex;
   align-items: center;
   height: 110px;
   border-bottom: 2px solid #dadada;
+
+}
+
+.passwordBox{
+    display: flex;
+  align-items: center;
+  height: 110px;
 }
 
 .contentBox p {
@@ -78,13 +84,13 @@ h1 {
 .resignButton {
   font-size: 25px;
   padding:30px;
-  transform: translate(310px, 37px);
+  transform: translate(320px, 10px);
 }
 
 .resignMessage{
   font-size: 20px;
   color : #838383;
-  transform: translate(200px, 79px);
+  transform: translate(230px, 34px);
 }
 /* 모달 내부 스타일링*/
 h2{
@@ -94,7 +100,7 @@ h2{
   margin-top: 40px;
 }
 
-mat-form-field {
+.resignModalInput {
   width: 400px;
   margin-bottom: 25px;
   margin-top: 5px;
@@ -103,7 +109,7 @@ mat-form-field {
   left:50%;
   transform: translate(-50%,-50%);
 }
-mat-form-field input {
+.resignModalInput input {
   font-size: 20px;
   height: 30px;
 }
@@ -116,3 +122,4 @@ mat-form-field input {
   left:50%;
   transform: translate(-50%,-50%);
 }
+
