@@ -1,27 +1,16 @@
-# TodayMealVote
+# 오늘 점심은 뭐 먹지?
+> ## 점심 장소를 고르기 어려운 모임들에게 제공하는 장소 투표 서비스
+<img width="727" alt="스크린샷 2024-02-13 오후 6 26 03" src="https://github.com/spdhsrnvl123/Today-meal-FrontEnd/assets/83896466/0be668c1-66a0-47c6-994a-2d9cb8986301">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+## 개발기간
+- 2024.01.02 ~ 2024.01.05 주제선정
+- 2024.01.08 ~ 2024.01.12 화면설계
+- 2024.01.15 ~ 2024.01.17 ERD설계
+- 2024.01.18 ~ 2024.02.28 개발(진행중)
 
-## Development server
+## 기능명세서
+<img width="543" alt="스크린샷 2024-02-13 오후 6 20 02" src="https://github.com/spdhsrnvl123/Today-meal-FrontEnd/assets/83896466/2dfa7759-4bed-4b70-92b5-199c78245a48">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 기술스택
+### FrontEnd
+Angular
