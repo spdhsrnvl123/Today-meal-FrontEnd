@@ -43,7 +43,7 @@ export const routes: Routes = [
   },
   {
     path: 'mypage',
-    component:MyPageComponent
+    component : MyPageComponent
   }
 ];
 

@@ -28,7 +28,7 @@ import { RankCardComponent } from './components/rank-card/rank-card.component';
 import { ReviewCardComponent } from './components/review-card/review-card.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { LocationDetailComponent } from './pages/location-detail/location-detail.component';
-import { MyPageComponent } from './pages/my-page/my-page.component';
+import {MyPageComponent} from "./pages/my-page/my-page.component";
 
 @NgModule({
   declarations: [

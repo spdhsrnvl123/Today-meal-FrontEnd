@@ -29,7 +29,7 @@ export class CardComponent implements OnChanges {
   @Input() data: any = [];
   @Output() delete_item_id = new EventEmitter<string>();
   @Output() detail_item_id = new EventEmitter<string>();
-  @Output() modlaStatus = new EventEmitter<Boolean>();
+  @Output() status = new EventEmitter<Boolean>();
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
@@ -44,6 +44,7 @@ export class CardComponent implements OnChanges {
   //부모컴포넌트에게 id값 넘겨주는 메소드
   parentDetailReq(id: any) {
     this.detail_item_id.emit(id);
+    this.status.emit(true)
     this.modalStatus.modalStatusSwitch(true);
   }
 }
