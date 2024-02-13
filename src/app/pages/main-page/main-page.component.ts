@@ -10,7 +10,7 @@ import { ModalStatusService } from 'src/app/services/modal-status.service';
 })
 export class MainPageComponent implements OnInit {
   data: any = [];
-
+  status:any;
   constructor(
     private apiService: ApiService,
     private router: Router,
@@ -32,11 +32,21 @@ export class MainPageComponent implements OnInit {
 
   //장소 상세 조회
   locationDetail(id: any) {
+    console.log(id);
     this.router.navigate([`/main/location/`, id]);
   }
 
   //모달상태
   modalStatusChange(status: any) {
     this.modalStatus = status;
+    this.status = status;
+  }
+
+  //뒤로가기
+  pathMove(path:any){
+    if(path == false){
+      this.status = false;
+      this.router.navigate([`/main`]);
+    }
   }
 }

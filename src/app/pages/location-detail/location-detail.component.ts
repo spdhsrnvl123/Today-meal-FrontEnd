@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ApiService} from "../../services/api/api.service";
 import { ModalStatusService } from 'src/app/services/modal-status.service';
-// import {MatCardModule} from "@angular/material/card";
-// import {MatButtonModule} from "@angular/material/button";
-// import {NgForOf, NgIf} from "@angular/common";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-location-detail',
@@ -16,12 +14,18 @@ import { ModalStatusService } from 'src/app/services/modal-status.service';
 export class LocationDetailComponent implements OnInit {
   data: any = {};
   menuDataList: any = [];
-
+  private modalStatusSubscription: Subscription
+  status: any;
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private modalStatus: ModalStatusService
-  ) {}
+    private modalStatus: ModalStatusService,
+    private router : Router
+  ) {
+    this.modalStatusSubscription = new Subscription();
+  }
+
+
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
@@ -37,5 +41,17 @@ export class LocationDetailComponent implements OnInit {
     });
 
     this.modalStatus.modalStatusSwitch(true);
+
+
+
+    this.modalStatusSubscription =
+      this.modalStatus.modalStatusSubject.subscribe((newStatus: any) => {
+        // console.log(newStatus);
+        this.status = newStatus;
+        // console.log(this.status);
+        if(this.status == false){
+          // this.router.navigate([`/main`]);
+        }
+      });
   }
 }

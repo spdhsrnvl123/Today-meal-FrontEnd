@@ -59,17 +59,20 @@
         <h2>투표 장소</h2>
       </app-sub-title>
     </div>
-    <app-card 
-    [data]="data" 
+    <app-card
+    [data]="data"
     (detail_item_id)="locationDetail($event)"
-    (modlaStatus)="modalStatusChange($event)"
+    (status)="modalStatusChange($event)"
     >
     </app-card>
-    <app-modal
-    [width]='975'
-    [height]='805'
-    >
-      <router-outlet></router-outlet>
-    </app-modal>
+    <div *ngIf="status">
+      <app-modal
+        [width]='975'
+        [height]='805'
+        (pathMove) = 'pathMove($event)'
+      >
+        <router-outlet></router-outlet>
+      </app-modal>
+    </div>
   </footer>
 </main>

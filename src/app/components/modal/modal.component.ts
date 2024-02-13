@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import { Location } from '@angular/common';
 import { ModalStatusService } from 'src/app/services/modal-status.service';
 import { Subscription } from 'rxjs';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
 })
-export class ModalComponent implements OnInit, OnDestroy {
+export class ModalComponent implements OnInit, OnDestroy, OnChanges {
   constructor(
     private router : Router, private modalStatus: ModalStatusService
   ) {
@@ -20,6 +20,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   @Input() width: any;
   @Input() height: any;
   modalStyle = '';
+  @Output() pathMove = new EventEmitter<Boolean>();
   private modalStatusSubscription: Subscription;
 
   ngOnInit(): void {
@@ -34,9 +35,17 @@ export class ModalComponent implements OnInit, OnDestroy {
       });
   }
 
+  //모달 컴포넌트를 호출하는 컴포넌트가 props를 전송해주면 그 값에 따라 스타일링
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.width);
+    console.log(this.height);
+    this.modalStyle = `width: ${this.width}px; height: ${this.height}px`;
+  }
+
   modalClose(){
     this.modalStatus.modalStatusSwitch(false);
-    this.router.navigate([`/main`]);
+    this.pathMove.emit(false);
+    // this.router.navigate([`/main`]);
   }
 
   ngOnDestroy(): void {

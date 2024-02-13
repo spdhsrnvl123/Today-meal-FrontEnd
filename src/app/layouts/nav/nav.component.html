@@ -28,6 +28,18 @@
     <li routerLinkActive="active"><a routerLink="/main">홈</a></li>
     <li routerLinkActive="active"><a routerLink="/register">장소관리</a></li>
     <li routerLinkActive="active"><a routerLink="/mypage">마이페이지</a></li>
-    <li routerLinkActive="active"><a routerLink="logout">로그아웃</a></li>
+    <li routerLinkActive="active" (click)="logOutConfirmHandler()">로그아웃</li>
   </ul>
 </nav>
+<app-modal
+  [width]="608"
+  [height]="306"
+>
+  <div class="questionBox">
+    ?
+  </div>
+  <h2>로그아웃 하시겠습니까?</h2>
+  <button class="modalConfirm" mat-raised-button
+    (click)="logOutHandler()"
+  >로그아웃</button>
+</app-modal>

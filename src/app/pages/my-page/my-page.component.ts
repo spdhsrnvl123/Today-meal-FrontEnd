@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ModalStatusService} from "../../services/modal-status.service";
 
 @Component({
   selector: 'app-my-page',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-page.component.css']
 })
 export class MyPageComponent {
+  constructor(
+    private modalStatus: ModalStatusService
+  ) {
+  }
+
+  hide = true;
+
+  resignHandler(){
+    this.modalStatus.modalStatusSwitch(true);
+  }
 
 }
