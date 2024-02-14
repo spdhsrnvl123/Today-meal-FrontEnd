@@ -1,6 +1,9 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {SearchListComponent} from "../../components/search-list/search-list.component";
+import {KakaoMapApiService} from "../kakao-map-api/kakao-map-api.service";
+import {Subscription} from "rxjs";
+import {mark} from "@angular/compiler-cli/src/ngtsc/perf/src/clock";
 
 declare var kakao: any;
 @Component({
@@ -9,12 +12,19 @@ declare var kakao: any;
   styleUrls: ['./kakao-api.component.css'],
 })
 export class KakaoAPIComponent implements OnInit {
+  private dataStatusSubscription : Subscription
+  constructor(
+    private kakaoMapApiService : KakaoMapApiService,
+    ) {
+    this.dataStatusSubscription = new Subscription();
+  }
   mapContainer: any;
   mapOption: any;
-  map: any;
+  map: any = '';
+  markers = [];
 
   ngOnInit() {
-    //초기
+    //지도 표시
     let mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -26,5 +36,53 @@ export class KakaoAPIComponent implements OnInit {
 
     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
     this.map = new kakao.maps.Map(mapContainer, mapOption);
+
+    this.dataStatusSubscription = this.kakaoMapApiService.dataStatusSubject.subscribe((newData)=>{
+      this.displayPlaces(newData)
+    })
   }
+
+
+  displayPlaces(places: any[]) {
+    let mapContainer = document.getElementById('map'), // 지도를 표시할 div
+      mapOption = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+      };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // -------------------------------------------------------------------------------
+
+
+
+    let bounds = new kakao.maps.LatLngBounds()
+    let imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png";
+    // 마커 이미지의 이미지 크기 입니다
+    let imageSize = new kakao.maps.Size(36, 37);
+    // let imgOptions =  {
+    //     spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+    //     spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+    //     offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+    // }
+    // let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);
+
+    places.forEach((place,idx) => {
+      let imgOptions =  {
+        spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
+        spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+        offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+      }
+      let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions);
+      new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: new kakao.maps.LatLng(place.y, place.x), // 마커를 표시할 위치
+        // title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지
+      });
+    });
+    map.setCenter(new kakao.maps.LatLng(places[0].y, places[0].x));
+
+  }
+
 }

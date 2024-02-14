@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {KakaoMapApiService} from "../../services/kakao-map-api/kakao-map-api.service";
 
 declare let kakao: any;
 @Component({
@@ -7,19 +8,20 @@ declare let kakao: any;
   styleUrls: ['./kakao-form.component.css'],
 })
 export class KakaoFormComponent {
-  markers: any = [];
+  constructor(private kakaoMapApiService : KakaoMapApiService) {
+  }
   data: any;
+  //배열형태로 만듬
+  place: any = [];
 
-  // 장소 검색 객체를 생성합니다
+  // 장소 검색 객체를 생성
   ps = new kakao.maps.services.Places();
-  // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
-  infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
   // @ts-ignore
+  // 키워드 검색을 요청하는 함수
   searchPlaces(f: NgForm) {
     let ps = new kakao.maps.services.Places();
     let title = f.value.title;
-    `anga`;
     if (!title.replace(/^\s+|\s+$/g, '')) {
       alert('키워드를 입력해주세요!');
       return false;
@@ -29,11 +31,13 @@ export class KakaoFormComponent {
   }
 
   // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-  placesSearchCB = (data: any, status: any, pagination: any) => {
+  placesSearchCB = (data: any, status: any) => {
     if (status === kakao.maps.services.Status.OK) {
       // 정상적으로 검색이 완료됐으면
       // 검색 목록과 마커를 표출합니다
-      this.displayPlaces(data);
+
+      this.place = data;
+      this.kakaoMapApiService.setData(data);
 
       // 페이지 번호를 표출합니다
       // this.displayPagination(pagination);
@@ -44,37 +48,5 @@ export class KakaoFormComponent {
       alert('검색 결과 중 오류가 발생했습니다.');
       return;
     }
-
   };
-
-  //배열형태로 만듬
-  place: any = [];
-  displayPlaces(places: any) {
-    this.place = places;
-
-    let listEl: any = document.getElementById('placesList'),
-      menuEl: any = document.getElementById('menu_wrap'),
-      fragment = document.createDocumentFragment(),
-      bounds = new kakao.maps.LatLngBounds()
-
-    for (let i = 0; i < places.length; i++) {
-      // 마커를 생성하고 지도에 표시합니다
-      let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-        itemEl = this.getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-
-      // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-      // LatLngBounds 객체에 좌표를 추가합니다
-      bounds.extend(placePosition);
-      // fragment.appendChild(itemEl);
-    }
-
-    // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
-    listEl.appendChild(fragment);
-    menuEl.scrollTop = 0;
-  }
-
-  // 검색결과 항목을 Element로 반환하는 함수입니다
-  getListItem(index: any, places: any) {
-    this.data = places;
-  }
 }
