@@ -30,8 +30,10 @@ export class SignInComponent {
       this.apiService.loginReq(formData).subscribe((response: any) => {
         if (response.accessToken) {
           //headerOption에 서버에 응답받은 accessToken을 전달
-          this.apiService.setHeaderOption(response.accessToken)
-          this.router.navigate(["/main"]);
+          this.apiService.setHeaderOption(response.accessToken);
+          if(sessionStorage.getItem('accessToken')){
+            this.router.navigate(["/main"]);
+          }
         } else {
           console.error('accessToken not found in response.');
         }

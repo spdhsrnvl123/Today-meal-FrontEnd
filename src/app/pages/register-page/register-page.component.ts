@@ -11,6 +11,7 @@ export class RegisterPageComponent implements OnInit {
   delete_active = 'delete_active';
   data: any = [];
   loadingData : any = [];
+  temp: any = {};
 
   constructor(private apiService: ApiService, private router: Router) {}
 
@@ -18,6 +19,11 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit() {
     this.getData();
     this.loadingLocation();
+    this.temp = {
+      id: '',
+      name: '',
+      pw: ''
+    }
   }
 
   //등록된 장소 조회

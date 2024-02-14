@@ -6,18 +6,37 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApiService {
   private api: String = 'http://localhost:8000';
-  headerOption = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`,
-    }),
-  };
+  private headerOption = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.#setInit();
+  }
+
+  #setInit = () => {
+    this.#setInitToken();
+  }
+
+  #setInitToken = () => {
+    if(sessionStorage.getItem('accessToken')) {
+      this.headerOption = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`,
+        }),
+      };
+    }
+  }
 
   //전달받은 토큰값을 세션스토리지에 저장
   setHeaderOption = (token: string) => {
     sessionStorage.setItem('accessToken', token);
+
+    this.headerOption = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      }),
+    };
   };
 
   //회원가입 유저 정보 저장

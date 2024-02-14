@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ApiService} from "../../services/api/api.service";
 import {Router} from "@angular/router";
 import { ModalStatusService } from 'src/app/services/modal-status.service';
@@ -8,7 +8,7 @@ import { ModalStatusService } from 'src/app/services/modal-status.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, AfterViewInit {
   data: any = [];
   status:any;
   constructor(
@@ -19,8 +19,12 @@ export class MainPageComponent implements OnInit {
 
   //초기 등록된 장소 조회
   ngOnInit() {
-    this.locationGetDataHandler();
+
     this.modalStatus.modalStatusSwitch(false)
+  }
+
+  ngAfterViewInit() {
+    this.locationGetDataHandler();
   }
 
   //등록된 장소 조회

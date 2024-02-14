@@ -14,7 +14,7 @@ export class SearchListComponent implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.data)
+    // console.log(this.data)
   }
 
   register(id:number){
