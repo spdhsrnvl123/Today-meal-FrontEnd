@@ -63,6 +63,12 @@ section{
   transform: translate(0px,-25px);
 }
 
+.locationContainer{
+    padding-top:30px;
+    display: flex;
+    overflow: auto;
+    margin-top: -30px;
+}
 /* ------------ */
 .section002{
   transform: translate(10px,133px);
@@ -81,8 +87,4 @@ section{
   font-size: 1rem;
   margin:  5px;
   box-shadow: none;
-}
-footer{
-  width: 90%;
-  margin: 0 auto;
 }
