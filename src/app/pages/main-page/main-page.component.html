@@ -2,7 +2,7 @@
   <app-nav></app-nav>
   <section>
     <div class="section001">
-      <div class="subTitleBox" >
+      <div class="subTitleBox">
         <app-sub-title>
           <h2>내가 투표한 장소</h2>
         </app-sub-title>
@@ -53,28 +53,27 @@
       </ul>
     </div>
   </section>
-    <div class="subTitleBox">
-      <app-sub-title>
-        <h2>투표 장소</h2>
-      </app-sub-title>
-    </div>
-    <div class="locationContainer">
+  <div class="subTitleBox">
+    <app-sub-title>
+      <h2>투표 장소</h2>
+    </app-sub-title>
+  </div>
+  <div class="locationContainer">
     <app-card
-    [data]="data"
-    (detail_item_id)="locationDetail($event)"
-    (status)="modalStatusChange($event)"
+      [data]="data"
+      (status)="modalRepresetReq($event)"
+      (id)="idRes($event)"
     >
     </app-card>
-    </div>
-
-
-    <div *ngIf="status">
-      <app-modal
-        [width]='975'
-        [height]='805'
-        (pathMove) = 'pathMove($event)'
-      >
-        <router-outlet></router-outlet>
-      </app-modal>
-    </div>
+  </div>
+  <div *ngIf="status">
+    <app-modal
+      [width]="975"
+      [height]="805"
+      [status]="status"
+      (close)="closeHandler($event)"
+    >
+      <app-location-detail [id]="id" />
+    </app-modal>
+  </div>
 </main>

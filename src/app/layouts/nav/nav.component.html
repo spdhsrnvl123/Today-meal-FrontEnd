@@ -28,12 +28,14 @@
     <li routerLinkActive="active"><a routerLink="/main">홈</a></li>
     <li routerLinkActive="active"><a routerLink="/register">장소관리</a></li>
     <li routerLinkActive="active"><a routerLink="/mypage">마이페이지</a></li>
-    <li routerLinkActive="active" (click)="logOutConfirmHandler()">로그아웃</li>
+    <li routerLinkActive="active" (click)="logoutModalHandler()">로그아웃</li>
   </ul>
 </nav>
 <app-modal
-  [width]="608"
-  [height]="306"
+  [width]="456" 
+  [height]="288"
+  [status]="status"
+  (close)="closeHandler($event)"
 >
   <div class="questionBox">
     ?

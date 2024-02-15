@@ -20,35 +20,44 @@
   <div class="passwordBox" *ngIf="!pwChangeStatus">
     <span>비밀번호</span>
     <p>********</p>
-    <button (click)="pwChangesStatusHandler(true)" class="passwordChangesButton" mat-raised-button>
+    <button
+      (click)="pwChangesStatusHandler(true)"
+      class="passwordChangesButton"
+      mat-raised-button
+    >
       비밀번호 변경
     </button>
   </div>
   <!-- 비밀번호 변경 버튼 클릭시 변경 컴포넌트 나타냄 -->
   <div *ngIf="pwChangeStatus">
-    <app-pw-change (cancelStatus)="pwChangesStatusHandler($event)"></app-pw-change>
+    <app-pw-change
+      (cancelStatus)="pwChangesStatusHandler($event)"
+    ></app-pw-change>
   </div>
-  <button class="resignButton" mat-raised-button (click)="resignHandler()">
+  <button class="resignButton" mat-raised-button (click)="resignModalHandler()">
     회원탈퇴
   </button>
   <div class="resignMessage">탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요.</div>
 </div>
-<div *ngIf="status">
-  <app-modal [width]="608" [height]="306" (pathMove)="cancelHandler($event)">
-    <h2>회원탈퇴</h2>
-    <mat-form-field class="resignModalInput">
-      <mat-label>비밀번호를 입력해주세요.</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
+<app-modal
+  [width]="608"
+  [height]="306"
+  [status]="status"
+  (close)="closeHandler($event)"
+>
+  <h2>회원탈퇴</h2>
+  <mat-form-field class="resignModalInput">
+    <mat-label>비밀번호를 입력해주세요.</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
       <mat-icon>{{ hide ? "◉" : "◎" }}</mat-icon>
-      </button>
-    </mat-form-field>
-    <button class="modalConfirm" mat-raised-button>탈퇴하기</button>
-  </app-modal>
-</div>
+    </button>
+  </mat-form-field>
+  <button class="modalConfirm" mat-raised-button>탈퇴하기</button>
+</app-modal>

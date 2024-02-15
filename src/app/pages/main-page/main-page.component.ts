@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ApiService} from "../../services/api/api.service";
 import {Router} from "@angular/router";
-import { ModalStatusService } from 'src/app/services/modal-status.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,19 +8,13 @@ import { ModalStatusService } from 'src/app/services/modal-status.service';
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent implements OnInit, AfterViewInit {
+  constructor(private apiService: ApiService, private router: Router) {}
   data: any = [];
-  status:any;
-  constructor(
-    private apiService: ApiService,
-    private router: Router,
-    private modalStatus: ModalStatusService
-  ) {}
+  status: any;
+  id :any;
 
   //초기 등록된 장소 조회
-  ngOnInit() {
-
-    this.modalStatus.modalStatusSwitch(false)
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.locationGetDataHandler();
@@ -34,21 +27,27 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  //장소 상세 조회
-  locationDetail(id: any) {
-    console.log(id);
-    this.router.navigate([`/main/location/`, id]);
+  //모달 열기
+  modalRepresetReq(status: any) {
+    this.status = status;
   }
 
-  //모달상태
-  modalStatusChange(status: any) {
-    this.modalStatus = status;
+  //카드 컴포넌트에서 id값 받기
+  idRes(id:any){
+    console.log(id)
+    if(id){
+      this.id = id;
+    }
+  }
+
+  //모달에서 닫기 버튼을 했을때 상태값 받아오기
+  closeHandler(status: any) {
     this.status = status;
   }
 
   //뒤로가기
-  pathMove(path:any){
-    if(path == false){
+  pathMove(path: any) {
+    if (path == false) {
       this.status = false;
       this.router.navigate([`/main`]);
     }

@@ -9,6 +9,7 @@ import {CardComponent} from "../card/card.component";
 })
 export class SearchListComponent implements OnChanges{
   @Input() data :any = '';
+  @Input() idx:any;
   exist: any; // status 값을 템플릿에서 사용할 변수
   constructor(private apiService : ApiService) {
   }

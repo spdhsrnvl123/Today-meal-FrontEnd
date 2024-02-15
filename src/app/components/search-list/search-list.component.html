@@ -1,12 +1,24 @@
-<li class="item" *ngIf="data !='' ">
-  <span>{{data.place_name}}</span>
-  <div>
-    <span>{{data.road_address_name}}</span>
-    <span>{{data.address_name}}</span>
-    <span>{{data.phone}}</span>
+<li class="item" *ngIf="data != ''">
+  <div class="itemContent">
+  <div class="sequence">{{ idx + 1 }}</div>
+  <div class="desc">
+    <span class="title">{{ data.place_name }}</span>
+    <span>도로명 : {{ data.road_address_name }}</span>
+    <span>지번 : {{ data.address_name }}</span>
+    <span>전화번호 : {{ data.phone }}</span>
   </div>
-  <button type="button" class="register" (click)="register(data.id)">등록</button>
+  <button
+    class="register"
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a menu icon"
+    (click)="register(data.id)"
+  >
+    +
+  </button>
+  </div>
+
   <p *ngIf="exist">
-    {{exist.status}}
+    {{ exist.status }}
   </p>
 </li>

@@ -1,7 +1,7 @@
 <ul *ngIf="data">
   <mat-card class="exampleCard" *ngFor="let item of data">
     <!-- 장소등록페이지면    -->
-    <div *ngIf="delete_active" class="exampleButtonContainer">
+    <div *ngIf="voteButtonDel" class="exampleButtonContainer">
       <button
         (click)="parentDeleteReq(item.id)"
         mat-fab
@@ -18,7 +18,7 @@
           *ngIf="item.img; else loading"
           [attr.src]="item.img"
         />
-        <ng-template #loading>이미지 없음</ng-template>
+        <ng-template #loading >이미지 없음</ng-template>
       </div>
     </div>
     <div class="textBox">
@@ -30,8 +30,8 @@
         </div>
       </mat-card-content>
       <mat-card-actions class="buttonBox">
-        <button *ngIf="!delete_active" mat-raised-button color="primary">투표하기</button>
-        <button (click)="parentDetailReq(item.id)" mat-flat-button color="accent">상세보기</button>
+        <button *ngIf="!voteButtonDel" mat-raised-button color="primary">투표하기</button>
+        <button (click)="parentReq(item.id)" mat-flat-button color="accent">상세보기</button>
       </mat-card-actions>
     </div>
   </mat-card>

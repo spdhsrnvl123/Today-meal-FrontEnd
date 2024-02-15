@@ -1,15 +1,15 @@
 <app-nav></app-nav>
 <div class="textBox">
-<div class="subTitleBoxOne">
-  <app-sub-title>
-    <h2>장소 등록하기</h2>
-  </app-sub-title>
-</div>
-<div class="subTitleBoxTwo">
-  <app-sub-title>
-    <h2>삭제 예정인 장소</h2>
-  </app-sub-title>
-</div>
+  <div class="subTitleBoxOne">
+    <app-sub-title>
+      <h2>➕장소 등록하기</h2>
+    </app-sub-title>
+  </div>
+  <div class="subTitleBoxTwo">
+    <app-sub-title>
+      <h2>🗑️삭제 예정인 장소</h2>
+    </app-sub-title>
+  </div>
 </div>
 <div class="registerContent">
   <div class="searchResult">
@@ -31,17 +31,46 @@
     </div>
   </div>
 </div>
-  <div class="subTitleBoxThird">
-    <app-sub-title>
-      <h2>장소 리스트</h2>
-    </app-sub-title>
-  </div>
+<div class="subTitleBoxThird">
+  <app-sub-title>
+    <h2>장소 리스트</h2>
+  </app-sub-title>
+</div>
 <div class="locationContainer">
   <app-card
     [data]="data"
-    [delete_active]="delete_active"
-    (delete_item_id)="locationDelete($event)"
-    (detail_item_id)="locationDetail($event)"
+    [voteButtonDel]="voteButtonDel"
+    (status)="modalRepresetReq($event)"
+    (id)="idRes($event)"
+    (delItemId)="locationDelId($event)"
+    (delItemModalAction)="delItemModalActionHandler($event)"
   >
   </app-card>
+</div>
+<div *ngIf="status">
+  <app-modal
+    [width]="975"
+    [height]="805"
+    [status]="status"
+    (close)="closeHandler($event)"
+  >
+    <app-location-detail [id]="id" />
+  </app-modal>
+</div>
+<div *ngIf="delItemModalAction =='delItemModalAction'">
+  <app-modal 
+  [width]="456" 
+  [height]="288" 
+  [status]="true"
+  (close)="closeHandler($event)"
+  >
+    <div class="questionBox">🗑️</div>
+    <h3>선택한 장소를 삭제하시겠습니까?</h3>
+    <p>선택한 장소는 내일 00:00 삭제 됩니다.</p>
+    <button 
+      class="modalConfirm" 
+      mat-raised-button
+      (click)="locationDel()"
+    >삭제</button>
+  </app-modal>
 </div>

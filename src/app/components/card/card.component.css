@@ -58,6 +58,10 @@ ul {
   border-radius: 40px;
   border-bottom-left-radius: 70px;
   border-bottom-right-radius: 70px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgBoxOne .imgBoxTwo img {

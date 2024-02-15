@@ -26,16 +26,6 @@ export const routes: Routes = [
   {
     path: 'main',
     component: MainPageComponent,
-    children: [
-      {
-        path: 'location/:id',
-        component: LocationDetailComponent,
-      },
-    ],
-  },
-  {
-    path: 'location/:id',
-    component: LocationDetailComponent,
   },
   {
     path: 'register',

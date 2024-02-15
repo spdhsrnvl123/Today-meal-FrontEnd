@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ModalStatusService } from '../../services/modal-status.service';
 
 @Component({
   selector: 'app-my-page',
@@ -7,21 +6,20 @@ import { ModalStatusService } from '../../services/modal-status.service';
   styleUrls: ['./my-page.component.css'],
 })
 export class MyPageComponent {
-  constructor(private modalStatus: ModalStatusService) {}
   status = false;
   hide = true;
   pwChangeStatus = false;
 
-  pwChangesStatusHandler(pwChangeStatus:any){
+  //모달에서 닫기 버튼을 했을때 상태값 받아오기
+  closeHandler(status: any) {
+    this.status = status;
+  }
+
+  pwChangesStatusHandler(pwChangeStatus: any) {
     this.pwChangeStatus = pwChangeStatus;
   }
 
-  resignHandler() {
+  resignModalHandler() {
     this.status = true;
-    this.modalStatus.modalStatusSwitch(true);
-  }
-
-  cancelHandler(close: any) {
-    this.status = close;
   }
 }
