@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
 })
-export class ModalComponent implements OnChanges {
+export class ModalComponent implements OnInit {
   constructor(private router: Router) {
   }
   @Input() width: any;
@@ -16,7 +16,7 @@ export class ModalComponent implements OnChanges {
   modalStyle = '';
 
   //넓이, 높이 데이터 받아서 스타일 적용
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnInit() {
     this.modalStyle = `width: ${this.width}px; height: ${this.height}px`;
   }
 

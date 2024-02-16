@@ -1,37 +1,76 @@
-<ul *ngIf="data">
-  <mat-card class="exampleCard" *ngFor="let item of data">
+<!--<ul *ngIf="data">-->
+<!--  <mat-card class="exampleCard " *ngFor="let item of data">-->
+<!--    &lt;!&ndash; 장소등록페이지면    &ndash;&gt;-->
+<!--    <div *ngIf="voteButtonDel" class="exampleButtonContainer">-->
+<!--      <button-->
+<!--        (click)="parentDeleteReq(item.id)"-->
+<!--        mat-fab-->
+<!--        color="warn"-->
+<!--        aria-label="Example icon button with a delete icon"-->
+<!--      >-->
+<!--      X-->
+<!--      </button>-->
+<!--    </div>-->
+<!--    <div class="imgBoxOne">-->
+<!--      <div class="imgBoxTwo">-->
+<!--        <img-->
+<!--          mat-card-image-->
+<!--          *ngIf="item.img; else loading"-->
+<!--          [attr.src]="item.img"-->
+<!--        />-->
+<!--        <ng-template #loading >이미지 없음</ng-template>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="textBox">-->
+<!--      <mat-card-title>{{ item.title }}</mat-card-title>-->
+<!--      <mat-card-content>-->
+<!--        <p>별점예정</p>-->
+<!--        <div class="category">-->
+<!--          {{ item.category }}-->
+<!--        </div>-->
+<!--      </mat-card-content>-->
+<!--      <mat-card-actions class="buttonBox">-->
+<!--        <button *ngIf="!voteButtonDel" mat-raised-button color="primary">투표하기</button>-->
+<!--        <button (click)="parentReq(item.id)" mat-flat-button color="accent">상세보기</button>-->
+<!--      </mat-card-actions>-->
+<!--    </div>-->
+<!--  </mat-card>-->
+<!--</ul>-->
+
+<!----------------------DB서버 점검에 따른 임시 컴포넌트------------------------->
+<ul>
+  <mat-card class="exampleCard"  *ngFor="let item of [1,1,1,1,1,1,1,1]">
     <!-- 장소등록페이지면    -->
     <div *ngIf="voteButtonDel" class="exampleButtonContainer">
       <button
-        (click)="parentDeleteReq(item.id)"
         mat-fab
+        (click)="parentDeleteReq(11)"
+
         color="warn"
         aria-label="Example icon button with a delete icon"
       >
-      X
+        X
       </button>
     </div>
     <div class="imgBoxOne">
       <div class="imgBoxTwo">
         <img
           mat-card-image
-          *ngIf="item.img; else loading"
-          [attr.src]="item.img"
         />
         <ng-template #loading >이미지 없음</ng-template>
       </div>
     </div>
     <div class="textBox">
-      <mat-card-title>{{ item.title }}</mat-card-title>
+      <mat-card-title>흑도야지</mat-card-title>
       <mat-card-content>
         <p>별점예정</p>
         <div class="category">
-          {{ item.category }}
+          육류,고기
         </div>
       </mat-card-content>
       <mat-card-actions class="buttonBox">
         <button *ngIf="!voteButtonDel" mat-raised-button color="primary">투표하기</button>
-        <button (click)="parentReq(item.id)" mat-flat-button color="accent">상세보기</button>
+        <button (click)="parentReq(11)"  mat-flat-button color="accent">상세보기</button >
       </mat-card-actions>
     </div>
   </mat-card>
