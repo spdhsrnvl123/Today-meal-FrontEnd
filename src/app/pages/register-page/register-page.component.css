@@ -4,35 +4,34 @@
 }
 
 .subTitleBoxOne{
-    transform: translate(80px,45px);
+    transform: translate(65px,45px);
 }
 .subTitleBoxTwo{
-    transform: translate(-54px,45px);
+    transform: translate(-34px,45px);
 }
 .subTitleBoxThird{
-    transform: translate(60px,20px);
+    transform: translate(60px,10px);
 }
 
  h2{
     font-size:35px;
     font-weight: bold;
 }
+.registerContent{
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+}
 
 .registerContent .searchResult{
-    width:341px;
+    width:360px;
     height: 357px;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 20px;
     background-color: #EFF0F2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     overflow: auto;
-}
-
-.registerContent{
-    display: flex;
-    align-items: center;
-    padding-top: 30px;
 }
 
 .registerContent .mapBox{
@@ -69,19 +68,31 @@
     margin-top: 40px;
 }
 .locationContainer{
-    margin-top: 30px;
-    padding-top:30px;
-    display: flex;
-    overflow: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .delete-content{
     overflow-y: scroll;
 }
+
+.delete-content::-webkit-scrollbar{
+  width:10px;
+}
+
+.delete-content::-webkit-scrollbar-thumb{
+  background: silver; /* 스크롤바 색상 */
+  border-radius: 10px; /* 스크롤바 둥근 테두리 */
+}
+
+.delete-content::-webkit-scrollbar-track {
+  background: rgba(220, 20, 60, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
 /* ----------- */
 /* 모달 내부 스타일링*/
 h3{
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   text-align: center;
   margin-top: -20px;
@@ -95,10 +106,8 @@ p{
 .modalConfirm{
   font-size: 25px;
   padding : 20px 10px;
-  position: absolute;
-  top:83%;
-  left:50%;
-  transform: translate(-50%,-50%);
+
+  transform: translate(188px,10px);
 }
 
 .questionBox{

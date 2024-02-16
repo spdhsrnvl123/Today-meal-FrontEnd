@@ -27,7 +27,6 @@
 
 .modalContainer button{
   position: absolute;
-  z-index: 99;
   top:30px;
   right:-8px;
   width: 40px;

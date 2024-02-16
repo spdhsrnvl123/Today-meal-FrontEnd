@@ -1,6 +1,10 @@
 main{
   height: 92%;
 }
+
+.timerBox{
+}
+
 h2{
   text-align: center;
   font-size: 35px;
@@ -10,6 +14,7 @@ section{
   height: 60%;
   display: flex;
   justify-content: space-around;
+  transform: translate(0px,-32px);
 }
 
 .section001{
@@ -60,14 +65,17 @@ section{
 
 .subTitleBox{
   text-align: center;
-  transform: translate(0px,-25px);
+  transform: translate(0px,-45px);
+}
+.subTitleBox.voteLocation{
+  text-align: center;
+  transform: translate(0px,-82px);
 }
 
 .locationContainer{
-    padding-top:30px;
     display: flex;
-    overflow: auto;
-    margin-top: -30px;
+    justify-content: center;
+    transform: translate(0px,-109px);
 }
 /* ------------ */
 .section002{
