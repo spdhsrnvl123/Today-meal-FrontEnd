@@ -30,6 +30,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { LocationDetailComponent } from './pages/location-detail/location-detail.component';
 import {MyPageComponent} from "./pages/my-page/my-page.component";
 import { PwChangeComponent } from './layouts/pw-change/pw-change.component';
+import { TimerComponent } from './components/timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { PwChangeComponent } from './layouts/pw-change/pw-change.component';
     ModalComponent,
     LocationDetailComponent,
     MyPageComponent,
-    PwChangeComponent
+    PwChangeComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
