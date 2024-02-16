@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {KakaoMapApiService} from "../../services/kakao-map-api/kakao-map-api.service";
 
 declare let kakao: any;
@@ -7,12 +7,18 @@ declare let kakao: any;
   templateUrl: './kakao-form.component.html',
   styleUrls: ['./kakao-form.component.css'],
 })
-export class KakaoFormComponent {
+export class KakaoFormComponent{
   constructor(private kakaoMapApiService : KakaoMapApiService) {
   }
+  @Output() regiDataStatus = new EventEmitter<any>();
   data: any;
   //배열형태로 만듬
   place: any = [];
+
+  regiDataSetting(data:any){
+    console.log(data);
+    this.regiDataStatus.emit(data)
+  }
 
   // 장소 검색 객체를 생성
   ps = new kakao.maps.services.Places();

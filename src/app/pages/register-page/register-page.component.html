@@ -13,7 +13,7 @@
 </div>
 <div class="registerContent">
   <div class="searchResult">
-    <app-kakao-form></app-kakao-form>
+    <app-kakao-form (regiDataStatus)="getData()" ></app-kakao-form>
   </div>
   <div class="mapBox">
     <app-kakao-api></app-kakao-api>
@@ -58,17 +58,17 @@
   </app-modal>
 </div>
 <div *ngIf="delItemModalAction =='delItemModalAction'">
-  <app-modal 
-  [width]="456" 
-  [height]="288" 
+  <app-modal
+  [width]="456"
+  [height]="288"
   [status]="true"
   (close)="closeHandler($event)"
   >
     <div class="questionBox">🗑️</div>
     <h3>선택한 장소를 삭제하시겠습니까?</h3>
     <p>선택한 장소는 내일 00:00 삭제 됩니다.</p>
-    <button 
-      class="modalConfirm" 
+    <button
+      class="modalConfirm"
       mat-raised-button
       (click)="locationDel()"
     >삭제</button>

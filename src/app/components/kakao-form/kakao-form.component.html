@@ -18,5 +18,5 @@
 </div>
 <ul class="resultList">
   <div *ngIf="place.length == 0" class="notSearch">검색된 장소가 없습니다.</div>
-  <app-search-list *ngFor="let item of place; let i = index;" [idx]="i" [data]="item"></app-search-list>
+  <app-search-list *ngFor="let item of place; let i = index;" [idx]="i" [data]="item" (regiDataStatus)="regiDataSetting($event)"></app-search-list>
 </ul>
