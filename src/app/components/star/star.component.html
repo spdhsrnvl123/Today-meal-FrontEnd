@@ -1,0 +1,6 @@
+  <div class="star-rating">
+    <div class="star" *ngFor="let index of [1, 2, 3, 4, 5]" (click)="handleCheck(index)">
+      <img *ngIf="index <= score" src="app/assets/starFill.png" />
+      <img *ngIf="index > score" src="app/assets/starEmpty.png" />
+    </div>
+  </div>
