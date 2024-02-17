@@ -2,7 +2,7 @@
   <div class="descBox">
     <h1>{{ data.title }}</h1>
     <div class="imgBox">
-      <img mat-card-image *ngIf="data.img; else loading" [src]="data.img" />
+      <img mat-card-image *ngIf="data.img; else loading" [src]="data.img"/>
       <ng-template #loading>이미지 없음</ng-template>
     </div>
     <div class="detailBox">
@@ -14,25 +14,61 @@
     </div>
   </div>
   <div class="addInfo">
-    <h2>메뉴</h2>
-    <div class="categoryBox">
-      {{ data.category }}
+    <div class="menuContainer" *ngIf="changeInfo == false">
+      <h2>메뉴</h2>
+      <div class="categoryBox">
+        {{ data.category }}
+      </div>
+      <div class="menuBox" *ngFor="let menuData of menuDataList.slice(0, 7)">
+        <span>{{ menuData.menu }}</span>
+        <span>{{
+          menuData.price == "" ? "가격정보 없음" : "가격 :" + menuData.price
+          }}</span>
+        <span>{{
+          menuData.description == "" ? "상세설명 없음" : menuData.description
+          }}</span>
+      </div>
     </div>
-    <div class="menuBox" *ngFor="let menuData of menuDataList.slice(0, 7)">
-      <span>{{ menuData.menu }}</span>
-      <span>{{
-        menuData.price == "" ? "가격정보 없음" : "가격 :" + menuData.price
-      }}</span>
-      <span>{{
-        menuData.description == "" ? "상세설명 없음" : menuData.description
-      }}</span>
+    <!--  메뉴, 리뷰 컨테이너 경계  -->
+    <div class="reviewContainer" *ngIf="changeInfo == true">
+      <h2>리뷰</h2>
+      <div class="reviewHeader">
+        <div class="reviewScore">
+          <h3>사용자 총 평점</h3>
+          <div class="inner">
+            <div class="star-rating">
+              <div class="star" *ngFor="let index of [1, 2, 3, 4, 5]">
+                <img *ngIf="index <= 3" src="app/assets/starFill.png"/>
+                <img *ngIf="index > 3" src="app/assets/starEmpty.png"/>
+              </div>
+            </div>
+          </div>
+          <span>3</span>
+        </div>
+        <div class="reviewCount">
+          <h3>전체 리뷰수</h3>
+          <span>7</span>
+        </div>
+      </div>
+      <!--  reviewList가 들어갈 컴포넌트 장소  -->
+      <ul class="reviewList">
+        <app-review-list></app-review-list>
+      </ul>
     </div>
-<!--    <button-->
-<!--      mat-raised-button-->
-<!--      color="accent"-->
-<!--    >-->
-<!--      리뷰보기-->
-<!--    </button>-->
+    <button
+      mat-raised-button
+      *ngIf="changeInfo == false"
+      (click)="changeInfo = true"
+    >
+      리뷰보기
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="changeInfo == true"
+      (click)="changeInfo = false"
+    >
+      메뉴보기
+    </button>
   </div>
 </div>
 

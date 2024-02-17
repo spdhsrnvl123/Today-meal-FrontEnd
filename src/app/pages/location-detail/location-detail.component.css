@@ -48,10 +48,11 @@ h1 {
 .addInfo{
   background-color: #F4F4F4;
   width: 55%;
+  height: 805px;
   overflow-y: auto;
 }
 
-.addInfo h2{
+.menuContainer h2{
   font-size: 34px;
   font-weight: 600;
   text-align: center;
@@ -100,9 +101,68 @@ h1 {
 }
 
 .addInfo button{
-  transform: translate(0px,50px);
-  font-size: 23px;
+  position: fixed;
+  bottom:-70px;
+  font-size: 24px;
   font-weight: bold;
   margin: 100px 200px;
-  padding: 30px 20px;
+  padding : 30px 10px;
+  background-color: #D2ECE3;
+}
+
+.reviewContainer h2{
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin-top:40px;
+  margin-bottom: 50px;
+}
+.reviewContainer h3{
+  font-size: 20px;
+  font-weight: 600;
+}
+.reviewContainer span{
+  font-size: 30px;
+  font-weight: 600;
+  color:#5A5A5A;
+}
+
+.reviewContainer img{
+  width:200px;
+}
+.reviewCount{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*별점*/
+:host {
+  display: block;
+}
+.star-rating {
+  display: flex;
+}
+
+.reviewHeader{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 18px;
+  border-bottom: 3px solid #DDD9D9;
+}
+
+.reviewScore{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.star img{
+  width:33px;
+  height:33px;
+  margin-bottom: 10px;
+}
+
+.reviewList{
+  height: 453px;
+  overflow: auto;
 }

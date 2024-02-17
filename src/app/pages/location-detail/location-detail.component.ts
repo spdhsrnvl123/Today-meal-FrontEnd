@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './location-detail.component.html',
   styleUrls: ['./location-detail.component.css'],
 })
-export class LocationDetailComponent implements OnInit {
+export class LocationDetailComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
@@ -17,6 +17,7 @@ export class LocationDetailComponent implements OnInit {
   data: any = {};
   menuDataList: any = [];
   status: any;
+  changeInfo : any = false;
 
   ngOnInit() {
     console.log(this.id);

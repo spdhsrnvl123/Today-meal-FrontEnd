@@ -31,6 +31,9 @@ import { LocationDetailComponent } from './pages/location-detail/location-detail
 import {MyPageComponent} from "./pages/my-page/my-page.component";
 import { PwChangeComponent } from './layouts/pw-change/pw-change.component';
 import { TimerComponent } from './components/timer/timer.component';
+import { StarComponent } from './components/star/star.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
+import { ReviewRegisterComponent } from './components/review-register/review-register.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { TimerComponent } from './components/timer/timer.component';
     LocationDetailComponent,
     MyPageComponent,
     PwChangeComponent,
-    TimerComponent
+    TimerComponent,
+    StarComponent,
+    ReviewListComponent,
+    ReviewRegisterComponent,
   ],
   imports: [
     BrowserModule,
