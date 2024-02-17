@@ -36,11 +36,11 @@ export class TimerComponent implements OnInit{
       let seconds = (dday - now) / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
       let secondsRound = Math.round(seconds);
 
-      console.log(secondsRound)
 
       this.hours = hoursRound;
       this.min = minutesRound;
       this.second = secondsRound;
+
     }, 1000);
   }
 }

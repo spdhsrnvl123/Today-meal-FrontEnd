@@ -3,6 +3,21 @@
   /* background-color: red; */
   height: 113px;
   transform: translate(-30px,0);
+  animation: represent 2s ease-in-out infinite alternate;
+}
+.rankBox:nth-child(2) {
+  width: 330px;
+  /* background-color: red; */
+  height: 113px;
+  transform: translate(-30px,0);
+  animation: represent 4s ease-in-out infinite alternate;
+}
+.rankBox:nth-child(3) {
+  width: 330px;
+  /* background-color: red; */
+  height: 113px;
+  transform: translate(-30px,0);
+  animation: represent 3s ease-in-out infinite alternate;
 }
 
 
@@ -45,4 +60,13 @@
   margin: 0 auto;
   margin-bottom: 13px;
   transform: translate(0px, -208px);
+}
+
+@keyframes represent {
+  0%{
+    transform: scale(0.8);
+  }
+  100%{
+    transform : scale(1)
+  }
 }
