@@ -12,6 +12,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   data: any = [];
   status: any;
   id :any;
+  modalContent : any;
 
   //초기 등록된 장소 조회
   ngOnInit() {}
@@ -27,9 +28,16 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  //모달 열기
+  //투표 장소 상세보기 모달 열기
   modalRepresetReq(status: any) {
     this.status = status;
+    this.modalContent = "modalDetail"
+  }
+
+  //리뷰 등록 모달 열기
+  reviewRegisterModal(status : any){
+    this.status = status;
+    this.modalContent = "modalReviewRegister"
   }
 
   //카드 컴포넌트에서 id값 받기
@@ -45,11 +53,4 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.status = status;
   }
 
-  //뒤로가기
-  pathMove(path: any) {
-    if (path == false) {
-      this.status = false;
-      this.router.navigate([`/main`]);
-    }
-  }
 }
