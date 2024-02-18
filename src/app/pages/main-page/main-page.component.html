@@ -1,46 +1,71 @@
 <main>
   <app-nav></app-nav>
-  <app-timer></app-timer>
+  <div class="timerBox" *ngIf="voteStatus">
+      <app-timer (voteStatus)="voteStatusHandler($event)"></app-timer>
+  </div>
+  <div class="closeMessage" *ngIf="!voteStatus">
+    <h1>투표종료</h1>
+    <p>매일 09:00 ~ 11:00 투표가 진행됩니다</p>
+  </div>
   <div class="mainContainer">
     <section>
       <div class="section001">
-        <div class="subTitleBox">
-          <app-sub-title>
-            <h2>내가 투표한 장소</h2>
-          </app-sub-title>
-        </div>
-        <div class="myVote">
-          <img src="app/assets/foodRainOne.jpg" alt="foodRainOne"/>
-          <div class="description">
-            <h2>흑도야지</h2>
-            <p>별점예정</p>
-            <div class="category">육류, 고기</div>
-            <p>
-              매일
-              <br/>
-              10:30 ~ 21:00
-            </p>
-            <p>
-              매일 휴게시간
-              <br/>
-              15:30 ~ 17:00
-            </p>
-            <mat-card-actions class="buttonBox">
-              <button mat-raised-button color="warn">투표취소</button>
-              <button mat-flat-button color="accent">상세보기</button>
-            </mat-card-actions>
+        <div class="myVoteBox" *ngIf="voteStatus">
+          <div class="subTitleBox">
+            <app-sub-title>
+              <h2>내가 투표한 장소</h2>
+            </app-sub-title>
           </div>
+          <div class="myVote">
+            <img src="app/assets/foodRainOne.jpg" alt="foodRainOne"/>
+            <div class="description">
+              <h2>흑도야지</h2>
+              <p>별점예정</p>
+              <div class="category">육류, 고기</div>
+              <p>
+                매일
+                <br/>
+                10:30 ~ 21:00
+              </p>
+              <p>
+                매일 휴게시간
+                <br/>
+                15:30 ~ 17:00
+              </p>
+              <mat-card-actions class="buttonBox">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="modalVoteCancelOpen(true)"
+                >투표취소
+                </button>
+                <button mat-flat-button color="accent">상세보기</button>
+              </mat-card-actions>
+            </div>
+          </div>
+        </div>
+        <div class="rankTopBox" *ngIf="!voteStatus">
+          <app-rank-top></app-rank-top>
         </div>
       </div>
       <div class="section002">
-        <div class="subTitleBox">
-          <app-sub-title>
-            <h2>투표 순위</h2>
-          </app-sub-title>
+        <div class="rankBox" *ngIf="voteStatus">
+          <div class="subTitleBox">
+            <app-sub-title>
+              <h2>투표 순위</h2>
+            </app-sub-title>
+          </div>
+          <ul>
+            <app-rank-card/>
+          </ul>
         </div>
-        <ul>
-          <app-rank-card/>
-        </ul>
+        <div class="reaTime" *ngIf="!voteStatus">
+          <p>{{date}}</p>
+          <div class="realTimeBox">
+            <h2>{{currentTime}}</h2>
+          </div>
+          <p>현재시간</p>
+        </div>
       </div>
       <div class="section003">
         <div class="subTitleBox">
@@ -49,7 +74,7 @@
           </app-sub-title>
         </div>
         <app-review-card
-          (status) ="reviewRegisterModal($event)"
+          (status)="reviewRegisterModal($event)"
         />
       </div>
     </section>
@@ -73,7 +98,7 @@
       (close)="closeHandler($event)"
       *ngIf="modalContent == 'modalDetail'"
     >
-      <app-location-detail [id]="id"/>
+      <app-location-detail [id]="id" [changeInfo]="locationChangeInfo"/>
     </app-modal>
     <app-modal
       [width]="636"
@@ -82,11 +107,24 @@
       (close)="closeHandler($event)"
       *ngIf="modalContent == 'modalReviewRegister'"
     >
-      <app-review-register />
+      <app-review-register/>
     </app-modal>
-      <div *ngIf="modalContent == 'modalVoteCancel'">
+    <app-modal
+      [width]="506"
+      [height]="308"
+      [status]="status"
+      (close)="closeHandler($event)"
+      *ngIf="modalContent == 'modalVoteCancel'"
+    >
+      <div class="questionBox">
+        ?
       </div>
-      <div *ngIf="modalContent == 'modalCancel'">
-      </div>
+      <h2 class="confirm">투표한 장소를 취소하시겠습니까?</h2>
+      <button class="modalConfirm" mat-raised-button
+      >투표취소
+      </button>
+    </app-modal>
+    <div *ngIf="modalContent == 'modalCancel'">
+    </div>
   </div>
 </main>

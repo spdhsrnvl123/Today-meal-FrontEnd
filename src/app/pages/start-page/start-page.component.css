@@ -25,7 +25,7 @@
     line-height: 130px;
 }
 .sign-box{
-    border-left: 1px dotted;
+    /*border-left: 1px dotted;*/
     width:50%;
     height: 100%;
     position: relative;

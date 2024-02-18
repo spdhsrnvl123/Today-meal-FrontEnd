@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-timer',
@@ -7,7 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TimerComponent implements OnInit{
   now = new Date();
-  dday = new Date(2024, 0o2,18,16, 0o0, 0o0);
+  timer : String = 'Loading...'
+  @Output() voteStatus = new EventEmitter<boolean>();
 
   hours:any;
   min:any;
@@ -18,7 +19,7 @@ export class TimerComponent implements OnInit{
   }
 
   getTime() {
-    let dday = new Date(2024, 2, 16, 16, 16, 0);
+    let dday = new Date(2024, 2, 16, 21, 0, 0);
 
     setInterval(() => {
       let now = new Date(); //현재 날짜 및 시간
@@ -37,10 +38,21 @@ export class TimerComponent implements OnInit{
       let secondsRound = Math.round(seconds);
 
 
-      this.hours = hoursRound;
-      this.min = minutesRound;
-      this.second = secondsRound;
+      let hour = this.padZero(hoursRound);
+      let min = this.padZero(minutesRound);
+      let second = this.padZero(secondsRound);
 
+      this.timer = `${hour}:${min}:${second}`;
+
+      //11:00 투표종료시 부모컴포넌트에 false값을 보내주기 위한 조건식
+      if(this.timer == '00:00:00'){
+        this.voteStatus.emit(false)
+      }
     }, 1000);
   }
+
+  padZero(num: number) {
+    return num < 10 ? '0' + num : num;
+  }
+
 }

@@ -13,9 +13,15 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   status: any;
   id :any;
   modalContent : any;
+  locationChangeInfo : any = false;
+  currentTime : any = 'Loading...'
+  date : any;
+  voteStatus :any = true;
 
   //초기 등록된 장소 조회
-  ngOnInit() {}
+  ngOnInit() {
+    this.startTimer()
+  }
 
   ngAfterViewInit() {
     this.locationGetDataHandler();
@@ -51,6 +57,40 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   //모달에서 닫기 버튼을 했을때 상태값 받아오기
   closeHandler(status: any) {
     this.status = status;
+    this.locationChangeInfo = false;
+    console.log(this.locationChangeInfo)
   }
 
+  modalVoteCancelOpen(status : any){
+    this.modalContent = 'modalVoteCancel'
+    this.status = status;
+  }
+
+  startTimer(){
+    setInterval(()=>{
+      this.updateCurrentTime();
+    },1000)
+  }
+
+  updateCurrentTime(){
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const date = now.getDate();
+    const hours = this.padZero(now.getHours());
+    const minutes = this.padZero(now.getMinutes());
+    const seconds = this.padZero(now.getSeconds());
+
+    this.currentTime = `${hours}:${minutes}:${seconds}`;
+    this.date = `${year}.${month}.${date}`;
+  }
+
+  padZero(num: number) {
+    return num < 10 ? '0' + num : num;
+  }
+
+  voteStatusHandler(voteStatus:boolean){
+    console.log(voteStatus);
+    this.voteStatus = voteStatus
+  }
 }

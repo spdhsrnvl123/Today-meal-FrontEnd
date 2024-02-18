@@ -1,12 +1,23 @@
-.passwordChangeBox h1{
-  font-size: 25px;
-  color : #4D5959;
-  transform: translate(0px,59px);
-}
 .passwordChangeBox{
   display: flex;
   flex-direction: column;
   transform: translate(0px,-20px);
+  animation: represent 0.6s ease-in-out;
+}
+@keyframes represent {
+  0% {
+    transform: translate(0px,-40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px,-20px);
+    opacity: 1;
+  }
+}
+.passwordChangeBox h1{
+  font-size: 25px;
+  color : #4D5959;
+  transform: translate(0px,59px);
 }
 .passwordChangeBox mat-form-field{
   width:359px;

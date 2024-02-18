@@ -34,6 +34,7 @@ import { TimerComponent } from './components/timer/timer.component';
 import { StarComponent } from './components/star/star.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import { ReviewRegisterComponent } from './components/review-register/review-register.component';
+import { RankTopComponent } from './layouts/rank-top/rank-top.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ReviewRegisterComponent } from './components/review-register/review-reg
     StarComponent,
     ReviewListComponent,
     ReviewRegisterComponent,
+    RankTopComponent,
   ],
   imports: [
     BrowserModule,

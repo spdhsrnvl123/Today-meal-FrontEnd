@@ -17,7 +17,23 @@ main{
   }
 }
 
-.timerBox{
+.closeMessage{
+  margin: 0 auto;
+  text-align: center;
+  height: 42px;
+  animation: represent 1s ease-in-out alternate;
+}
+
+.closeMessage h1{
+  font-size: 80px;
+  font-weight: bold;
+  padding-top: 30px;
+}
+
+.closeMessage p{
+  font-size: 18px;
+  color:#4D5959;
+  padding-top: 30px;
 }
 
 h2{
@@ -47,13 +63,14 @@ section{
   border: 1px solid #e3e3e3;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
 .myVote img{
   width: 200px;
   height: 280px;
   transform: translate(20px,20px);
 }
 
-.description{
+.myVote .description{
   transform: translate(26px,30px);
   text-align: center;
 }
@@ -98,6 +115,30 @@ section{
 .section002{
   transform: translate(10px,133px);
 }
+
+.section002 .realTimeBox{
+  width: 320px;
+  height: 130px;
+  background-color: #EFF0F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transform: translate(-20px,70px);
+}
+
+.section002 .realTimeBox h2{
+  font-size: 65px;
+  font-weight: bold;
+}
+.section002 p{
+  font-size: 24px;
+  color:#4D5959;
+  text-align: center;
+  padding-top: 16px;
+  transform: translate(-20px,70px);
+}
+
 .section003{
   transform: translate(-0px,133px);
 }
@@ -108,4 +149,47 @@ section{
   font-size: 1rem;
   margin:  5px;
   box-shadow: none;
+}
+
+.confirm{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.modalConfirm{
+  font-size: 25px;
+  padding : 30px 10px;
+  position: absolute;
+  top:80%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background-color: #00CAD1;
+}
+
+.questionBox{
+  background-color: #D7E9FF;
+  width:100px;
+  height:100px;
+  border-radius: 50%;
+  font-size: 80px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}
+
+.realTime{
+  animation: represent 1s ease-in-out alternate;
+}
+
+@keyframes represent {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
