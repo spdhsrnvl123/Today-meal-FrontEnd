@@ -51,6 +51,9 @@ h1 {
   height: 805px;
   overflow-y: auto;
 }
+.menuContainer{
+margin-bottom: 110px;
+}
 
 .menuContainer h2{
   font-size: 34px;
@@ -64,8 +67,13 @@ h1 {
   color: #53595F;
   border-radius:30px;
   background: rgba(18, 170, 115, 0.18);
-  display: inline-block;
   padding: 10px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  margin: 0 auto;
+  transform: translate(0px,60px);
 }
 
 /* ------------------------------------ */
@@ -96,16 +104,27 @@ h1 {
   font-weight: 300;
 }
 
-.addInfo button{
-  position: fixed;
-  bottom:-70px;
+.addInfo .reviewButton{
   font-size: 24px;
   font-weight: bold;
-  margin: 100px 200px;
-  padding : 30px 10px;
+  padding : 30px 5px;
   background-color: #D2ECE3;
+  width: 200px;
+  margin-left: 150px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
+.addInfo .menuButton{
+  font-size: 24px;
+  font-weight: bold;
+  padding : 30px 5px;
+  background-color: #D2ECE3;
+  width: 200px;
+  margin-left: 150px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 .reviewContainer h2{
   font-size: 40px;
   font-weight: 600;
@@ -143,8 +162,9 @@ h1 {
 .reviewHeader{
   display: flex;
   justify-content: space-around;
-  padding-bottom: 18px;
+  padding-bottom: 13px;
   border-bottom: 3px solid #DDD9D9;
+
 }
 
 .reviewScore{
@@ -157,6 +177,7 @@ h1 {
   height:33px;
   margin-bottom: 10px;
 }
+
 
 .reviewList{
   height: 453px;

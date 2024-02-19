@@ -1,4 +1,4 @@
-img {
+.rect {
   width: 140px;
   height: 259px;
   transform: translate(0, 57px);
@@ -15,10 +15,23 @@ img {
 }
 
 .reviewCardBox h3 {
-  transform: translate(37px, -240px);
+  transform: translate(37px, -220px);
   font-size: 20px;
   font-weight: bold;
 }
+
+.starBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0px,-285px);
+}
+.starBox img{
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
 
 .reviewCardBox p {
   transform: translate(45px, -254px);
@@ -36,7 +49,7 @@ img {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  transform: translate(0px, -260px);
+  transform: translate(0px, -250px);
 }
 
 .imgBoxOne {
@@ -80,5 +93,5 @@ img {
   font-size: 0.8rem;
   margin: 0 5px;
   box-shadow: none;
-  transform: translate(2px, -265px);
+  transform: translate(2px, -250px);
 }

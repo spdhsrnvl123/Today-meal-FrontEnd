@@ -1,9 +1,9 @@
 <div class="reviewRegister">
   <h1>리뷰작성하기</h1>
   <div class="location">
-    <img src="app/assets/foodRainOne.jpg" />
-    <h3>흑도야지</h3>
-    <span>1/1</span>
+    <img [src]='item[0].img'  />
+    <h3>{{item[0].title}}</h3>
+    <span>{{item[0].date}}</span>
   </div>
   <div class="content">
     <h2>별점을 입력해주세요.</h2>
@@ -20,6 +20,5 @@
       color="accent"
     >등록하기</button>
   </div>
-
 </div>
 

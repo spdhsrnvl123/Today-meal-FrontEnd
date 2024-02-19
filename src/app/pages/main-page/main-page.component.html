@@ -1,7 +1,7 @@
 <main>
   <app-nav></app-nav>
   <div class="timerBox" *ngIf="voteStatus">
-      <app-timer (voteStatus)="voteStatusHandler($event)"></app-timer>
+    <app-timer (voteStatus)="voteStatusHandler($event)"></app-timer>
   </div>
   <div class="closeMessage" *ngIf="!voteStatus">
     <h1>투표종료</h1>
@@ -10,18 +10,21 @@
   <div class="mainContainer">
     <section>
       <div class="section001">
-        <div class="myVoteBox" *ngIf="voteStatus">
+        <div class="myVoteBox" *ngIf="myVoteStatus && voteStatus">
           <div class="subTitleBox">
             <app-sub-title>
               <h2>내가 투표한 장소</h2>
             </app-sub-title>
           </div>
           <div class="myVote">
-            <img src="app/assets/foodRainOne.jpg" alt="foodRainOne"/>
+            <img class="myVoteImg" [src]="myVoteLocationData?.img"/>
             <div class="description">
-              <h2>흑도야지</h2>
-              <p>별점예정</p>
-              <div class="category">육류, 고기</div>
+              <h2>{{myVoteLocationData?.title}}</h2>
+              <div class="starBox">
+                <img src="app/assets/starFill.png" alt="foodRainOne"/>
+                <span>4</span>
+              </div>
+              <div class="category">{{myVoteLocationData?.category}}</div>
               <p>
                 매일
                 <br/>
@@ -42,6 +45,16 @@
                 <button mat-flat-button color="accent">상세보기</button>
               </mat-card-actions>
             </div>
+          </div>
+        </div>
+        <div class="myVoteEmpty" *ngIf="!myVoteStatus && voteStatus">
+          <div class="subTitleBox">
+            <app-sub-title>
+              <h2>내가 투표한 장소</h2>
+            </app-sub-title>
+          </div>
+          <div class="myVote">
+            <h3>현재 투표한 장소가 없습니다.</h3>
           </div>
         </div>
         <div class="rankTopBox" *ngIf="!voteStatus">
@@ -74,7 +87,7 @@
           </app-sub-title>
         </div>
         <app-review-card
-          (status)="reviewRegisterModal($event)"
+          (reviewCardInfo)="reviewRegisterModal($event)"
         />
       </div>
     </section>
@@ -86,7 +99,9 @@
     <div class="locationContainer">
       <app-card
         [data]="data"
+        [voteButtonDel]="voteStatus"
         (status)="modalRepresetReq($event)"
+        (myVoteId)="myVoteIdHandler($event)"
         (id)="idRes($event)"
       >
       </app-card>
@@ -107,7 +122,7 @@
       (close)="closeHandler($event)"
       *ngIf="modalContent == 'modalReviewRegister'"
     >
-      <app-review-register/>
+      <app-review-register [reviewCardId]="reviewCardId"/>
     </app-modal>
     <app-modal
       [width]="506"
@@ -120,11 +135,12 @@
         ?
       </div>
       <h2 class="confirm">투표한 장소를 취소하시겠습니까?</h2>
-      <button class="modalConfirm" mat-raised-button
+      <button
+        class="modalConfirm"
+        mat-raised-button
+        (click)="voteCancel()"
       >투표취소
       </button>
     </app-modal>
-    <div *ngIf="modalContent == 'modalCancel'">
-    </div>
   </div>
 </main>

@@ -6,10 +6,15 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./review-card.component.css']
 })
 export class ReviewCardComponent {
-  @Output() status = new EventEmitter<Boolean>();
+  @Output() reviewCardInfo = new EventEmitter<any>();
+  // @Output() id = new EventEmitter<Boolean>();
 
   //리뷰등록 모달 오픈
-  open(){
-    this.status.emit(true);
+  open(id:any){
+    // this.id.emit(id);
+    this.reviewCardInfo.emit({
+      status : true,
+      id : id
+    });
   }
 }

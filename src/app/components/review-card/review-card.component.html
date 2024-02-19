@@ -1,22 +1,73 @@
 <ul class="container">
-  <li class="reviewCardBox" *ngFor="let item of [1,1,1]">
-    <img src="app/assets/rectangle.png" alt="card" />
+  <li class="reviewCardBox">
+    <img class="rect" src="app/assets/rectangle.png" alt="card" />
     <div class="imgBoxOne">
       <div class="imgBoxTwo">
         <img
-          src="app/assets/foodRainOne.jpg"
+          src="app/assets/reviewOne.jpg"
         />
       </div>
     </div>
-    <h2>1/1(3일전)</h2>
+    <h2>2/16(5일전)</h2>
+    <h3>가츠몽</h3>
+    <div class="starBox">
+      <img src="app/assets/starFill.png" alt="foodRainOne"/>
+      <span>3</span>
+    </div>
+    <div class="category">일식</div>
+    <mat-card-actions class="buttonBox">
+      <button
+        mat-flat-button
+        color="accent"
+        (click)="open('24531540')"
+      >리뷰쓰기</button>
+    </mat-card-actions>
+  </li>
+  <li class="reviewCardBox">
+    <img class="rect" src="app/assets/rectangle.png" alt="card" />
+    <div class="imgBoxOne">
+      <div class="imgBoxTwo">
+        <img
+          src="app/assets/reviewTwo.jpg"
+        />
+      </div>
+    </div>
+    <h2>2/19(2일전)</h2>
     <h3>흑도야지</h3>
-    <p>별점예정</p>
+    <div class="starBox">
+      <img src="app/assets/starFill.png" alt="foodRainOne"/>
+      <span>5</span>
+    </div>
     <div class="category">육류, 고기</div>
     <mat-card-actions class="buttonBox">
       <button
         mat-flat-button
         color="accent"
-        (click)="open()"
+        (click)="open('803977050')"
+      >리뷰쓰기</button>
+    </mat-card-actions>
+  </li>
+  <li class="reviewCardBox">
+    <img class="rect" src="app/assets/rectangle.png" alt="card" />
+    <div class="imgBoxOne">
+      <div class="imgBoxTwo">
+        <img
+          src="app/assets/reviewThird.jpg"
+        />
+      </div>
+    </div>
+    <h2>2/20(1일전)</h2>
+    <h3>소한마리</h3>
+    <div class="starBox">
+      <img src="app/assets/starFill.png" alt="foodRainOne"/>
+      <span>4</span>
+    </div>
+    <div class="category">육류, 고기</div>
+    <mat-card-actions class="buttonBox">
+      <button
+        mat-flat-button
+        color="accent"
+        (click)="open('8137464')"
       >리뷰쓰기</button>
     </mat-card-actions>
   </li>

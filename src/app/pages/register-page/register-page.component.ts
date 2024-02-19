@@ -13,12 +13,14 @@ export class RegisterPageComponent implements OnInit {
   status: any;
   id: any;
   loadingData: any = [];
-  voteButtonDel = 'voteButtonDel';
+  voteButtonDel : any = false;
   delItemModalAction ='';
   delId : any;
+  registerPageStatus :any = true
 
   //초기 등록된 장소 조회
   ngOnInit() {
+    this.voteButtonDel = false;
     this.getData();
     this.loadingLocation();
   }

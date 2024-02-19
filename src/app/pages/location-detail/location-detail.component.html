@@ -56,6 +56,7 @@
       </ul>
     </div>
     <button
+      class="reviewButton"
       mat-raised-button
       *ngIf="changeInfo == false"
       (click)="changeInfo = true"
@@ -63,6 +64,7 @@
       리뷰보기
     </button>
     <button
+      class="menuButton"
       mat-raised-button
       *ngIf="changeInfo == true"
       (click)="changeInfo = false"

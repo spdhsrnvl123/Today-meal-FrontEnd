@@ -23,6 +23,14 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   /*transform: translate(22px,0px);*/
 }
+
+.rankResultBox .topImg{
+  width: 220px;
+  height: 270px;
+  transform: translate(10px,24px);
+  border-radius: 20px;
+  margin-right: 10px;
+}
 .rankResultBox .description{
   transform: translate(26px,30px);
 }
@@ -55,5 +63,19 @@
 .description h2{
   font-size: 28px;
   text-align: center;
+  font-weight: bold;
+}
+.starBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.starBox img{
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+.starBox p{
   font-weight: bold;
 }
