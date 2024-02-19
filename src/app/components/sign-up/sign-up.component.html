@@ -33,6 +33,7 @@
         ngModel
         minlength="3"
         #id="ngModel"
+        (ngModelChange)="onIdChange($event)"
       />
     </mat-form-field>
     <button
@@ -88,6 +89,7 @@
       mat-raised-button
       class="generateButton"
       color="accent"
+      [disabled]="f.invalid"
     >계정 생성하기
     </button>
   </form>

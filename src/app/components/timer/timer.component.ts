@@ -19,7 +19,7 @@ export class TimerComponent implements OnInit{
   }
 
   getTime() {
-    let dday = new Date(2024, 2, 16, 21, 0, 0);
+    let dday = new Date(2024, 2, 16, 9, 0, 0);
 
     setInterval(() => {
       let now = new Date(); //현재 날짜 및 시간
@@ -45,7 +45,7 @@ export class TimerComponent implements OnInit{
       this.timer = `${hour}:${min}:${second}`;
 
       //11:00 투표종료시 부모컴포넌트에 false값을 보내주기 위한 조건식
-      if(this.timer == '00:00:00'){
+      if(hour == 0 && min == 0 && second == 0){
         this.voteStatus.emit(false)
       }
     }, 1000);

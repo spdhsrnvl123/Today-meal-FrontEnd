@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from '@angular/forms';
 import {ApiService} from "../../services/api/api.service";
 import {Router} from "@angular/router";
@@ -24,6 +24,8 @@ export class SignUpComponent{
       "password" : this.signupForm?.form.value.passwordFirst,
     }
 
+    console.log(joinData)
+
     this.apiService.joinReq(joinData).subscribe(data =>{
         if (data == 1){
           this.router.navigate(["/start/signin"]);
@@ -31,20 +33,24 @@ export class SignUpComponent{
       }
     )
   }
+  onIdChange(value: string) {
+    if(value){
+      this.duplicationConfirm = false
+      this.duplicationConfirmReject = false
+    }
+  }
 
   //아이디 중복 검사
   duplicateTest(){
-    console.log();
-
     let id = this.signupForm?.form.value.id
     this.apiService.duplicationReq(id).subscribe((data)=>{
       console.log(data)
       if(data == 1){
-        this.duplicationConfirm = true;
-        this.duplicationConfirmReject = false;
-      }else{
-        this.duplicationConfirmReject = true;
         this.duplicationConfirm = false;
+        this.duplicationConfirmReject = true;
+      }else{
+        this.duplicationConfirmReject = false;
+        this.duplicationConfirm = true;
       }
     })
   }
