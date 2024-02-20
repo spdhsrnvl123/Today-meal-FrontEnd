@@ -1,21 +1,35 @@
 <div class="modalContent">
   <div class="descBox">
-    <h1>{{ data.title }}</h1>
     <div class="imgBox">
       <img mat-card-image *ngIf="data.img; else loading" [src]="data.img"/>
       <ng-template #loading>이미지 없음</ng-template>
+      <div class="detailBox">
+        <h2>상세정보</h2>
+        <p>{{ data.addr }}</p>
+        <p>{{ data.phonenum }}</p>
+        <p>운영시간 : 매일 10:30 ~ 21:00</p>
+        <p>휴게시간 : 매일 15:30 ~ 17:00</p>
+      </div>
     </div>
-    <div class="detailBox">
-      <h2>상세정보</h2>
-      <p>{{ data.addr }}</p>
-      <p>{{ data.phonenum }}</p>
-      <p>운영시간 : 매일 10:30 ~ 21:00</p>
-      <p>휴게시간 : 매일 15:30 ~ 17:00</p>
-    </div>
+
   </div>
   <div class="addInfo">
+    <h1>{{data.title}}</h1>
+    <ul class="nav">
+      <li
+        mat-raised-button
+        (click)="changeInfo = false"
+      >
+        메뉴보기
+      </li>
+      <li
+        mat-raised-button
+        (click)="changeInfo = true"
+      >
+        리뷰보기
+      </li>
+    </ul>
     <div class="menuContainer" *ngIf="changeInfo == false">
-      <h2>메뉴</h2>
       <div class="category">
         {{ data.category }}
       </div>
@@ -31,7 +45,6 @@
     </div>
     <!--  메뉴, 리뷰 컨테이너 경계  -->
     <div class="reviewContainer" *ngIf="changeInfo == true">
-      <h2>리뷰</h2>
       <div class="reviewHeader">
         <div class="reviewScore">
           <h3>사용자 총 평점</h3>
@@ -55,22 +68,6 @@
         <app-review-list></app-review-list>
       </ul>
     </div>
-    <button
-      class="reviewButton"
-      mat-raised-button
-      *ngIf="changeInfo == false"
-      (click)="changeInfo = true"
-    >
-      리뷰보기
-    </button>
-    <button
-      class="menuButton"
-      mat-raised-button
-      *ngIf="changeInfo == true"
-      (click)="changeInfo = false"
-    >
-      메뉴보기
-    </button>
   </div>
 </div>
 

@@ -1,57 +1,51 @@
 ul {
-  /*flex-wrap: nowrap; !* 카드가 넘칠 때 스크롤이 표시되도록 함 *!*/
-  /* overflow-x: auto; */
-  /* 가로 방향으로 스크롤이 나타나도록 함 */
-  /* padding-top: 20px; */
-  margin: -464px auto;
-  height: 1400px;
-  width: 420px;
-  transform:rotate(270deg);
-  overflow-y: scroll;
-  overflow-x:hidden;
-  /*background-color: red;*/
+  height: 404px;
+  width: 1440px;
+  overflow-y: hidden;
+  display: flex;
+  /*background-color: blue;*/
 }
+
+ul::before{
+  content: '';
+  position:absolute;
+  z-index: 99;
+  top:30px;
+  right:0;
+  width: 10px;
+  height: 373px;
+  background: transparent;
+  border: 0;
+}
+
 ul::-webkit-scrollbar{
   width:10px;
+  height: 3px;
   opacity: 0;
 }
 
 ul::-webkit-scrollbar-thumb{
-  /*background: silver; !* 스크롤바 색상 *!*/
-  background-color: white;
-  /*border-radius: 10px; !* 스크롤바 둥근 테두리 *!*/
+  background: silver; /* 스크롤바 색상 */
+  border-radius: 10px; /* 스크롤바 둥근 테두리 */
 }
 
 ul::-webkit-scrollbar-track {
-  /*background: rgba(220, 20, 60, .1);  !*스크롤바 뒷 배경 색상*!*/
-  background-color: white;
+  background: rgba(220, 20, 60, .1);  /*스크롤바 뒷 배경 색상*/
 }
 
 .exampleCard {
   flex: 0 0 auto; /* 각 카드의 크기를 자동으로 설정하여 고정된 너비를 가짐 */
   width: 209px; /* 원하는 너비 */
   height: 316px;
-  margin: -52px 120px; /* 여백 추가 */
-  border-radius: 10px;
+  margin: 60px 10px; /* 여백 추가 */
+  /*border-radius: 10px;*/
   border: 1px solid #e3e3e3;
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
+  background-color: #fbfbfb;
   box-shadow: none;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /*box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);*/
   position: relative;
-  transform :rotate(90deg);
-  /*animation: represent 1s ease-in-out alternate;*/
 }
-
-/*@keyframes represent {*/
-/*  0% {*/
-/*    !*opacity: 0;*!*/
-/*    scale: 0.7;*/
-/*  }*/
-/*  100% {*/
-/*    !*opacity: 1;*!*/
-/*    scale: 1;*/
-/*  }*/
-/*}*/
 
 .exampleButtonContainer{
   position: absolute;
@@ -104,11 +98,6 @@ ul::-webkit-scrollbar-track {
 }
 
 .textBox {
-  /* position: absolute; */
-  /* top: 79%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -144,10 +133,6 @@ p {
   justify-content: center;
   align-items: center;
   width: 200px;
-}
-
-.buttonBox button:nth-child(1){
-  /*background-color: lightskyblue;*/
 }
 
 .buttonBox button{

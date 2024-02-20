@@ -2,14 +2,14 @@
 <div class="mypageContainer">
 <h1>Goofi님의 마이페이지</h1>
 <ul class="myNav">
-  <li>
+  <li (click)="pathMOveStatusHandler(true)" >
     기본 회원 정보
   </li>
-  <li>
+  <li (click)="pathMOveStatusHandler(false)">
     작성한 리뷰
   </li>
 </ul>
-<div class="contentBox">
+<div class="contentBox" *ngIf="pathMoveStatus">
   <div class="nameBox">
     <span>이름</span>
     <p>이태형</p>
@@ -40,9 +40,12 @@
   </button>
   <div class="resignMessage">탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요.</div>
 </div>
-<!--  <div class="myReviewContent" >-->
-<!--    내가 작성한 리뷰-->
-<!--  </div>-->
+  <div class="myReviewContent" *ngIf="!pathMoveStatus">
+<!--    현재 작성한 리뷰가 없습니다.-->
+    <div class="myReview">
+      <app-review-list></app-review-list>
+    </div>
+  </div>
 
 <app-modal
   [width]="608"

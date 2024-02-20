@@ -7,11 +7,12 @@
 
 .container{
   display: flex;
+  transform: translate(110px, 25px);
 }
 
 .reviewCardBox h2 {
   transform: translate(24px, -360px);
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .reviewCardBox h3 {
@@ -72,6 +73,7 @@
   border-bottom-right-radius: 70px;
 }
 
+
 .imgBoxOne .imgBoxTwo img {
   transform: translate(0.3px, 7.3px);
   width: 107.3px;
@@ -80,18 +82,9 @@
   border-top-right-radius: 24.8%;
 }
 
-.buttonBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.buttonBox button {
-  width: 4em;
-  height: 1em;
-  padding: 1em 0.1em;
-  font-size: 0.8rem;
-  margin: 0 5px;
+ button {
+  padding:3px 5px;
+  font-size: 16px;
   box-shadow: none;
-  transform: translate(2px, -250px);
+   transform: translate(37px,-240px);
 }

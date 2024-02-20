@@ -1,7 +1,7 @@
-<ul *ngIf="data">
+<ul *ngIf="data && show" appScrollEvent>
   <mat-card class="exampleCard " *ngFor="let item of data">
     <!-- 장소등록페이지면    -->
-    <div *ngIf="!voteButtonDel && pageStatus" class="exampleButtonContainer">
+    <div *ngIf="show && pageStatus" class="exampleButtonContainer">
       <button
         (click)="parentDeleteReq(item.id)"
         mat-fab
@@ -34,22 +34,18 @@
       </mat-card-content>
       <mat-card-actions class="buttonBox">
         <button
-          *ngIf="voteButtonDel && !voteItemId"
+          *ngIf="show && !voteItemId && !pageStatus"
           mat-raised-button color="primary"
           (click)="voteClickStatusHandler(item.id)">
           투표하기
         </button>
         <button
           mat-raised-button color="primary"
-          *ngIf="voteButtonDel && voteItemId"
+          *ngIf="show && voteItemId && !pageStatus"
           (click)="voteClickStatusHandler(item.id)"
         >
           투표하기
         </button>
-<!--        <button-->
-<!--          *ngIf="voteButtonDel && item.id == voteItemId && finalCancel"-->
-<!--          mat-raised-button color="warn"-->
-<!--        >투표취소</button>-->
         <button (click)="parentReq(item.id)"  mat-flat-button color="accent">상세보기</button >
       </mat-card-actions>
     </div>

@@ -59,6 +59,12 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     });
   }
 
+  myVoteLocationDetailHander(id:any){
+    this.id = id;
+    this.status = true;
+    this.modalContent = "modalDetail"
+  }
+
   //투표 장소 상세보기 모달 열기
   modalRepresetReq(status: any) {
     this.status = status;
@@ -115,11 +121,10 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 11) {
-      // this.voteStatus = true;
-    } else {
-      // this.voteStatus = false;
+    if (hours >= 9 && hours < 22) {
       this.voteStatus = true;
+    } else {
+      this.voteStatus = false;
     }
   }
 

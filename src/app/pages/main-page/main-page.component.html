@@ -42,7 +42,7 @@
                   (click)="modalVoteCancelOpen(true)"
                 >투표취소
                 </button>
-                <button mat-flat-button color="accent">상세보기</button>
+                <button mat-flat-button color="accent" (click)="myVoteLocationDetailHander(myVoteLocationData.id)">상세보기</button>
               </mat-card-actions>
             </div>
           </div>
@@ -72,15 +72,19 @@
             <app-rank-card/>
           </ul>
         </div>
-        <div class="reaTime" *ngIf="!voteStatus">
-          <p>{{date}}</p>
-          <div class="realTimeBox">
-            <h2>{{currentTime}}</h2>
-          </div>
-          <p>현재시간</p>
-        </div>
       </div>
-      <div class="section003">
+      <div class="section003" *ngIf="voteStatus">
+        <div class="subTitleBox">
+          <app-sub-title>
+            <h2>지난 투표 결과</h2>
+          </app-sub-title>
+        </div>
+        <app-review-card
+          (reviewCardInfo)="reviewRegisterModal($event)"
+        />
+      </div>
+      <!--   투표가 끝났을때의 UI를 표현하기 위해   -->
+      <div class="section003-voteTerminate" *ngIf="!voteStatus">
         <div class="subTitleBox">
           <app-sub-title>
             <h2>지난 투표 결과</h2>
@@ -91,7 +95,7 @@
         />
       </div>
     </section>
-    <div class="subTitleBox voteLocation">
+    <div class="subTitleBox voteLocation" *ngIf="voteStatus">
       <app-sub-title>
         <h2>투표 장소</h2>
       </app-sub-title>
@@ -99,21 +103,31 @@
     <div class="locationContainer">
       <app-card
         [data]="data"
-        [voteButtonDel]="voteStatus"
+        [show]="voteStatus"
         (status)="modalRepresetReq($event)"
         (myVoteId)="myVoteIdHandler($event)"
         (id)="idRes($event)"
       >
       </app-card>
     </div>
+<!--    <app-modal-->
+<!--      [width]="975"-->
+<!--      [height]="805"-->
+<!--      [status]="status"-->
+<!--      (close)="closeHandler($event)"-->
+<!--      *ngIf="modalContent == 'modalDetail'"-->
+<!--    >-->
+<!--      <app-location-detail [id]="id" [changeInfo]="locationChangeInfo"/>-->
+<!--    </app-modal>-->
     <app-modal
-      [width]="975"
-      [height]="805"
-      [status]="status"
+      [width]="980"
+      [height]="800"
+      [status]="true"
       (close)="closeHandler($event)"
-      *ngIf="modalContent == 'modalDetail'"
     >
-      <app-location-detail [id]="id" [changeInfo]="locationChangeInfo"/>
+      <!--      [status]="status"-->
+      <!--      *ngIf="modalContent == 'modalDetail'"-->
+      <app-location-detail [id]="24531540" [changeInfo]="locationChangeInfo"/>
     </app-modal>
     <app-modal
       [width]="636"

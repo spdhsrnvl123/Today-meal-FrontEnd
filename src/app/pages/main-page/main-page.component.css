@@ -1,5 +1,5 @@
 main{
-  height: 92%;
+  height: 1024px;
 }
 
 .mainContainer{
@@ -18,7 +18,8 @@ main{
 }
 
 .closeMessage{
-  margin: 0 auto;
+  margin: 100px auto;
+  margin-bottom: 140px;
   text-align: center;
   height: 42px;
   animation: represent 1s ease-in-out alternate;
@@ -57,13 +58,12 @@ section{
 }
 
 .myVote{
-  background-color: #ffffff;
   width: 437px;
   height: 316px;
   display: flex;
   border-radius: 10px;
   border: 1px solid #e3e3e3;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: #fbfbfb;
 }
 
 .myVote .myVoteImg{
@@ -117,13 +117,13 @@ section{
 }
 .subTitleBox.voteLocation{
   text-align: center;
-  transform: translate(0px,-132px);
+  transform: translate(0px,-102px);
 }
 
 .locationContainer{
     display: flex;
     justify-content: center;
-    transform: translate(0px,-150px);
+    transform: translate(0px,-134px);
 }
 
 .myVoteEmpty .myVote{
@@ -134,6 +134,10 @@ section{
 }
 .myVoteEmpty .myVote h3{
   font-size: 30px;
+}
+
+.rankTopBox{
+  transform: translate(130px,-30px);
 }
 
 /* ------------ */
@@ -165,7 +169,10 @@ section{
 }
 
 .section003{
-  transform: translate(-0px,133px);
+  transform: translate(-100px,100px);
+}
+.section003 .subTitleBox{
+  transform: translate(100px,-10px);
 }
 
 .buttonBox button{
@@ -217,4 +224,11 @@ section{
   100% {
     opacity: 1;
   }
+}
+/*투표종료시 지난 투표 결과 배치를위한 위치*/
+.section003-voteTerminate{
+  transform: translate(-250px,80px);
+}
+.section003-voteTerminate .subTitleBox{
+  transform: translate(100px,-26px);
 }

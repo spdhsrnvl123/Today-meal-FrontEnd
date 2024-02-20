@@ -3,26 +3,14 @@ import {MatCardModule} from "@angular/material/card";
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
-  standalone: true,
-  imports: [
-    MatCardModule,
-    MatIconModule,
-    MatDividerModule,
-    MatButtonModule,
-    NgForOf,
-    NgIf,
-    NgOptimizedImage,
-    AsyncPipe,
-  ],
 })
-export class CardComponent implements OnInit {
-  @Input() voteButtonDel :any; // 페이지나 투표유무에 따른 버튼 보여주기 불린값
+export class CardComponent implements OnInit, OnChanges {
+  @Input() show:any; // 투표진행 유무 and 등록페이지 유무
   @Input() data: any = [];
   @Input() pageStatus:any //등록또는 투표종료에 따른 삭제버튼 활성화 값
   @Output() delItemId = new EventEmitter<string>();
@@ -34,9 +22,16 @@ export class CardComponent implements OnInit {
   voteItemId : any; //각 장소에서 투표버튼을 누른 장소에 따라서 현재 일치하는 id값에 따라서 버튼상태를 다르게 보여주기 위한 값
 
   ngOnInit() {
-    console.log(this.voteButtonDel)
     if(sessionStorage.getItem('voteLocation')){
       this.voteItemId = sessionStorage.getItem('voteLocation')
+    }
+    console.log(this.show)
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.show)
+    if(this.show){
+
     }
   }
 

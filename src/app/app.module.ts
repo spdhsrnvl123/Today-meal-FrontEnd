@@ -35,6 +35,7 @@ import { StarComponent } from './components/star/star.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import { ReviewRegisterComponent } from './components/review-register/review-register.component';
 import { RankTopComponent } from './layouts/rank-top/rank-top.component';
+import { ScrollEventDirective } from './scroll-event.directive';
 
 @NgModule({
     declarations: [
@@ -62,6 +63,8 @@ import { RankTopComponent } from './layouts/rank-top/rank-top.component';
         ReviewListComponent,
         ReviewRegisterComponent,
         RankTopComponent,
+        ScrollEventDirective,
+        CardComponent,
     ],
     imports: [
         BrowserModule,
@@ -69,7 +72,6 @@ import { RankTopComponent } from './layouts/rank-top/rank-top.component';
         HttpClientModule,
         FormsModule,
         BrowserAnimationsModule,
-        CardComponent,
         MatButtonModule,
         MatCardModule,
         MatIconModule,

@@ -39,8 +39,8 @@
 <div class="locationContainer">
   <app-card
     [data]="data"
-    [voteButtonDel]="voteButtonDel"
     [pageStatus]="registerPageStatus"
+    [show]="true"
     (status)="modalRepresetReq($event)"
     (id)="idRes($event)"
     (delItemId)="locationDelId($event)"

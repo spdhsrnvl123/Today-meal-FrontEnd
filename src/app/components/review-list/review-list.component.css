@@ -4,7 +4,20 @@
 li{
   padding: 10px 20px;
   border-bottom: 1px solid #DDD9D9;
+  list-style: none;
 }
+
+.update{
+  font-size: 16px;
+  padding-left:10px;
+  color:#5A5A5A;
+}
+.del{
+  font-size: 16px;
+  padding-left:3px;
+  color:#5A5A5A;
+}
+
 .star img{
   width:24px;
   height:24px;

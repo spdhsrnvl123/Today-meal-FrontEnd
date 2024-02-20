@@ -25,7 +25,6 @@ export class SignUpComponent{
     }
 
     console.log(joinData)
-
     this.apiService.joinReq(joinData).subscribe(data =>{
         if (data == 1){
           this.router.navigate(["/start/signin"]);
@@ -34,6 +33,7 @@ export class SignUpComponent{
     )
   }
   onIdChange(value: string) {
+    console.log(value)
     if(value){
       this.duplicationConfirm = false
       this.duplicationConfirmReject = false

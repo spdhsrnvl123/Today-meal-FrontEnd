@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   display: flex;
+  background-color: #F5F5F5;
 }
 .imgBox {
   width: 275px;
@@ -13,16 +14,10 @@
   width: 100%;
   height: 100%;
 }
-h1 {
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 53px;
-}
+
 .descBox{
   width:45%;
+  padding-top: 50px;
 }
 .descBox .detailBox{
   transform: translate(50px,60px);
@@ -51,17 +46,35 @@ h1 {
   height: 805px;
   overflow-y: auto;
 }
-.menuContainer{
-margin-bottom: 110px;
-}
 
-.menuContainer h2{
-  font-size: 34px;
-  font-weight: 600;
+.addInfo h1 {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
   text-align: center;
-  transform: translate(0px,50px);
+  margin-top: 53px;
 }
 
+.addInfo .nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.addInfo .nav li{
+  font-size: 24px;
+  padding: 10px;
+  cursor : pointer;
+  border-bottom: solid 2px #4fe94c;
+}
+.addInfo .nav li:nth-child(1){
+  font-size: 24px;
+  padding: 10px;
+  cursor : pointer;
+  border-bottom: solid 2px #4fe94c;
+  border-right: solid 2px #4fe94c;
+}
 .addInfo .category {
   font-size: 24px;
   color: #53595F;
@@ -73,11 +86,14 @@ margin-bottom: 110px;
   align-items: center;
   width: 130px;
   margin: 0 auto;
-  transform: translate(0px,60px);
 }
 
-/* ------------------------------------ */
-
+.menuContainer h2{
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+  transform: translate(0px,50px);
+}
 
 .menuBox {
   display: flex;
@@ -104,34 +120,6 @@ margin-bottom: 110px;
   font-weight: 300;
 }
 
-.addInfo .reviewButton{
-  font-size: 24px;
-  font-weight: bold;
-  padding : 30px 5px;
-  background-color: #D2ECE3;
-  width: 200px;
-  margin-left: 150px;
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-
-.addInfo .menuButton{
-  font-size: 24px;
-  font-weight: bold;
-  padding : 30px 5px;
-  background-color: #D2ECE3;
-  width: 200px;
-  margin-left: 150px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-.reviewContainer h2{
-  font-size: 40px;
-  font-weight: 600;
-  text-align: center;
-  margin-top:40px;
-  margin-bottom: 50px;
-}
 .reviewContainer h3{
   font-size: 20px;
   font-weight: 600;
