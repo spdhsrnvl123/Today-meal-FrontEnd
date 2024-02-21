@@ -36,6 +36,9 @@ import { ReviewListComponent } from './components/review-list/review-list.compon
 import { ReviewRegisterComponent } from './components/review-register/review-register.component';
 import { RankTopComponent } from './layouts/rank-top/rank-top.component';
 import { ScrollEventDirective } from './scroll-event.directive';
+import { FoodRain2Component } from './components/food-rain2/food-rain2.component';
+import { PageNotComponentComponent } from './components/page-not-component/page-not-component.component';
+import { MyReviewListComponent } from './components/my-review-list/my-review-list.component';
 
 @NgModule({
     declarations: [
@@ -65,6 +68,9 @@ import { ScrollEventDirective } from './scroll-event.directive';
         RankTopComponent,
         ScrollEventDirective,
         CardComponent,
+        FoodRain2Component,
+        PageNotComponentComponent,
+        MyReviewListComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,50 +1,138 @@
-.modalContent {
+.modalContainer{
   width: 100%;
+  /*height: 980px;*/
+  height: 800px;
+  background-color: #F5F5F5;
+  overflow: hidden;
+}
+
+.modalContainer .titleBox{
+  text-align: center;
+  display: inline-block; /* 추가 */
+  position: relative;
+  height: 136px;
+  top:0%;
+  left:50%;
+  transform: translate(-50%,50px);
+  white-space: nowrap; /* 추가 */
+  /*background-color: blue;*/
+}
+
+.modalContainer h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.modalContainer h1:before{
+  content: "";
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 2px;
+  top:-18px;
+  background-color: black;
+}
+
+.modalContent {
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+  /*padding-bottom: 40px;*/
+}
+.modalContent .descBox .imgBox {
+  width:400px;
+  height:400px;
+}
+.modalContent .descBox .imgBox .locationImg {
+  width: 100%;
+  height: 100%;
+}
+.modalContent .descBox .detailInfoTitle{
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
+.modalContent .descBox .detailInfoTitle h2{
+  color:white;
+  font-size : 14px;
+  font-weight: 600;
+  margin-left: 20px;
   height: 100%;
   display: flex;
-  background-color: #F5F5F5;
+  align-items: center;
 }
-.imgBox {
-  width: 275px;
-  height: 350px;
-  box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.25);
-  transform: translate(80px,20px);
-}
-.imgBox img {
-  width: 100%;
-  height: 100%;
+.modalContent .descBox .detailBox {
+  width:100%;
+  height: 184px;
+  background-color: white;
 }
 
-.descBox{
-  width:45%;
-  padding-top: 50px;
-}
-.descBox .detailBox{
-  transform: translate(50px,60px);
+.detailBox .markerBox, .phoneBox, .timeBox{
+  display:flex;
+  height: 24px;
+  padding-bottom: 12px;
+  transform: translate(20px,20px);
 }
 
-.descBox .detailBox h2 {
-  font-size: 25px;
+.detailBox img{
+  width: 18px;
+  height:24px;
+  margin-right: 12px;
+}
+
+.detailBox p{
+  padding-top: 1.5px;
+  font-size : 14px;
   font-weight: 600;
-  padding-bottom: 20px;
 }
 
-.descBox .detailBox p {
-  font-size: 20px;
-  padding-bottom: 15px;
+.detailBox .timeBox p{
+  padding-top: 1.5px;
+  font-size : 14px;
+  font-weight: 600;
+}
+
+.detailBox .breakTime{
+  transform: translate(50px,22px);
+  height: 24px;
+}
+
+.modalContent .empty{
+  width: 40px;
+  background-color: #F5F5F5;
 }
 
 .detailInfo {
   display: flex;
   flex-direction: column;
   font-size: 20px;
+  overflow: hidden;
+}
+
+.menuContainer{
+  overflow-y: auto;
+  width:460px;
+  height: 564px;
+}
+.menuContainer::-webkit-scrollbar{
+  width:8px;
+}
+
+.menuContainer::-webkit-scrollbar-thumb{
+  background: silver; /* 스크롤바 색상 */
+  border-radius: 4px; /* 스크롤바 둥근 테두리 */
+}
+
+.menuContainer::-webkit-scrollbar-track {
+  background: rgba(220, 20, 60, 0.1);
+  border-radius: 8px;
 }
 
 .addInfo{
-  background-color: #F4F4F4;
-  width: 55%;
-  height: 805px;
-  overflow-y: auto;
+  width: 460px;
+  height: 624px;
+  background-color: white;
+  overflow: hidden;
 }
 
 .addInfo h1 {
@@ -53,121 +141,166 @@
   font-style: normal;
   font-weight: 700;
   text-align: center;
-  margin-top: 53px;
+  /*margin-top: 53px;*/
 }
 
 .addInfo .nav{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: 60px;
 }
 .addInfo .nav li{
-  font-size: 24px;
-  padding: 10px;
-  cursor : pointer;
-  border-bottom: solid 2px #4fe94c;
-}
-.addInfo .nav li:nth-child(1){
-  font-size: 24px;
-  padding: 10px;
-  cursor : pointer;
-  border-bottom: solid 2px #4fe94c;
-  border-right: solid 2px #4fe94c;
-}
-.addInfo .category {
-  font-size: 24px;
-  color: #53595F;
-  border-radius:30px;
-  background: rgba(18, 170, 115, 0.18);
-  padding: 10px 5px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 130px;
-  margin: 0 auto;
+  cursor: pointer;
+}
+.addInfo .nav img{
+  padding-right: 5px;
 }
 
-.menuContainer h2{
-  font-size: 34px;
-  font-weight: 600;
-  text-align: center;
-  transform: translate(0px,50px);
+/*활성화 되지 않은 탭에 해당 색깔 부여*/
+.addInfo .nav .inActive{
+  color:#808080;
+  background-color: #E6E6E6;
+}
+
+.addInfo .category {
+  font-size: 13px;
+  border-radius:30px;
+  background: rgba(18, 170, 115, 0.18);
+  padding: 4px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 82px;
+  height:25px;
+  margin:40px;
+  font-weight: bold;
 }
 
 .menuBox {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  padding: 20px;
-  transform: translate(0px,100px);
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  width: 380px;
+  height: 48px;
+  margin-bottom: 32px;
+  margin-left: 40px;
+  position: relative;
 }
 
-.menuBox span {
-  padding-bottom: 10px;
+.menuBox .menuBoxInner{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.menuBox .menuBoxInner h3{
+  font-size:18px;
   font-weight: bold;
 }
-.menuBox span:nth-child(1) {
-  font-weight: 600;
-  font-size: 24px;
+
+.menuBox .menuBoxInner .line{
+  flex-grow: 1; /* 제목과 가격 사이의 여백을 없애고 선이 늘어나도록 함 */
+  height: 1px;
+  margin:12px 12.5px;
+  background-color: rgba(0,0,0,0.1);
 }
 
-.menuBox span:nth-child(3) {
-  font-weight: 300;
-}
-.menuBox span:nth-child(3) {
-  font-weight: 300;
-}
-
-.reviewContainer h3{
-  font-size: 20px;
-  font-weight: 600;
-}
-.reviewContainer span{
-  font-size: 30px;
-  font-weight: 600;
-  color:#5A5A5A;
+.menuBox .menuBoxInner p{
+  font-size:18px;
+  font-weight: bold;
+  margin-top: 2px;
 }
 
-.reviewContainer img{
-  width:200px;
+.menuBox span{
+  font-size:12px;
+  color:#838383;
+  position: absolute;
+  top:30px;
+  left:0;
 }
-.reviewCount{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
+/*------------------------------------*/
+
+
+
 
 /*별점*/
 :host {
   display: block;
 }
-.star-rating {
+.starRating {
   display: flex;
+  margin-right: 9px;
 }
 
 .reviewHeader{
   display: flex;
   justify-content: space-around;
-  padding-bottom: 13px;
-  border-bottom: 3px solid #DDD9D9;
+  width:380px;
+  height:65px;
+  margin:45px;
+}
 
+.reviewContainer .reviewHeader .inner{
+  display: flex;
+}
+
+.reviewContainer .reviewHeader h3{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.reviewContainer .reviewHeader img{
+  width:25.24px;
+  height:24px;
+  padding-right: 4px;
+}
+
+.reviewContainer .reviewHeader span{
+  font-size: 24px;
+  font-weight: 600;
+  color:#5A5A5A;
+  transform: translate(0px,2px);
 }
 
 .reviewScore{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.star img{
-  width:33px;
-  height:33px;
-  margin-bottom: 10px;
+  justify-content: center;
+  width:186px;
+  transform: translate(-19px,0);
 }
 
+.reviewCount{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(0,-5px);
+}
 
 .reviewList{
   height: 453px;
+  padding-right: 40px;
+  padding-left: 40px;
   overflow: auto;
+}
+
+.reviewList::-webkit-scrollbar{
+  width:8px;
+}
+
+.reviewList::-webkit-scrollbar-thumb{
+  background: silver; /* 스크롤바 색상 */
+  border-radius: 4px; /* 스크롤바 둥근 테두리 */
+}
+
+.reviewList::-webkit-scrollbar-track {
+  background: rgba(220, 20, 60, 0.1);
+  border-radius: 8px;
 }

@@ -1,0 +1,31 @@
+body{
+  height:100vh;
+  background: #111;
+}
+.star{
+  position: absolute;
+  z-index: 99;
+  top:0;
+  /*background: #F2C94C;*/
+  /*border-radius: 50%;*/
+  width: 20px;
+  height: 20px;
+  animation : animate 5s linear infinite;
+}
+
+.star::before{
+  position: absolute;
+  content: '⭐';
+  width: 15px;
+  height: 15px;
+  border-radius: 25%;
+}
+
+@keyframes animate {
+  0%{
+    transform : translateY(0) rotate(0deg);
+  }
+  100%{
+    transform: translateY(100vh) rotate(360deg);
+  }
+}

@@ -23,6 +23,13 @@ export class RegisterPageComponent implements OnInit {
     this.voteButtonDel = false;
     this.getData();
     this.loadingLocation();
+
+    if(sessionStorage.getItem('accessToken')){
+      console.log("로그인 한 사용자입니다.")
+    }else{
+      console.log("로그인 하지 않은 사용자입니다.")
+      this.router.navigate(["/start/signin"]);
+    }
   }
 
   //등록된 장소 조회

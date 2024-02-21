@@ -21,9 +21,9 @@ export class LocationDetailComponent implements OnInit, OnChanges{
 
   ngOnInit() {
     // //각 장소 조회
-    // this.apiService.locationEachData(this.id).subscribe((data: any) => {
-    //   this.data = data[0];
-    // });
+    this.apiService.locationEachData(this.id).subscribe((data: any) => {
+      this.data = data[0];
+    });
 
     //각 메뉴 조회
     this.apiService.menuGetData(this.id).subscribe((data: any) => {

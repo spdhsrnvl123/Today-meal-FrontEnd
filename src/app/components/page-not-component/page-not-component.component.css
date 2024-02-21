@@ -1,0 +1,15 @@
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+h1{
+  font-size: 150px;
+  margin-bottom: 110px;
+}
+h2{
+  font-size: 80px;
+}

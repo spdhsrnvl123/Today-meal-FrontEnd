@@ -7,6 +7,10 @@
     <h1>투표종료</h1>
     <p>매일 09:00 ~ 11:00 투표가 진행됩니다</p>
   </div>
+  <div class="foodRain" *ngIf="!voteStatus">
+    <app-food-rain2></app-food-rain2>
+  </div>
+
   <div class="mainContainer">
     <section>
       <div class="section001">
@@ -110,25 +114,25 @@
       >
       </app-card>
     </div>
-<!--    <app-modal-->
-<!--      [width]="975"-->
-<!--      [height]="805"-->
-<!--      [status]="status"-->
-<!--      (close)="closeHandler($event)"-->
-<!--      *ngIf="modalContent == 'modalDetail'"-->
-<!--    >-->
-<!--      <app-location-detail [id]="id" [changeInfo]="locationChangeInfo"/>-->
-<!--    </app-modal>-->
     <app-modal
-      [width]="980"
-      [height]="800"
-      [status]="true"
+      [width]="975"
+      [height]="805"
+      [status]="status"
       (close)="closeHandler($event)"
+      *ngIf="modalContent == 'modalDetail'"
     >
-      <!--      [status]="status"-->
-      <!--      *ngIf="modalContent == 'modalDetail'"-->
-      <app-location-detail [id]="24531540" [changeInfo]="locationChangeInfo"/>
+      <app-location-detail [id]="id" [changeInfo]="locationChangeInfo"/>
     </app-modal>
+<!--    <app-modal-->
+<!--      [width]="980"-->
+<!--      [height]="800"-->
+<!--      [status]="true"-->
+<!--      (close)="closeHandler($event)"-->
+<!--    >-->
+<!--      &lt;!&ndash;      [status]="status"&ndash;&gt;-->
+<!--      &lt;!&ndash;      *ngIf="modalContent == 'modalDetail'"&ndash;&gt;-->
+<!--      <app-location-detail [id]="24531540" [changeInfo]="locationChangeInfo"/>-->
+<!--    </app-modal>-->
     <app-modal
       [width]="636"
       [height]="808"

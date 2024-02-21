@@ -1,5 +1,9 @@
 main{
   height: 1024px;
+  overflow: hidden;
+}
+.foodRain{
+  overflow: hidden;
 }
 
 .mainContainer{

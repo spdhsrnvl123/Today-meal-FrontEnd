@@ -1,73 +1,102 @@
-<div class="modalContent">
-  <div class="descBox">
-    <div class="imgBox">
-      <img mat-card-image *ngIf="data.img; else loading" [src]="data.img"/>
-      <ng-template #loading>이미지 없음</ng-template>
-      <div class="detailBox">
-        <h2>상세정보</h2>
-        <p>{{ data.addr }}</p>
-        <p>{{ data.phonenum }}</p>
-        <p>운영시간 : 매일 10:30 ~ 21:00</p>
-        <p>휴게시간 : 매일 15:30 ~ 17:00</p>
-      </div>
-    </div>
-
-  </div>
-  <div class="addInfo">
+<div class="modalContainer">
+  <div class="titleBox">
     <h1>{{data.title}}</h1>
-    <ul class="nav">
-      <li
-        mat-raised-button
-        (click)="changeInfo = false"
-      >
-        메뉴보기
-      </li>
-      <li
-        mat-raised-button
-        (click)="changeInfo = true"
-      >
-        리뷰보기
-      </li>
-    </ul>
-    <div class="menuContainer" *ngIf="changeInfo == false">
-      <div class="category">
-        {{ data.category }}
+  </div>
+    <div class="modalContent">
+      <div class="descBox">
+        <div class="imgBox">
+          <img class="locationImg" mat-card-image *ngIf="data.img; else loading" [src]="data.img"/>
+          <ng-template #loading>이미지 없음</ng-template>
+        </div>
+        <div class="detailInfoTitle">
+          <h2>상세정보</h2>
+        </div>
+        <div class="detailContainer">
+          <div class="detailBox">
+            <div class="markerBox">
+              <img src="app/assets/marker.png" />
+              <p>{{ data.addr }}</p>
+            </div>
+            <div class="phoneBox">
+              <img src="app/assets/phone.png" />
+              <p>{{ data.phonenum }}</p>
+            </div>
+            <div class="timeBox">
+              <img src="app/assets/time.png" />
+              <p>운영시간 : 매일 10:30 ~ 21:00</p>
+            </div>
+            <p class="breakTime">휴게시간 : 매일 15:30 ~ 17:00</p>
+          </div>
+        </div>
       </div>
-      <div class="menuBox" *ngFor="let menuData of menuDataList.slice(0, 7)">
-        <span>{{ menuData.menu }}</span>
-        <span>{{
-          menuData.price == "" ? "가격정보 없음" : "가격 :" + menuData.price
-          }}</span>
-        <span>{{
-          menuData.description == "" ? "상세설명 없음" : menuData.description
-          }}</span>
-      </div>
-    </div>
-    <!--  메뉴, 리뷰 컨테이너 경계  -->
-    <div class="reviewContainer" *ngIf="changeInfo == true">
-      <div class="reviewHeader">
-        <div class="reviewScore">
-          <h3>사용자 총 평점</h3>
-          <div class="inner">
-            <div class="star-rating">
-              <div class="star" *ngFor="let index of [1, 2, 3, 4, 5]">
-                <img *ngIf="index <= 3" src="app/assets/starFill.png"/>
-                <img *ngIf="index > 3" src="app/assets/starEmpty.png"/>
+      <div class="empty"></div>
+      <div class="addInfo">
+        <ul class="nav">
+          <li
+            mat-raised-button
+            (click)="changeInfo = false"
+            [ngClass]="changeInfo ? 'inActive' : ''"
+          >
+            <img *ngIf="!changeInfo" src="app/assets/menu.png" />
+            <img *ngIf="changeInfo" src="app/assets/menuDisable.png" />
+            메뉴보기
+          </li>
+          <li
+            mat-raised-button
+            (click)="changeInfo = true"
+            [ngClass]="changeInfo ? '' : 'inActive'"
+          >
+            <img *ngIf="!changeInfo" src="app/assets/reviewDisable.png" />
+            <img *ngIf="changeInfo" src="app/assets/review.png" />
+            리뷰보기
+          </li>
+        </ul>
+        <div class="menuContainer" *ngIf="changeInfo == false">
+          <div class="category">
+            {{ data.category }}
+          </div>
+          <div class="menuBox" *ngFor="let menuData of menuDataList">
+            <div class="menuBoxInner">
+              <h3>{{ menuData.menu }}</h3>
+              <div class="line"></div>
+              <p>
+                {{
+                menuData.price == "" ? "가격정보 없음" :  menuData.price
+                }}
+              </p>
+            </div>
+            <span>
+              {{
+              menuData.description == "" ? "상세설명 없음" : menuData.description
+              }}
+            </span>
+          </div>
+        </div>
+        <!--  메뉴, 리뷰 컨테이너 경계  -->
+        <div class="reviewContainer" *ngIf="changeInfo == true">
+          <div class="reviewHeader">
+            <div class="reviewScore">
+              <h3>사용자 총 평점</h3>
+              <div class="inner">
+                <div class="starRating">
+                  <div class="star" *ngFor="let index of [1, 2, 3, 4, 5]">
+                    <img *ngIf="index <= 3" src="app/assets/starFill2.png"/>
+                    <img *ngIf="index > 3" src="app/assets/starEmpty2.png"/>
+                  </div>
+                </div>
+                <span>3</span>
               </div>
             </div>
+            <div class="reviewCount">
+              <h3>전체 리뷰수</h3>
+              <span>20</span>
+            </div>
           </div>
-          <span>3</span>
-        </div>
-        <div class="reviewCount">
-          <h3>전체 리뷰수</h3>
-          <span>7</span>
+          <!--  reviewList가 들어갈 컴포넌트 장소  -->
+          <ul class="reviewList">
+            <app-review-list></app-review-list>
+          </ul>
         </div>
       </div>
-      <!--  reviewList가 들어갈 컴포넌트 장소  -->
-      <ul class="reviewList">
-        <app-review-list></app-review-list>
-      </ul>
-    </div>
   </div>
 </div>
-

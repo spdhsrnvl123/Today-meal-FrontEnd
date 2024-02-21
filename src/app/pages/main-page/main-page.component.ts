@@ -31,12 +31,18 @@ export class MainPageComponent implements OnInit, AfterViewInit {
       // this.voteItemId = sessionStorage.getItem('voteLocation')
       console.log(sessionStorage.getItem('voteLocation'));
     }
+
+    if(sessionStorage.getItem('accessToken')){
+      console.log("로그인 한 사용자입니다.")
+    }else{
+      console.log("로그인 하지 않은 사용자입니다.")
+      this.router.navigate(["/start/signin"]);
+    }
   }
 
   ngAfterViewInit() {
     this.locationGetDataHandler();
   }
-
 
   //등록된 장소 조회
   locationGetDataHandler(id?:any) {

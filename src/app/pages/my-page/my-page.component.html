@@ -1,72 +1,71 @@
 <app-nav></app-nav>
 <div class="mypageContainer">
-<h1>Goofi님의 마이페이지</h1>
-<ul class="myNav">
-  <li (click)="pathMOveStatusHandler(true)" >
-    기본 회원 정보
-  </li>
-  <li (click)="pathMOveStatusHandler(false)">
-    작성한 리뷰
-  </li>
-</ul>
-<div class="contentBox" *ngIf="pathMoveStatus">
-  <div class="nameBox">
-    <span>이름</span>
-    <p>이태형</p>
-  </div>
-  <div class="idBox">
-    <span>아이디</span>
-    <p>goofi</p>
-  </div>
-  <div class="passwordBox" *ngIf="!pwChangeStatus">
-    <span>비밀번호</span>
-    <p>********</p>
-    <button
-      (click)="pwChangesStatusHandler(true)"
-      class="passwordChangesButton"
-      mat-raised-button
-    >
-      비밀번호 변경
-    </button>
-  </div>
-  <!-- 비밀번호 변경 버튼 클릭시 변경 컴포넌트 나타냄 -->
-  <div *ngIf="pwChangeStatus">
-    <app-pw-change
-      (cancelStatus)="pwChangesStatusHandler($event)"
-    ></app-pw-change>
-  </div>
-  <button class="resignButton" mat-raised-button (click)="resignModalHandler()">
-    회원탈퇴
-  </button>
-  <div class="resignMessage">탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요.</div>
-</div>
-  <div class="myReviewContent" *ngIf="!pathMoveStatus">
-<!--    현재 작성한 리뷰가 없습니다.-->
-    <div class="myReview">
-      <app-review-list></app-review-list>
+  <h1>Goofi님의 마이페이지</h1>
+  <ul class="myNav">
+    <li (click)="pathMOveStatusHandler(true)">
+      기본 회원 정보
+    </li>
+    <li (click)="pathMOveStatusHandler(false)">
+      작성한 리뷰
+    </li>
+  </ul>
+  <!--<div class="contentBox" *ngIf="pathMoveStatus">-->
+  <div class="contentBox" *ngIf="!pathMoveStatus">
+    <div class="nameBox">
+      <span>이름</span>
+      <p>이태형</p>
     </div>
-  </div>
-
-<app-modal
-  [width]="608"
-  [height]="306"
-  [status]="status"
-  (close)="closeHandler($event)"
->
-  <h2>회원탈퇴</h2>
-  <mat-form-field class="resignModalInput">
-    <mat-label>비밀번호를 입력해주세요.</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-    >
-      <mat-icon>{{ hide ? "◉" : "◎" }}</mat-icon>
+    <div class="idBox">
+      <span>아이디</span>
+      <p>goofi</p>
+    </div>
+    <div class="passwordBox" *ngIf="!pwChangeStatus">
+      <span>비밀번호</span>
+      <p>********</p>
+      <button
+        (click)="pwChangesStatusHandler(true)"
+        class="passwordChangesButton"
+        mat-raised-button
+      >
+        비밀번호 변경
+      </button>
+    </div>
+    <!-- 비밀번호 변경 버튼 클릭시 변경 컴포넌트 나타냄 -->
+    <div *ngIf="pwChangeStatus">
+      <app-pw-change
+        (cancelStatus)="pwChangesStatusHandler($event)"
+      ></app-pw-change>
+    </div>
+    <button class="resignButton" mat-raised-button (click)="resignModalHandler()">
+      회원탈퇴
     </button>
-  </mat-form-field>
-  <button class="modalConfirm" mat-raised-button>탈퇴하기</button>
-</app-modal>
+    <div class="resignMessage">탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요.</div>
+  </div>
+  <!--  <div class="myReviewContent" *ngIf="!pathMoveStatus">-->
+  <ul class="myReviewContent" *ngIf="pathMoveStatus">
+    <app-my-review-list></app-my-review-list>
+  </ul>
+
+  <app-modal
+    [width]="608"
+    [height]="306"
+    [status]="status"
+    (close)="closeHandler($event)"
+  >
+    <h2>회원탈퇴</h2>
+    <mat-form-field class="resignModalInput">
+      <mat-label>비밀번호를 입력해주세요.</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"/>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "◉" : "◎" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button class="modalConfirm" mat-raised-button>탈퇴하기</button>
+  </app-modal>
 </div>

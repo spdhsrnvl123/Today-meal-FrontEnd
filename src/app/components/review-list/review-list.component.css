@@ -3,8 +3,9 @@
 }
 li{
   padding: 10px 20px;
-  border-bottom: 1px solid #DDD9D9;
   list-style: none;
+  position:relative;
+  margin-bottom: 32px;
 }
 
 .update{
@@ -19,29 +20,37 @@ li{
 }
 
 .star img{
-  width:24px;
-  height:24px;
-  margin-bottom: 10px;
+  width:16.86px;
+  height:16px;
 }
 
 .starRating span{
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color:#5A5A5A;
-  padding-top: 2.3px;
-  padding-left: 4px;
+  transform: translate(15px, -2px);
 }
 
 .name, .date{
-  font-size: 20px;
+  font-size: 14px;
   color:#838383;
+  maring-bottom:4px;
 }
 
 .name {
   padding-right: 20px;
 }
-
 .textBox{
-  font-size:18px;
-  margin-top:10px;
+  font-size:13px;
+  width:380px;
+  height: 40px;
 }
+
+.textAdd{
+  font-size: 12px;
+  color:#838383;
+  position: absolute;
+  bottom:-4px;
+  cursor: pointer;
+}
+
