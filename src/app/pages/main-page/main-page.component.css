@@ -2,6 +2,17 @@ main{
   height: 1024px;
   overflow: hidden;
 }
+
+.trans{
+  position: absolute;
+  top:100px;
+  color: white;
+  background-color: transparent;
+  border: transparent;
+  width: 100px;
+  height: 50px;
+}
+
 .foodRain{
   overflow: hidden;
 }
@@ -94,7 +105,7 @@ section{
 }
 
 .description h2{
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .description .category {
@@ -188,10 +199,11 @@ section{
 }
 
 .confirm{
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 600;
   text-align: center;
   margin-top: -20px;
+  line-height: 50px;
 }
 
 .modalConfirm{

@@ -13,7 +13,7 @@ export class MyPageComponent implements OnInit{
   status = false;
   hide = true;
   pwChangeStatus = false;
-  pathMoveStatus = true;
+  pathMoveStatus = false;
 
   ngOnInit() {
     if(sessionStorage.getItem('accessToken')){

@@ -39,6 +39,7 @@ import { ScrollEventDirective } from './scroll-event.directive';
 import { FoodRain2Component } from './components/food-rain2/food-rain2.component';
 import { PageNotComponentComponent } from './components/page-not-component/page-not-component.component';
 import { MyReviewListComponent } from './components/my-review-list/my-review-list.component';
+import { LoginSuccessComponent } from './layouts/login-success/login-success.component';
 
 @NgModule({
     declarations: [
@@ -71,6 +72,7 @@ import { MyReviewListComponent } from './components/my-review-list/my-review-lis
         FoodRain2Component,
         PageNotComponentComponent,
         MyReviewListComponent,
+        LoginSuccessComponent,
     ],
     imports: [
         BrowserModule,

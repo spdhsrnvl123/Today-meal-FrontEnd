@@ -109,6 +109,7 @@
         [data]="data"
         [show]="voteStatus"
         (status)="modalRepresetReq($event)"
+        (status2)="modalRepresetReq2($event)"
         (myVoteId)="myVoteIdHandler($event)"
         (id)="idRes($event)"
       >
@@ -160,5 +161,18 @@
       >투표취소
       </button>
     </app-modal>
+    <app-modal
+      [width]="506"
+      [height]="280"
+      [status]="status"
+      (close)="closeHandler($event)"
+      *ngIf="modalContent2 == 'modalVoteChange'"
+    >
+      <div class="questionBox">
+        👍
+      </div>
+      <h2 class="confirm">투표 장소가 "{{myVoteLocationData?.title}}" 장소로<br /> 변경되었습니다.</h2>
+    </app-modal>
   </div>
+  <button class="trans" (click)="transform()">전환</button>
 </main>

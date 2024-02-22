@@ -2,10 +2,16 @@
 <div class="mypageContainer">
   <h1>Goofi님의 마이페이지</h1>
   <ul class="myNav">
-    <li (click)="pathMOveStatusHandler(true)">
+    <li
+      (click)="pathMOveStatusHandler(false)"
+      [ngClass]="pathMoveStatus? 'inActive' : 'active'"
+    >
       기본 회원 정보
     </li>
-    <li (click)="pathMOveStatusHandler(false)">
+    <li
+      (click)="pathMOveStatusHandler(true)"
+      [ngClass]="pathMoveStatus ? 'active' : 'inActive'"
+    >
       작성한 리뷰
     </li>
   </ul>

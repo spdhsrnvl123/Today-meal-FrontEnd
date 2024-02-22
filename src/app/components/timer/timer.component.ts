@@ -19,7 +19,7 @@ export class TimerComponent implements OnInit{
   }
 
   getTime() {
-    let dday = new Date(2024, 2, 16, 11, 0, 0);
+    let dday = new Date(2024, 2, 16, 15, 30, 0);
 
     setInterval(() => {
       let now = new Date(); //현재 날짜 및 시간

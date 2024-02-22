@@ -13,10 +13,11 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   status: any;
   id :any;
   modalContent : any;
+  modalContent2 : any
   locationChangeInfo : any = false;
   currentTime : any = 'Loading...'
   date : any;
-  voteStatus :any; // 투표진행중 유무
+  voteStatus :any =true// 투표진행중 유무
   reviewCardId : any;
   myVoteId :any;
   myVoteLocationData :any; //세션에서 투표한 장소 id값과 전체데이터값에서 일치하는 데이터를 추출한 값
@@ -46,8 +47,14 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   //등록된 장소 조회
   locationGetDataHandler(id?:any) {
-    this.apiService.locationGetData().subscribe((data) => {
-      this.data = data;
+    this.apiService.locationGetData().subscribe((data :any) => {
+      console.log(data)
+
+      const result = data?.sort((a:any, b:any) :any =>  {
+        return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
+      });
+
+      this.data = result;
 
       let item = this.data?.filter((data :any)=>{
         return data.id == sessionStorage.getItem('voteLocation');
@@ -76,6 +83,12 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.status = status;
     this.modalContent = "modalDetail"
   }
+  //투표 장소 변경 모달 열기
+  modalRepresetReq2(status: any) {
+    this.status = status;
+    this.modalContent2 = "modalVoteChange"
+  }
+
 
   //리뷰 등록 모달 열기
   reviewRegisterModal(reviewCardInfo : any){
@@ -99,6 +112,8 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   closeHandler(status: any) {
     this.status = status;
     this.locationChangeInfo = false;
+    this.modalContent = '';
+    this.modalContent2 = '';
     console.log(this.locationChangeInfo)
   }
 
@@ -127,11 +142,15 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 22) {
-      this.voteStatus = true;
-    } else {
-      this.voteStatus = false;
-    }
+    // if (hours >= 9 && hours < 22) {
+    //   this.voteStatus = true;
+    // } else {
+    //   this.voteStatus = false;
+    // }
+  }
+
+  transform(){
+    this.voteStatus = !this.voteStatus
   }
 
   // 0:0:0을 방지 -> 00:00:00 표현 함수
@@ -149,6 +168,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     sessionStorage.removeItem('voteLocation');
     this.status = false; //모달창 닫기
     this.myVoteStatus = false; // 현재 투표한 장소 없는 컴포넌트 표시
+    this.modalContent = ""
     this.locationGetDataHandler();
   }
 
@@ -158,4 +178,5 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.myVoteStatus = true;
     this.locationGetDataHandler(this.myVoteId);
   }
+
 }

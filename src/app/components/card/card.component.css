@@ -37,7 +37,7 @@ ul::-webkit-scrollbar-track {
   flex: 0 0 auto; /* 각 카드의 크기를 자동으로 설정하여 고정된 너비를 가짐 */
   width: 209px; /* 원하는 너비 */
   height: 316px;
-  margin: 60px 10px; /* 여백 추가 */
+  margin: 60px 15px; /* 여백 추가 */
   /*border-radius: 10px;*/
   border: 1px solid #e3e3e3;
   /*background-color: #ffffff;*/
@@ -45,6 +45,7 @@ ul::-webkit-scrollbar-track {
   box-shadow: none;
   /*box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);*/
   position: relative;
+  /*animation: represent 1s ease-in-out alternate*/
 }
 
 .exampleButtonContainer{
@@ -153,4 +154,13 @@ p {
   width: 20px;
   height: 20px;
   padding-right: 5px;
+}
+
+@keyframes represent {
+  0% {
+    transform: translate(0px, 20px);
+  }
+  100% {
+    transform: translate(0px,0px);
+  }
 }

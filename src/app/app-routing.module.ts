@@ -8,6 +8,7 @@ import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {StartPageComponent} from './pages/start-page/start-page.component';
 import {MyPageComponent} from './pages/my-page/my-page.component';
 import {PageNotComponentComponent} from "./components/page-not-component/page-not-component.component";
+import {LoginSuccessComponent} from "./layouts/login-success/login-success.component";
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
         path: 'signup',
         component: SignUpComponent,
       },
+      {
+        path:'success',
+        component : LoginSuccessComponent
+      }
     ],
   },
   {

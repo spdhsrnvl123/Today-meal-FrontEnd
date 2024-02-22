@@ -27,6 +27,8 @@ export class SignUpComponent{
     console.log(joinData)
     this.apiService.joinReq(joinData).subscribe(data =>{
         if (data == 1){
+          // @ts-ignore
+          // this.router.navigate("/start/success")
           this.router.navigate(["/start/signin"]);
         }
       }

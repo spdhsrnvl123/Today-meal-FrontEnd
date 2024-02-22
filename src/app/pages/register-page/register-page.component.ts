@@ -34,8 +34,11 @@ export class RegisterPageComponent implements OnInit {
 
   //등록된 장소 조회
   getData() {
-    this.apiService.locationGetData().subscribe((data) => {
-      this.data = data;
+    this.apiService.locationGetData().subscribe((data :any) => {
+      const result = data?.sort((a:any, b:any) :any =>  {
+        return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
+      });
+      this.data = result;
     });
   }
 

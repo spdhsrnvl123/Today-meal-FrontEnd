@@ -1,0 +1,14 @@
+.successBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.successBox h1{
+  font-size: 40px;
+  line-height: 60px;
+}
+.successBox p{
+  font-size: 30px;
+}

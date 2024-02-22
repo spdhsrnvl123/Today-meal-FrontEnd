@@ -18,6 +18,7 @@ export class CardComponent implements OnInit, OnChanges {
   @Output() status = new EventEmitter<Boolean>();
   @Output() delItemModalAction = new EventEmitter<string>();
   @Output() myVoteId  = new EventEmitter<string>();
+  @Output() status2 = new EventEmitter<Boolean>();
 
   voteItemId : any; //각 장소에서 투표버튼을 누른 장소에 따라서 현재 일치하는 id값에 따라서 버튼상태를 다르게 보여주기 위한 값
 
@@ -30,8 +31,8 @@ export class CardComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log(this.show)
+    console.log(this.data)
     if(this.show){
-
     }
   }
 
@@ -51,12 +52,23 @@ export class CardComponent implements OnInit, OnChanges {
   }
 
   voteClickStatusHandler(itemId:any){
-    //투표하기 버튼을 누른 아이템을 id값을 가지고 일치하는 데이터 추출
-    let item = this.data.filter((data :any)=>{
-      return data.id == itemId;
-    })
-    this.voteItemId = item[0].id;
-    sessionStorage.setItem('voteLocation', this.voteItemId);
-    this.myVoteId.emit(item[0].id)
+
+    if(sessionStorage.getItem('voteLocation')){
+      let item = this.data.filter((data :any)=>{
+        return data.id == itemId;
+      })
+      this.voteItemId = item[0].id;
+      this.myVoteId.emit(item[0].id)
+      this.status2.emit(true);
+
+    }else{
+      //투표하기 버튼을 누른 아이템을 id값을 가지고 일치하는 데이터 추출
+      let item = this.data.filter((data :any)=>{
+        return data.id == itemId;
+      })
+      this.voteItemId = item[0].id;
+      sessionStorage.setItem('voteLocation', this.voteItemId);
+      this.myVoteId.emit(item[0].id)
+    }
   }
 }
