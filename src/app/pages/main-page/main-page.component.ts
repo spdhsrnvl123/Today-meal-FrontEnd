@@ -8,34 +8,36 @@ import {Router} from "@angular/router";
   styleUrls: ['./main-page.component.css'],
 })
 export class MainPageComponent implements OnInit, AfterViewInit {
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router) {
+  }
+
   data: any = [];
   status: any;
-  id :any;
-  modalContent : any;
-  modalContent2 : any
-  locationChangeInfo : any = false;
-  currentTime : any = 'Loading...'
-  date : any;
-  voteStatus :any =true// 투표진행중 유무
-  reviewCardId : any;
-  myVoteId :any;
-  myVoteLocationData :any; //세션에서 투표한 장소 id값과 전체데이터값에서 일치하는 데이터를 추출한 값
-  myVoteStatus : any; //투표 유무
+  id: any;
+  modalContent: any;
+  modalContent2: any
+  locationChangeInfo: any = false;
+  currentTime: any = 'Loading...'
+  date: any;
+  voteStatus: boolean = true// 투표진행중 유무
+  reviewCardId: any;
+  myVoteId: any;
+  myVoteLocationData: any; //세션에서 투표한 장소 id값과 전체데이터값에서 일치하는 데이터를 추출한 값
+  myVoteStatus: any; //투표 유무
 
   //초기 등록된 장소 조회
   ngOnInit() {
     console.log(this.myVoteStatus)
     this.startTimer()
-    if(sessionStorage.getItem('voteLocation')){
+    if (sessionStorage.getItem('voteLocation')) {
       this.myVoteStatus = true;
       // this.voteItemId = sessionStorage.getItem('voteLocation')
       console.log(sessionStorage.getItem('voteLocation'));
     }
 
-    if(sessionStorage.getItem('accessToken')){
+    if (sessionStorage.getItem('accessToken')) {
       console.log("로그인 한 사용자입니다.")
-    }else{
+    } else {
       console.log("로그인 하지 않은 사용자입니다.")
       this.router.navigate(["/start/signin"]);
     }
@@ -46,33 +48,30 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   }
 
   //등록된 장소 조회
-  locationGetDataHandler(id?:any) {
-    this.apiService.locationGetData().subscribe((data :any) => {
-      console.log(data)
-
-      const result = data?.sort((a:any, b:any) :any =>  {
+  locationGetDataHandler(id?: any) {
+    this.apiService.locationGetData().subscribe((data: any) => {
+      const result = data?.sort((a: any, b: any): any => {
         return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
       });
 
       this.data = result;
 
-      let item = this.data?.filter((data :any)=>{
+      let item = this.data?.filter((data: any) => {
         return data.id == sessionStorage.getItem('voteLocation');
       })
       this.myVoteLocationData = item[0];
 
       //내가 투표한 장소에 식당을 표시하기 위해서 세션스토리지에 저장되어있는 id값으로 서버에서 받아온 데이터 id값을 비교
-      if(id){
-        let item = this.data?.filter((data :any)=>{
+      if (id) {
+        let item = this.data?.filter((data: any) => {
           return data.id == id
         })
         this.myVoteLocationData = item[0];
-        console.log(this.myVoteLocationData)
       }
     });
   }
 
-  myVoteLocationDetailHander(id:any){
+  myVoteLocationDetailHander(id: any) {
     this.id = id;
     this.status = true;
     this.modalContent = "modalDetail"
@@ -83,15 +82,15 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.status = status;
     this.modalContent = "modalDetail"
   }
+
   //투표 장소 변경 모달 열기
   modalRepresetReq2(status: any) {
     this.status = status;
     this.modalContent2 = "modalVoteChange"
   }
 
-
   //리뷰 등록 모달 열기
-  reviewRegisterModal(reviewCardInfo : any){
+  reviewRegisterModal(reviewCardInfo: any) {
     // this.status = status;
     console.log(reviewCardInfo);
     this.status = reviewCardInfo.status;
@@ -100,9 +99,9 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   }
 
   //카드 컴포넌트에서 id값 받기
-  idRes(id:any){
+  idRes(id: any) {
     console.log(id)
-    if(id){
+    if (id) {
       this.id = id;
       this.locationGetDataHandler();
     }
@@ -117,19 +116,19 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     console.log(this.locationChangeInfo)
   }
 
-  modalVoteCancelOpen(status : any){
+  modalVoteCancelOpen(status: any) {
     this.modalContent = 'modalVoteCancel'
     this.status = status;
   }
 
-  startTimer(){
-    setInterval(()=>{
+  startTimer() {
+    setInterval(() => {
       this.updateCurrentTime();
-    },1000)
+    }, 1000)
   }
 
   //실시간 타이머 로직
-  updateCurrentTime(){
+  updateCurrentTime() {
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth();
@@ -149,7 +148,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     // }
   }
 
-  transform(){
+  transform() {
     this.voteStatus = !this.voteStatus
   }
 
@@ -159,12 +158,12 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   }
 
   //투표 상황
-  voteStatusHandler(voteStatus:boolean){
+  voteStatusHandler(voteStatus: boolean) {
     console.log(voteStatus);
     this.voteStatus = voteStatus
   }
 
-  voteCancel(){
+  voteCancel() {
     sessionStorage.removeItem('voteLocation');
     this.status = false; //모달창 닫기
     this.myVoteStatus = false; // 현재 투표한 장소 없는 컴포넌트 표시
@@ -172,11 +171,10 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.locationGetDataHandler();
   }
 
-  myVoteIdHandler(id:any){
+  myVoteIdHandler(id: any) {
     console.log(id)
     this.myVoteId = id;
     this.myVoteStatus = true;
     this.locationGetDataHandler(this.myVoteId);
   }
-
 }

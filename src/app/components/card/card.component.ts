@@ -9,9 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent implements OnInit, OnChanges {
-  @Input() show:any; // 투표진행 유무 and 등록페이지 유무
-  @Input() data: any = [];
+export class CardComponent implements OnInit {
+  @Input() show: boolean | undefined; // 투표진행 유무 and 등록페이지 유무
+  @Input() data: any = []; //메인컴포넌트에서 데이터를 받아옴
   @Input() pageStatus:any //등록또는 투표종료에 따른 삭제버튼 활성화 값
   @Output() delItemId = new EventEmitter<string>();
   @Output() id = new EventEmitter<string>();
@@ -26,25 +26,16 @@ export class CardComponent implements OnInit, OnChanges {
     if(sessionStorage.getItem('voteLocation')){
       this.voteItemId = sessionStorage.getItem('voteLocation')
     }
-    console.log(this.show)
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.show)
-    console.log(this.data)
-    if(this.show){
-    }
   }
 
   //부모컴포넌트에게 삭제 id값 넘겨주는 메소드
   parentDeleteReq(id: any) {
-    // console.log(id);
     this.delItemModalAction.emit("delItemModalAction")
     this.delItemId.emit(id);
   }
 
   //부모컴포넌트에게 id값 넘겨주는 메소드
-  parentReq(id: any) {
+  parentReq(id: string) {
     //id값 전달
     this.id.emit(id);
     //모달 오픈 요청
@@ -52,7 +43,6 @@ export class CardComponent implements OnInit, OnChanges {
   }
 
   voteClickStatusHandler(itemId:any){
-
     if(sessionStorage.getItem('voteLocation')){
       let item = this.data.filter((data :any)=>{
         return data.id == itemId;

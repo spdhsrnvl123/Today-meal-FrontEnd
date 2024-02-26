@@ -10,7 +10,6 @@
   <div class="foodRain" *ngIf="!voteStatus">
     <app-food-rain2></app-food-rain2>
   </div>
-
   <div class="mainContainer">
     <section>
       <div class="section001">
@@ -124,16 +123,6 @@
     >
       <app-location-detail [id]="id" [changeInfo]="locationChangeInfo"/>
     </app-modal>
-<!--    <app-modal-->
-<!--      [width]="980"-->
-<!--      [height]="800"-->
-<!--      [status]="true"-->
-<!--      (close)="closeHandler($event)"-->
-<!--    >-->
-<!--      &lt;!&ndash;      [status]="status"&ndash;&gt;-->
-<!--      &lt;!&ndash;      *ngIf="modalContent == 'modalDetail'"&ndash;&gt;-->
-<!--      <app-location-detail [id]="24531540" [changeInfo]="locationChangeInfo"/>-->
-<!--    </app-modal>-->
     <app-modal
       [width]="636"
       [height]="808"

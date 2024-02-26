@@ -66,3 +66,29 @@
       >리뷰쓰기</button>
   </li>
 </ul>
+
+<ng-container>
+  <div class="reviewRegister" #modalContent>
+    <h1>리뷰작성하기</h1>
+    <div class="location">
+<!--      <img [src]='item[0].img'  />-->
+<!--      <h3>{{item[0].title}}</h3>-->
+<!--      <span>{{item[0].date}}</span>-->
+    </div>
+    <div class="content">
+      <h2>별점을 입력해주세요.</h2>
+      <div class="starBox">
+        <app-star></app-star>
+      </div>
+      <h2>어떤 점이 좋았나요?</h2>
+      <mat-form-field>
+        <mat-label>최소 10자 이상 입력해주세요.</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <button
+        mat-flat-button
+        color="accent"
+      >등록하기</button>
+    </div>
+  </div>
+</ng-container>
