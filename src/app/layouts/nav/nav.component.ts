@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
+  host:{class: 'rrrrrr'}
 })
 export class NavComponent {
   constructor(private router: Router) {}

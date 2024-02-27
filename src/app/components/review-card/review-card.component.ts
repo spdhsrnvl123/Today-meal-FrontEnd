@@ -1,4 +1,13 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Output, TemplateRef, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  EventEmitter,
+  Output,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-review-card',
@@ -7,14 +16,15 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Output, TemplateRef,
 })
 export class ReviewCardComponent implements AfterViewInit{
   @Output() reviewCardInfo = new EventEmitter<any>();
-  // @Output() id = new EventEmitter<Boolean>();
-  @ViewChild("modalContent") modalContent : ElementRef | undefined;
+  @ViewChild('modalContent') modalContent: TemplateRef<any> | undefined
+  @ViewChild('real') real : TemplateRef<any> | undefined;
+  @ViewChild("greet") greet : TemplateRef<any> | undefined
 
   ngAfterViewInit() {
-    console.log(this.modalContent)
+    console.log(this.greet?.elementRef)
+    console.log(this.real?.elementRef?.nativeElement)
   }
 
-  //리뷰등록 모달 오픈
   open(id:any){
     // this.id.emit(id);
     this.reviewCardInfo.emit({
