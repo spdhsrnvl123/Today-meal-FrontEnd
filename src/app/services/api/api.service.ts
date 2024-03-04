@@ -100,7 +100,7 @@ export class ApiService {
     return this.http.get(`${this.api}/menu/${id}`, this.headerOption);
   }
 
-  //장소 삭제 취소
+  // 장소 삭제 취소
   loadingCancel(id: any) {
     return this.http.get(`${this.api}/loading/cancel/${id}`, this.headerOption);
   }
@@ -108,5 +108,10 @@ export class ApiService {
   // 등록 요청
   vote(data : any) {
     return this.http.post(`${this.api}/vote`, data, this.headerOption);
+  }
+
+  // 내가 투표한 장소 가져오기
+  voteUserData(user_id : any){
+    return this.http.get(`${this.api}/vote/${user_id}`, this.headerOption);
   }
 }

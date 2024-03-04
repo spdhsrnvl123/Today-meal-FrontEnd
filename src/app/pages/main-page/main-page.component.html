@@ -13,13 +13,14 @@
   <div class="mainContainer">
     <section>
       <div class="section001">
-        <div class="myVoteBox" *ngIf="myVoteStatus && voteStatus">
-          <div class="subTitleBox">
+        <div class="myVoteBox" >
+<!--          *ngIf="myVoteStatus && voteStatus"-->
+          <div class="subTitleBox" *ngIf="voteStatus">
             <app-sub-title>
               <h2>내가 투표한 장소</h2>
             </app-sub-title>
           </div>
-          <div class="myVote">
+          <div class="myVote" *ngIf="myVoteLocationData && voteStatus">
             <img class="myVoteImg" [src]="myVoteLocationData?.img"/>
             <div class="description">
               <h2>{{myVoteLocationData?.title}}</h2>
@@ -28,16 +29,16 @@
                 <span>4</span>
               </div>
               <div class="category">{{myVoteLocationData?.category}}</div>
-              <p>
-                매일
-                <br/>
-                10:30 ~ 21:00
-              </p>
-              <p>
-                매일 휴게시간
-                <br/>
-                15:30 ~ 17:00
-              </p>
+<!--              <p>-->
+<!--                매일-->
+<!--                <br/>-->
+<!--                10:30 ~ 21:00-->
+<!--              </p>-->
+<!--              <p>-->
+<!--                매일 휴게시간-->
+<!--                <br/>-->
+<!--                15:30 ~ 17:00-->
+<!--              </p>-->
               <mat-card-actions class="buttonBox">
                 <button
                   mat-raised-button
@@ -50,12 +51,8 @@
             </div>
           </div>
         </div>
-        <div class="myVoteEmpty" *ngIf="!myVoteStatus && voteStatus">
-          <div class="subTitleBox">
-            <app-sub-title>
-              <h2>내가 투표한 장소</h2>
-            </app-sub-title>
-          </div>
+<!--        <div class="myVoteEmpty" *ngIf="!myVoteStatus && voteStatus">-->
+        <div class="myVoteEmpty" *ngIf="!myVoteLocationData">
           <div class="myVote">
             <h3>현재 투표한 장소가 없습니다.</h3>
           </div>

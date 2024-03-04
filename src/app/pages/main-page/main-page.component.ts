@@ -27,20 +27,25 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   //초기 등록된 장소 조회
   ngOnInit() {
-    console.log(this.myVoteStatus)
     this.startTimer()
+
     if (sessionStorage.getItem('voteLocation')) {
       this.myVoteStatus = true;
-      // this.voteItemId = sessionStorage.getItem('voteLocation')
-      console.log(sessionStorage.getItem('voteLocation'));
     }
 
+    //로그인 유무 검사
     if (sessionStorage.getItem('accessToken')) {
       console.log("로그인 한 사용자입니다.")
     } else {
       console.log("로그인 하지 않은 사용자입니다.")
       this.router.navigate(["/start/signin"]);
     }
+
+    //내가 투표한 장소 가져오기
+    this.apiService.voteUserData("spdhsrnvl123").subscribe((data: any) => {
+      this.myVoteLocationData = data;
+      console.log(this.myVoteLocationData)
+    });
   }
 
   ngAfterViewInit() {
@@ -50,22 +55,18 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   //등록된 장소 조회
   locationGetDataHandler(id?: any) {
     this.apiService.locationGetData().subscribe((data: any) => {
+      //등록된 장소 가나다순으로 정렬
       const result = data?.sort((a: any, b: any): any => {
         return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
       });
-
       this.data = result;
-
-      let item = this.data?.filter((data: any) => {
-        return data.id == sessionStorage.getItem('voteLocation');
-      })
-      this.myVoteLocationData = item[0];
 
       //내가 투표한 장소에 식당을 표시하기 위해서 세션스토리지에 저장되어있는 id값으로 서버에서 받아온 데이터 id값을 비교
       if (id) {
         let item = this.data?.filter((data: any) => {
           return data.id == id
         })
+        console.log(item);
         this.myVoteLocationData = item[0];
       }
     });
@@ -172,7 +173,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   }
 
   myVoteIdHandler(id: any) {
-    console.log(id)
     this.myVoteId = id;
     this.myVoteStatus = true;
     this.locationGetDataHandler(this.myVoteId);
