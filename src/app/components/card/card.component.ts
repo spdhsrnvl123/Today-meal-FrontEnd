@@ -3,6 +3,8 @@ import {MatCardModule} from "@angular/material/card";
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import {ApiService} from "../../services/api/api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-card',
@@ -21,6 +23,9 @@ export class CardComponent implements OnInit {
   @Output() status2 = new EventEmitter<Boolean>();
 
   voteItemId : any; //각 장소에서 투표버튼을 누른 장소에 따라서 현재 일치하는 id값에 따라서 버튼상태를 다르게 보여주기 위한 값
+
+  constructor(private apiService: ApiService) {
+  }
 
   ngOnInit() {
     if(sessionStorage.getItem('voteLocation')){
@@ -42,11 +47,24 @@ export class CardComponent implements OnInit {
     this.status.emit(true);
   }
 
+  //투표하기
   voteClickStatusHandler(itemId:any){
+    let voteData = {
+      "user_id": sessionStorage.getItem('userId'),
+      "location_id": itemId
+    }
+
     if(sessionStorage.getItem('voteLocation')){
       let item = this.data.filter((data :any)=>{
         return data.id == itemId;
       })
+
+      //데이터 보내주기(투표하기)
+      this.apiService.vote(voteData).subscribe((res) => {
+        console.log(res)
+      });
+
+
       this.voteItemId = item[0].id;
       this.myVoteId.emit(item[0].id)
       this.status2.emit(true);
@@ -56,6 +74,12 @@ export class CardComponent implements OnInit {
       let item = this.data.filter((data :any)=>{
         return data.id == itemId;
       })
+
+      //데이터 보내주기(투표하기)
+      this.apiService.vote(voteData).subscribe((res) => {
+        console.log(res)
+      });
+
       this.voteItemId = item[0].id;
       sessionStorage.setItem('voteLocation', this.voteItemId);
       this.myVoteId.emit(item[0].id)

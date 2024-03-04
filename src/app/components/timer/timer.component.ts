@@ -54,5 +54,4 @@ export class TimerComponent implements OnInit{
   padZero(num: number) {
     return num < 10 ? '0' + num : num;
   }
-
 }

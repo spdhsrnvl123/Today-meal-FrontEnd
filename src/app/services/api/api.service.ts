@@ -30,7 +30,6 @@ export class ApiService {
   //전달받은 토큰값을 세션스토리지에 저장
   setHeaderOption = (token: string) => {
     sessionStorage.setItem('accessToken', token);
-
     this.headerOption = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -104,5 +103,10 @@ export class ApiService {
   //장소 삭제 취소
   loadingCancel(id: any) {
     return this.http.get(`${this.api}/loading/cancel/${id}`, this.headerOption);
+  }
+
+  // 등록 요청
+  vote(data : any) {
+    return this.http.post(`${this.api}/vote`, data, this.headerOption);
   }
 }

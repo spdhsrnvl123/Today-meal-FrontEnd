@@ -28,7 +28,10 @@ export class SignInComponent {
 
       // FormData를 API 서비스로 전달
       this.apiService.loginReq(formData).subscribe((response: any) => {
-        if (response.accessToken) {
+        console.log(response)
+        if (response) {
+          sessionStorage.setItem('userId', response.username);
+          sessionStorage.setItem('username',response.name);
           //headerOption에 서버에 응답받은 accessToken을 전달
           this.apiService.setHeaderOption(response.accessToken);
           if(sessionStorage.getItem('accessToken')){
