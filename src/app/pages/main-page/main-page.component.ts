@@ -19,13 +19,13 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   locationChangeInfo: any = false;
   currentTime: any = 'Loading...'
   date: any;
-  voteStatus: boolean = true// 투표진행중 유무
+  voteStatus: boolean = true //투표진행중 유무
   reviewCardId: any;
   myVoteId: any;
   myVoteLocationData: any; //세션에서 투표한 장소 id값과 전체데이터값에서 일치하는 데이터를 추출한 값
   myVoteStatus: any; //투표 유무
 
-  voteData : any;
+  voteData : any; //투표한 장소, 회원 정보 데이터
 
   //초기 등록된 장소 조회
   ngOnInit() {
@@ -45,24 +45,24 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
     // 내가 투표한 장소 요청
     this.myVoteReq();
-
-    // 전체 투표한 장소 요청
-    this.voteAllData();
+    // 전체 투표한 장소, 회원 정보 요청
+    this.voteGetData();
   }
 
   ngAfterViewInit() {
     this.locationGetDataHandler();
   }
 
+  //내가 투표한 장소 가져오기
   myVoteReq(){
-    //내가 투표한 장소 가져오기
     this.apiService.voteUserData("spdhsrnvl123").subscribe((data: any) => {
       this.myVoteLocationData = data;
       console.log(this.myVoteLocationData)
     });
   }
 
-  voteAllData(){
+  //투표한 장소, 회원 정보 가져오기
+  voteGetData(){
     this.apiService.voteAllData().subscribe((data: any) => {
       this.voteData = data;
       console.log(this.voteData)
@@ -78,14 +78,10 @@ export class MainPageComponent implements OnInit, AfterViewInit {
       });
       this.data = result;
 
-      //내가 투표한 장소에 식당을 표시하기 위해서 세션스토리지에 저장되어있는 id값으로 서버에서 받아온 데이터 id값을 비교
-      if (id) {
-        let item = this.data?.filter((data: any) => {
-          return data.id == id
-        })
-        console.log(item);
-        this.myVoteLocationData = item[0];
-      }
+      // 내가 투표한 장소 요청
+      this.myVoteReq();
+      // 전체 투표한 장소, 회원 정보 요청
+      this.voteGetData();
     });
   }
 
@@ -137,6 +133,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   modalVoteCancelOpen(status: any) {
     this.modalContent = 'modalVoteCancel'
     this.status = status;
+
   }
 
   startTimer() {
@@ -159,7 +156,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 14) {
+    if (hours >= 9 && hours < 23) {
       this.voteStatus = true;
     } else {
       this.voteStatus = false;
@@ -190,6 +187,8 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
     this.apiService.voteDel(sessionStorage.getItem('userId'))
       .subscribe((data) => {
+        console.log(data);
+        this.voteGetData();
       });
 
     this.myVoteLocationData = null;

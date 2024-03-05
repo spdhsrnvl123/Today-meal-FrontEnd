@@ -159,7 +159,15 @@ section{
 
 /* ------------ */
 .section002{
-  transform: translate(10px,133px);
+  transform: translate(10px,132px);
+}
+
+.section002 .rankBox{
+  width: 340px;
+  height: 316px;
+  background-color: #F9FAFB;
+  border : 1px solid #D0D5DD;
+  border-radius: 16px;
 }
 
 .section002 .realTimeBox{

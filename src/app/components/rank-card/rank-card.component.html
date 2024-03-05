@@ -1,12 +1,8 @@
-<li class="rankBox">
-  <img src="app/assets/card.png" alt="card" />
+<li class="rankList" *ngFor="let data of voteData">
   <div class="imgBox">
-    <img src="app/assets/reviewOne.jpg" alt="card" />
-  </div>
-  <h3 class="rank">#1</h3>
-  <h3 class="title">가츠몽</h3>
-  <p class="voteCount">투표 수 : 5</p>
-  <div class="category">일식</div>
+      <img [src]="data.img" alt="card" />
+    </div>
+    <h3 class="rank">#1</h3>
+    <h3 class="title">{{data.title}}</h3>
+    <p class="voteCount">{{data.vote_count}}</p>
 </li>
-
-

@@ -1,65 +1,12 @@
-.rankBox {
-  width: 330px;
-  height: 113px;
-  transform: translate(-30px, 0);
-}
-
-.rankBox:nth-child(2) {
-  width: 330px;
-  height: 113px;
-  transform: translate(-30px, 0);
-}
-
-.rankBox:nth-child(3) {
-  width: 330px;
-  height: 113px;
-  transform: translate(-30px, 0);
-}
-
-
-.imgBox {
-  width: 47px;
-  height: 47px;
-  background-color: rgb(214, 228, 233);
-  border-radius: 50%;
-  transform: translate(20px, -82px);
-}
-
-.imgBox img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.rank {
-  transform: translate(90px, -116px);
-  font-size: 21px;
-  font-weight: bold;
-}
-
-.title {
-  font-size: 1.3em;
-  font-weight: bold;
-  transform: translate(130px, -160px);
-}
-
-.voteCount {
-  color: red;
-  font-size: 14px;
-  transform: translate(280px, -200px);
-}
-
-.category {
-  font-size: 0.7rem;
-  width: 6em;
-  padding: 0.05em;
-  color: #53595f;
-  border-radius: 30px;
-  background: rgba(18, 170, 115, 0.18);
+.rankList{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 13px;
-  transform: translate(0px, -208px);
+}
+
+.imgBox{
+  width: 56px;
+  height: 56px;
+}
+.imgBox img{
+  width:100%;
+  height:100%;
 }

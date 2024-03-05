@@ -64,7 +64,6 @@ export class CardComponent implements OnInit {
         console.log(res)
       });
 
-
       this.voteItemId = item[0].id;
       this.myVoteId.emit(item[0].id)
       this.status2.emit(true);
