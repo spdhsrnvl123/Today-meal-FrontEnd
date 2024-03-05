@@ -25,6 +25,8 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   myVoteLocationData: any; //세션에서 투표한 장소 id값과 전체데이터값에서 일치하는 데이터를 추출한 값
   myVoteStatus: any; //투표 유무
 
+  voteData : any;
+
   //초기 등록된 장소 조회
   ngOnInit() {
     this.startTimer()
@@ -41,6 +43,18 @@ export class MainPageComponent implements OnInit, AfterViewInit {
       this.router.navigate(["/start/signin"]);
     }
 
+    // 내가 투표한 장소 요청
+    this.myVoteReq();
+
+    // 전체 투표한 장소 요청
+    this.voteAllData();
+  }
+
+  ngAfterViewInit() {
+    this.locationGetDataHandler();
+  }
+
+  myVoteReq(){
     //내가 투표한 장소 가져오기
     this.apiService.voteUserData("spdhsrnvl123").subscribe((data: any) => {
       this.myVoteLocationData = data;
@@ -48,8 +62,11 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    this.locationGetDataHandler();
+  voteAllData(){
+    this.apiService.voteAllData().subscribe((data: any) => {
+      this.voteData = data;
+      console.log(this.voteData)
+    });
   }
 
   //등록된 장소 조회
@@ -142,11 +159,11 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    // if (hours >= 9 && hours < 22) {
-    //   this.voteStatus = true;
-    // } else {
-    //   this.voteStatus = false;
-    // }
+    if (hours >= 9 && hours < 13) {
+      this.voteStatus = true;
+    } else {
+      this.voteStatus = false;
+    }
   }
 
   transform() {
@@ -170,6 +187,12 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.myVoteStatus = false; // 현재 투표한 장소 없는 컴포넌트 표시
     this.modalContent = ""
     this.locationGetDataHandler();
+
+    this.apiService.voteDel(sessionStorage.getItem('userId'))
+      .subscribe((data) => {
+      });
+
+    this.myVoteLocationData = null;
   }
 
   myVoteIdHandler(id: any) {

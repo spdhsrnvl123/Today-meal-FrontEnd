@@ -110,7 +110,7 @@ section{
 
 .description .category {
   font-size: 0.7rem;
-  width: 6em;
+  width: 8em;
   padding: 0.05em;
   color: #53595F;
   border-radius:30px;
@@ -120,10 +120,12 @@ section{
   align-items: center;
   margin: 0 auto;
   margin-bottom: 12px;
+  display: inline-block;
 }
 .description p{
   font-size: 15px;
-  font-weight:400;
+  font-weight:600;
+  line-height: 20px;
 }
 
 .subTitleBox{

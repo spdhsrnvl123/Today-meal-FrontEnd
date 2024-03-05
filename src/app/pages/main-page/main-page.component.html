@@ -29,16 +29,14 @@
                 <span>4</span>
               </div>
               <div class="category">{{myVoteLocationData?.category}}</div>
-<!--              <p>-->
-<!--                매일-->
-<!--                <br/>-->
-<!--                10:30 ~ 21:00-->
-<!--              </p>-->
-<!--              <p>-->
-<!--                매일 휴게시간-->
-<!--                <br/>-->
-<!--                15:30 ~ 17:00-->
-<!--              </p>-->
+              <p>
+                운영시간
+              </p>
+              <span>준비예정</span>
+              <p>
+                휴게시간
+              </p>
+              <span>준비예정</span>
               <mat-card-actions class="buttonBox">
                 <button
                   mat-raised-button
@@ -52,7 +50,7 @@
           </div>
         </div>
 <!--        <div class="myVoteEmpty" *ngIf="!myVoteStatus && voteStatus">-->
-        <div class="myVoteEmpty" *ngIf="!myVoteLocationData">
+        <div class="myVoteEmpty" *ngIf="!myVoteLocationData && voteStatus">
           <div class="myVote">
             <h3>현재 투표한 장소가 없습니다.</h3>
           </div>
