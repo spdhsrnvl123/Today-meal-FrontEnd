@@ -72,14 +72,16 @@
         </div>
       </div>
       <div class="section003" *ngIf="voteStatus">
-        <div class="subTitleBox">
-          <app-sub-title>
-            <h2>지난 투표 결과</h2>
-          </app-sub-title>
+        <div class="commingSoon">
+          <div class="subTitleBox">
+            <app-sub-title>
+              <h2>지난 투표 결과</h2>
+            </app-sub-title>
+          </div>
+          <app-review-card
+            (reviewCardInfo)="reviewRegisterModal($event)"
+          />
         </div>
-        <app-review-card
-          (reviewCardInfo)="reviewRegisterModal($event)"
-        />
       </div>
       <!--   투표가 끝났을때의 UI를 표현하기 위해   -->
       <div class="section003-voteTerminate" *ngIf="!voteStatus">

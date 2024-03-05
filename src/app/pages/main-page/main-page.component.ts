@@ -159,7 +159,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 13) {
+    if (hours >= 9 && hours < 14) {
       this.voteStatus = true;
     } else {
       this.voteStatus = false;

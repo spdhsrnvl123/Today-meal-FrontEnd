@@ -64,38 +64,17 @@ ul::-webkit-scrollbar-track {
 
 .imgBoxOne {
   position: relative;
-  top: 3%;
-  left: 7.5%;
-  width: 178px;
+  width: 100%;
   height: 171px;
   background-color: #d8cbf6;
-  border-radius: 40px;
-  border-bottom-left-radius: 70px;
-  border-bottom-right-radius: 70px;
 }
 
-.imgBoxTwo {
-  position: absolute;
-  top: 3%;
-  left: 0.2%;
-  width: 168px;
-  height: 162px;
-  background-color: #e2f3d1;
-  border-radius: 40px;
-  border-bottom-left-radius: 70px;
-  border-bottom-right-radius: 70px;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.imgBoxOne .imgBoxTwo img {
+.imgBoxOne img {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 158px;
-  height: 153px;
+  width: 100%;
+  height: 100%;
 }
 
 .textBox {
@@ -142,7 +121,19 @@ p {
   font-size: 1rem;
   margin: 0 5px;
   box-shadow: none;
+  font-weight: bold;
+  border: 1px solid #D0D5DD;
 }
+.buttonBox .voteButton{
+  background-color: #34B913;
+  color: white;
+  font-weight: bold;
+}
+
+.delButton{
+  background-color: #4b5153;
+}
+
 
 .starBox{
   display: flex;

@@ -5,29 +5,27 @@
       <button
         (click)="parentDeleteReq(item.id)"
         mat-fab
-        color="warn"
+        class="delButton"
         aria-label="Example icon button with a delete icon"
       >
-        X
+        🗑️
       </button>
     </div>
     <div class="imgBoxOne">
-      <div class="imgBoxTwo">
-        <img
-          mat-card-image
-          *ngIf="item.img; else loading"
-          [attr.src]="item.img"
-        />
-        <ng-template #loading >이미지 없음</ng-template>
-      </div>
+      <img
+        mat-card-image
+        *ngIf="item.img; else loading"
+        [attr.src]="item.img"
+      />
+      <ng-template #loading>이미지 없음</ng-template>
     </div>
     <div class="textBox">
       <h2>{{ item.title }}</h2>
       <mat-card-content>
-        <div class="starBox">
-          <img src="app/assets/starFill.png" alt="foodRainOne"/>
-          <span>4</span>
-        </div>
+<!--        <div class="starBox">-->
+<!--          <img src="app/assets/starFill.png" alt="foodRainOne"/>-->
+<!--          <span>4</span>-->
+<!--        </div>-->
         <div class="category">
           {{ item.category }}
         </div>
@@ -35,18 +33,20 @@
       <mat-card-actions class="buttonBox">
         <button
           *ngIf="show && !voteItemId && !pageStatus"
-          mat-raised-button color="primary"
+          mat-raised-button
+          class="voteButton"
           (click)="voteClickStatusHandler(item.id)">
           투표하기
         </button>
         <button
-          mat-raised-button color="primary"
+          mat-raised-button
+          class="voteButton"
           *ngIf="show && voteItemId && !pageStatus"
           (click)="voteClickStatusHandler(item.id)"
         >
           투표하기
         </button>
-        <button (click)="parentReq(item.id)"  mat-flat-button color="accent">상세보기</button >
+        <button (click)="parentReq(item.id)" mat-flat-button >상세보기</button>
       </mat-card-actions>
     </div>
   </mat-card>
