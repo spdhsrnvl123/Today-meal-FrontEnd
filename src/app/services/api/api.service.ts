@@ -125,8 +125,18 @@ export class ApiService {
     return this.http.get(`${this.api}/vote`, this.headerOption);
   }
 
-  get(restApi: string, option?: any) {
-    return this.http.get(restApi, option) ;
+  // 회원탈퇴
+  userLeave(data : any){
+    return this.http.post(`${this.api}/user/cancel`,data , this.headerOption)
   }
+
+  // 비밀번호 변경
+  userChange(data : any){
+    return this.http.post(`${this.api}/user/password`,data , this.headerOption)
+  }
+
+  // get(restApi: string, option?: any) {
+  //   return this.http.get(restApi, option) ;
+  // }
 
 }

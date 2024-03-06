@@ -49,6 +49,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.myVoteReq();
     // 전체 투표한 장소, 회원 정보 요청
     this.voteGetData();
+
   }
 
   ngAfterViewInit() {
@@ -169,7 +170,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 18) {
+    if (hours >= 9 && hours < 21) {
       this.voteStatus = true;
     } else {
       this.voteStatus = false;

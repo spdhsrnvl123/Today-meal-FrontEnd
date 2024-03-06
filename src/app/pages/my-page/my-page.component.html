@@ -51,8 +51,6 @@
   <ul class="myReviewContent" *ngIf="pathMoveStatus">
     <app-my-review-list></app-my-review-list>
   </ul>
-
-
   <app-modal
     [width]="608"
     [height]="306"
@@ -62,7 +60,7 @@
     <h2>회원탈퇴</h2>
     <mat-form-field class="resignModalInput">
       <mat-label>비밀번호를 입력해주세요.</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'"/>
+      <input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'"/>
       <button
         mat-icon-button
         matSuffix
@@ -89,7 +87,7 @@
         </mat-icon>
       </button>
     </mat-form-field>
-    <button class="modalConfirm" mat-raised-button>탈퇴하기</button>
+    <button class="modalConfirm" (click)="userChangeHandler()" mat-raised-button>탈퇴하기</button>
+    <p class="errorMessage">{{message}}</p>
   </app-modal>
-
 </div>

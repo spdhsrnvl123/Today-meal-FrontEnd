@@ -8,12 +8,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./my-page.component.css'],
 })
 export class MyPageComponent implements OnInit{
-  constructor(private router: Router) {}
+  constructor(private router: Router, private apiService : ApiService) {}
 
   status = false;
   hide = true;
   pwChangeStatus = false;
   pathMoveStatus = false;
+  password = '';
+  message : string  = '';
 
   userId : any;
   userName : any;
@@ -28,6 +30,7 @@ export class MyPageComponent implements OnInit{
 
     this.userId = sessionStorage.getItem('userId');
     this.userName = sessionStorage.getItem('username');
+    console.log(this.password)
   }
 
   pathMOveStatusHandler(status:any){
@@ -37,6 +40,8 @@ export class MyPageComponent implements OnInit{
   //모달에서 닫기 버튼을 했을때 상태값 받아오기
   closeHandler(status: any) {
     this.status = status;
+    this.message = ''
+    this.password = ''
   }
 
   pwChangesStatusHandler(pwChangeStatus: any) {
@@ -45,6 +50,23 @@ export class MyPageComponent implements OnInit{
 
   resignModalHandler() {
     this.status = true;
-
   }
+
+  //회원탈퇴 요청
+  userChangeHandler(){
+    let data = {
+      "user_id" : sessionStorage.getItem('userId'),
+      "password" : this.password
+    }
+
+    this.apiService.userLeave(data).subscribe((data)=>{
+      console.log(data);
+      if(data == 1){
+        this.router.navigate(["/start/signin"]);
+      }else{
+        this.message = "비밀번호를 다시 입력해주세요."
+      }
+    })
+  }
+
 }
