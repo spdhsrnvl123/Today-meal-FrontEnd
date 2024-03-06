@@ -31,6 +31,7 @@
         matInput id="id"
         name="id"
         ngModel
+        [(ngModel)]="formData.user_id"
         minlength="3"
         #id="ngModel"
         (ngModelChange)="onIdChange($event)"
@@ -85,6 +86,7 @@
       />
     </mat-form-field>
     <br/>
+    <p style="text-align: center; font-size: 20px; color: red">{{message}}</p>
     <button
       mat-raised-button
       class="generateButton"
