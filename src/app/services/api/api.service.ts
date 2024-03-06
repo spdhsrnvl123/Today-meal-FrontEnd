@@ -125,4 +125,8 @@ export class ApiService {
     return this.http.get(`${this.api}/vote`, this.headerOption);
   }
 
+  get(restApi: string, option?: any) {
+    return this.http.get(restApi, option) ;
+  }
+
 }

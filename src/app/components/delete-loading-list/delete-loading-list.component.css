@@ -33,11 +33,11 @@ button{
 }
 
 .text-box h2 {
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 700;
 }
 .text-box p {
-  font-size: 13px;
+  font-size: 11px;
   position: absolute;
   top: 60%;
   min-width: 200px;

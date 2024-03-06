@@ -124,6 +124,7 @@ p {
   font-weight: bold;
   border: 1px solid #D0D5DD;
 }
+
 .buttonBox .voteButton{
   background-color: #34B913;
   color: white;
@@ -131,9 +132,11 @@ p {
 }
 
 .delButton{
-  background-color: #4b5153;
+  background-color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .starBox{
   display: flex;

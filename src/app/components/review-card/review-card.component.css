@@ -10,8 +10,8 @@
   transform: translate(110px, 25px);
 }
 
-.reviewCardBox h2 {
-  transform: translate(24px, -360px);
+.reviewCardBox svg {
+  transform: translate(100px, -350px);
   font-size: 20px;
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(0px,-285px);
+  transform: translate(0px,-235px);
 }
 .starBox img{
   width: 20px;
@@ -50,41 +50,27 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  transform: translate(0px, -250px);
+  transform: translate(0px, -230px);
 }
 
 .imgBoxOne {
   transform: translate(10px, -200px);
   width: 118px;
   height: 111px;
-  background-color: #d8cbf6;
-  border-radius: 40px;
-  border-bottom-left-radius: 70px;
-  border-bottom-right-radius: 70px;
 }
 
-.imgBoxTwo {
-  transform: translate(0px, 7px);
-  width: 108px;
-  height: 102px;
-  background-color: #e2f3d1;
-  border-radius: 40px;
-  border-bottom-left-radius: 70px;
-  border-bottom-right-radius: 70px;
-}
-
-
-.imgBoxOne .imgBoxTwo img {
-  transform: translate(0.3px, 7.3px);
-  width: 107.3px;
-  height: 95px;
-  border-radius: 50%;
-  border-top-right-radius: 24.8%;
+.imgBoxOne img {
+  transform: translate(0.3px, 3.3px);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 
  button {
   padding:3px 5px;
   font-size: 16px;
   box-shadow: none;
-   transform: translate(37px,-240px);
+   transform: translate(37px,-220px);
+   font-weight: bold;
+   border: 1px solid #D0D5DD;
 }

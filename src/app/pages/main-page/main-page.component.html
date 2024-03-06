@@ -24,27 +24,26 @@
             <img class="myVoteImg" [src]="myVoteLocationData?.img"/>
             <div class="description">
               <h2>{{myVoteLocationData?.title}}</h2>
-              <div class="starBox">
-                <img src="app/assets/starFill.png" alt="foodRainOne"/>
-                <span>4</span>
-              </div>
+<!--              <div class="starBox">-->
+<!--                <img src="app/assets/starFill.png" alt="foodRainOne"/>-->
+<!--                <span>4</span>-->
+<!--              </div>-->
               <div class="category">{{myVoteLocationData?.category}}</div>
-              <p>
-                운영시간
-              </p>
-              <span>준비예정</span>
-              <p>
-                휴게시간
-              </p>
-              <span>준비예정</span>
+<!--              <p>-->
+<!--                운영시간-->
+<!--              </p>-->
+<!--              <span>준비예정</span>-->
+<!--              <p>-->
+<!--                휴게시간-->
+<!--              </p>-->
+<!--              <span>준비예정</span>-->
               <mat-card-actions class="buttonBox">
                 <button
                   mat-raised-button
-                  color="warn"
                   (click)="modalVoteCancelOpen(true)"
                 >투표취소
                 </button>
-                <button mat-flat-button color="accent" (click)="myVoteLocationDetailHander(myVoteLocationData.id)">상세보기</button>
+                <button mat-flat-button (click)="myVoteLocationDetailHander(myVoteLocationData.id)">상세보기</button>
               </mat-card-actions>
             </div>
           </div>
@@ -56,16 +55,16 @@
           </div>
         </div>
         <div class="rankTopBox" *ngIf="!voteStatus">
-          <app-rank-top></app-rank-top>
+          <app-rank-top [voteData]="voteData" />
         </div>
       </div>
       <div class="section002">
+        <div class="subTitleBox"  *ngIf="voteStatus">
+          <app-sub-title>
+            <h2>투표 순위</h2>
+          </app-sub-title>
+        </div>
         <div class="rankBox" *ngIf="voteStatus">
-          <div class="subTitleBox">
-            <app-sub-title>
-              <h2>투표 순위</h2>
-            </app-sub-title>
-          </div>
           <ul>
             <app-rank-card [voteData]="voteData"/>
           </ul>
@@ -75,7 +74,7 @@
         <div class="commingSoon">
           <div class="subTitleBox">
             <app-sub-title>
-              <h2>지난 투표 결과</h2>
+              <h2 style="font-size: 20px">리뷰서비스(Comming Soon!)</h2>
             </app-sub-title>
           </div>
           <app-review-card
@@ -84,16 +83,16 @@
         </div>
       </div>
       <!--   투표가 끝났을때의 UI를 표현하기 위해   -->
-      <div class="section003-voteTerminate" *ngIf="!voteStatus">
-        <div class="subTitleBox">
-          <app-sub-title>
-            <h2>지난 투표 결과</h2>
-          </app-sub-title>
-        </div>
-        <app-review-card
-          (reviewCardInfo)="reviewRegisterModal($event)"
-        />
-      </div>
+<!--      <div class="section003-voteTerminate" *ngIf="!voteStatus">-->
+<!--        <div class="subTitleBox">-->
+<!--          <app-sub-title>-->
+<!--            <h2>지난 투표 결과</h2>-->
+<!--          </app-sub-title>-->
+<!--        </div>-->
+<!--        <app-review-card-->
+<!--          (reviewCardInfo)="reviewRegisterModal($event)"-->
+<!--        />-->
+<!--      </div>-->
     </section>
     <div class="subTitleBox voteLocation" *ngIf="voteStatus">
       <app-sub-title>
@@ -151,7 +150,6 @@
       [width]="506"
       [height]="280"
       [status]="status"
-      (close)="closeHandler($event)"
       *ngIf="modalContent2 == 'modalVoteChange'"
     >
       <div class="questionBox">

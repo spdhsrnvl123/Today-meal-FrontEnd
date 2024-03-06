@@ -15,6 +15,9 @@ export class MyPageComponent implements OnInit{
   pwChangeStatus = false;
   pathMoveStatus = false;
 
+  userId : any;
+  userName : any;
+
   ngOnInit() {
     if(sessionStorage.getItem('accessToken')){
       console.log("로그인 한 사용자입니다.")
@@ -22,6 +25,9 @@ export class MyPageComponent implements OnInit{
       console.log("로그인 하지 않은 사용자입니다.")
       this.router.navigate(["/start/signin"]);
     }
+
+    this.userId = sessionStorage.getItem('userId');
+    this.userName = sessionStorage.getItem('username');
   }
 
   pathMOveStatusHandler(status:any){
@@ -39,5 +45,6 @@ export class MyPageComponent implements OnInit{
 
   resignModalHandler() {
     this.status = true;
+
   }
 }
