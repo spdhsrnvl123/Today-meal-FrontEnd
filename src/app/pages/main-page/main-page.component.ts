@@ -25,11 +25,13 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   myVoteLocationData: any; //세션에서 투표한 장소 id값과 전체데이터값에서 일치하는 데이터를 추출한 값
   myVoteStatus: any; //투표 유무
 
-  voteData : any; //투표한 장소, 회원 정보 데이터
+  voteData : any = []; //투표한 장소, 회원 정보 데이터
 
   //초기 등록된 장소 조회
   ngOnInit() {
     this.startTimer()
+
+    console.log(this.voteData)
 
     if (sessionStorage.getItem('voteLocation')) {
       this.myVoteStatus = true;
@@ -55,7 +57,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   //내가 투표한 장소 가져오기
   myVoteReq(){
-    this.apiService.voteUserData("spdhsrnvl123").subscribe((data: any) => {
+    this.apiService.voteUserData(sessionStorage.getItem('userId')).subscribe((data: any) => {
       this.myVoteLocationData = data;
       console.log(this.myVoteLocationData)
     });
@@ -101,6 +103,17 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   modalRepresetReq2(status: any) {
     this.status = status;
     this.modalContent2 = "modalVoteChange"
+
+    // 내가 투표한 장소 요청
+    this.myVoteReq();
+    // 전체 투표한 장소, 회원 정보 요청
+    this.voteGetData();
+
+    //1초 뒤 종료
+    setTimeout(()=>{
+      // @ts-ignore
+      this.closeHandler()
+    },1200)
   }
 
   //리뷰 등록 모달 열기
@@ -156,7 +169,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 23) {
+    if (hours >= 9 && hours < 18) {
       this.voteStatus = true;
     } else {
       this.voteStatus = false;
@@ -190,6 +203,10 @@ export class MainPageComponent implements OnInit, AfterViewInit {
         console.log(data);
         this.voteGetData();
       });
+    // 내가 투표한 장소 요청
+    this.myVoteReq();
+    // 전체 투표한 장소, 회원 정보 요청
+    this.voteGetData();
 
     this.myVoteLocationData = null;
   }
