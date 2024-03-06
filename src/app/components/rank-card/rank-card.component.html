@@ -1,8 +1,19 @@
-<li class="rankList" *ngFor="let data of voteData">
+<div class="emptyBox" *ngIf="voteData.length == 0">투표 순위가 없습니다.</div>
+<li class="rankBox" *ngFor="let list of data">
+  <img src="app/assets/card.png" alt="card" />
   <div class="imgBox">
-      <img [src]="data.img" alt="card" />
-    </div>
-    <h3 class="rank">#1</h3>
-    <h3 class="title">{{data.title}}</h3>
-    <p class="voteCount">{{data.vote_count}}</p>
+    <img [src]="list.img" alt="card" />
+  </div>
+  <div class="rank"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="28" height="28" rx="8" fill="#FEAF01"/>
+    <mask id="mask0_914_1668" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="24" height="24">
+      <rect x="2" y="2" width="24" height="24" fill="#D9D9D9"/>
+    </mask>
+    <g mask="url(#mask0_914_1668)">
+      <path d="M14.0059 21.649L12.1559 23.049C11.9559 23.199 11.7559 23.2032 11.5559 23.0615C11.3559 22.9199 11.2975 22.7324 11.3809 22.499L12.1059 20.199L10.2809 18.899C10.0809 18.7657 10.0225 18.5824 10.1059 18.349C10.1892 18.1157 10.3475 17.999 10.5809 17.999H12.8059L13.5059 15.699L9.95586 13.599C9.65586 13.4157 9.42253 13.174 9.25586 12.874C9.08919 12.574 9.00586 12.2324 9.00586 11.849V5.99902C9.00586 5.44902 9.20169 4.97819 9.59336 4.58652C9.98503 4.19486 10.4559 3.99902 11.0059 3.99902H17.0059C17.5559 3.99902 18.0267 4.19486 18.4184 4.58652C18.81 4.97819 19.0059 5.44902 19.0059 5.99902V11.849C19.0059 12.2324 18.9225 12.574 18.7559 12.874C18.5892 13.174 18.3559 13.4157 18.0559 13.599L14.5059 15.699L15.2059 17.999H17.4309C17.6642 17.999 17.8225 18.1157 17.9059 18.349C17.9892 18.5824 17.9309 18.7657 17.7309 18.899L15.9059 20.199L16.6309 22.499C16.7142 22.7324 16.6559 22.9199 16.4559 23.0615C16.2559 23.2032 16.0559 23.199 15.8559 23.049L14.0059 21.649ZM13.0059 5.99902V13.049L14.0059 13.649L15.0059 13.049V5.99902H13.0059Z" fill="white"/>
+    </g>
+  </svg>
+    <p>{{list.rank}}위<p></div>
+  <h3 class="title">{{list.title}}</h3>
+  <p class="voteCount"> 투표 수 : {{list.vote_count}}</p>
 </li>

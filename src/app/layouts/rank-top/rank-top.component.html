@@ -4,18 +4,9 @@
   </app-sub-title>
 </div>
 <div class="rankResultBox">
-  <img class="topImg" src="app/assets/reviewTwo.jpg" alt="foodRainOne"/>
+  <img class="topImg" [src]="highestVoteItem.img" alt="foodRainOne"/>
   <div class="description">
-    <h2>흑도야지</h2>
-    <div class="starBox">
-      <img src="app/assets/starFill.png" alt="foodRainOne"/>
-      <span>4</span>
-    </div>
-    <div class="category">육류, 고기</div>
-    <p>서울 강남구 봉은사로 610</p>
-    <p>(우)04390</p>
-    <p>02-790-7300</p>
-    <p>매일 10:30 ~ 21:00</p>
-    <p>매일 휴게시간 15:30 ~ 17:00</p>
+    <h2>{{highestVoteItem.title}}</h2>
+    <p>투표수 : {{highestVoteItem.vote_count}}</p>
   </div>
 </div>
