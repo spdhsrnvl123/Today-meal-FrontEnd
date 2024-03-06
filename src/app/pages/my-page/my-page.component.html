@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <div class="mypageContainer">
-  <h1>Goofi님의 마이페이지</h1>
+  <h1>{{userName}}님의 마이페이지</h1>
   <ul class="myNav">
     <li
       (click)="pathMOveStatusHandler(false)"
@@ -12,18 +12,18 @@
       (click)="pathMOveStatusHandler(true)"
       [ngClass]="pathMoveStatus ? 'active' : 'inActive'"
     >
-      작성한 리뷰
+      리뷰 서비스(Comming Soon!)
     </li>
   </ul>
   <!--<div class="contentBox" *ngIf="pathMoveStatus">-->
   <div class="contentBox" *ngIf="!pathMoveStatus">
     <div class="nameBox">
       <span>이름</span>
-      <p>이태형</p>
+      <p>{{userName}}</p>
     </div>
     <div class="idBox">
       <span>아이디</span>
-      <p>goofi</p>
+      <p>{{userId}}</p>
     </div>
     <div class="passwordBox" *ngIf="!pwChangeStatus">
       <span>비밀번호</span>
