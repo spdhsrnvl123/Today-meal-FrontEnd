@@ -149,6 +149,7 @@ section{
 }
 .myVoteEmpty .myVote h3{
   font-size: 30px;
+  font-weight: bold;
 }
 
 .rankTopBox{
@@ -159,6 +160,11 @@ section{
 /* ------------ */
 .section002{
   transform: translate(-20px,132px);
+  width: 420px;
+}
+
+.section002 .rankBox{
+  transform: translate(68px,0px);
 }
 
 .section002 .realTimeBox{

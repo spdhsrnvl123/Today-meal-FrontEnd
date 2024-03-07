@@ -23,6 +23,5 @@ export class RankCardComponent implements OnChanges{
       data[i]["rank"] = rank;
     }
     this.data = data.slice(0,3);
-    console.log(this.data)
   }
 }

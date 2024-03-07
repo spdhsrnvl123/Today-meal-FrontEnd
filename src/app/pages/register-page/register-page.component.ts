@@ -64,7 +64,6 @@ export class RegisterPageComponent implements OnInit {
 
   //카드 컴포넌트에서 id값 받기
   idRes(id: any) {
-    console.log(id);
     if (id) {
       this.id = id;
     }
@@ -72,13 +71,11 @@ export class RegisterPageComponent implements OnInit {
 
   //모달에서 닫기 버튼을 했을때 상태값 받아오기
   closeHandler(status: any) {
-    console.log(status)
     this.status = status;
     this.delItemModalAction = '';
   }
 
   locationDelId(id:any){
-    console.log(id);
     this.delId = id;
   }
 
@@ -91,6 +88,5 @@ export class RegisterPageComponent implements OnInit {
   }
   delItemModalActionHandler(delItemModalAction:any) {
     this.delItemModalAction = delItemModalAction;
-    console.log(this.delItemModalAction)
   }
 }

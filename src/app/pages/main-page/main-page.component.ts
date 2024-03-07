@@ -30,9 +30,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   //초기 등록된 장소 조회
   ngOnInit() {
     this.startTimer()
-
-    console.log(this.voteData)
-
     if (sessionStorage.getItem('voteLocation')) {
       this.myVoteStatus = true;
     }
@@ -60,7 +57,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   myVoteReq(){
     this.apiService.voteUserData(sessionStorage.getItem('userId')).subscribe((data: any) => {
       this.myVoteLocationData = data;
-      console.log(this.myVoteLocationData)
     });
   }
 
@@ -68,7 +64,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   voteGetData(){
     this.apiService.voteAllData().subscribe((data: any) => {
       this.voteData = data;
-      console.log(this.voteData)
     });
   }
 
@@ -119,8 +114,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   //리뷰 등록 모달 열기
   reviewRegisterModal(reviewCardInfo: any) {
-    // this.status = status;
-    console.log(reviewCardInfo);
     this.status = reviewCardInfo.status;
     this.reviewCardId = reviewCardInfo.id;
     this.modalContent = "modalReviewRegister";
@@ -128,7 +121,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   //카드 컴포넌트에서 id값 받기
   idRes(id: any) {
-    console.log(id)
     if (id) {
       this.id = id;
       this.locationGetDataHandler();
@@ -141,7 +133,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.locationChangeInfo = false;
     this.modalContent = '';
     this.modalContent2 = '';
-    console.log(this.locationChangeInfo)
   }
 
   modalVoteCancelOpen(status: any) {
@@ -170,7 +161,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 21) {
+    if (hours >= 9 && hours < 11) {
       this.voteStatus = true;
     } else {
       this.voteStatus = false;
@@ -188,7 +179,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   //투표 상황
   voteStatusHandler(voteStatus: boolean) {
-    console.log(voteStatus);
     this.voteStatus = voteStatus
   }
 
@@ -201,7 +191,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
     this.apiService.voteDel(sessionStorage.getItem('userId'))
       .subscribe((data) => {
-        console.log(data);
         this.voteGetData();
       });
     // 내가 투표한 장소 요청

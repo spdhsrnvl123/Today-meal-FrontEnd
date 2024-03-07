@@ -21,17 +21,16 @@ export class SignUpComponent{
   duplicationConfirmReject = false;
   message: string = '';
   formData: any = {};
+  confirm : boolean = false;
   // @ts-ignore
 
   onSubmit(){
-    console.log(this.signupForm)
     let joinData = {
       "user_id" : this.signupForm?.form.value.id,
       "name" : this.signupForm?.form.value.name,
       "password" : this.signupForm?.form.value.passwordFirst,
     }
     if(this.#isComplete(joinData)) {
-      console.log(joinData)
       this.apiService.joinReq(joinData).subscribe(data =>{
           if (data == 1){
             // @ts-ignore
@@ -44,18 +43,25 @@ export class SignUpComponent{
   }
 
   #isComplete = (formData: any): any => {
-    console.log(formData.user_id)
-    if(formData.user_id?.length > 3 && formData.name?.length >0 && this.signupForm?.value.passwordFirst == this.signupForm?.value.passwordSecond) {
-      console.log(1)
+    if(formData.user_id?.length > 3 &&
+      formData.name?.length >0 &&
+      this.signupForm?.value.passwordFirst == this.signupForm?.value.passwordSecond &&
+      this.signupForm?.value.passwordFirst.length >0 &&
+      this.signupForm?.value.passwordSecond.length >0 &&
+      this.confirm
+    ) {
       return true;
     }else{
-      this.message = '다시 입력해주세요.';
+      if(!this.confirm){
+        this.message = '중복 검사를 진행해주세요.'
+      }else{
+        this.message = '다시 입력해주세요.';
+      }
       return false;
     }
   }
 
   onIdChange(value: string) {
-    console.log(value)
     if(value){
       this.duplicationConfirm = false
       this.duplicationConfirmReject = false
@@ -63,20 +69,28 @@ export class SignUpComponent{
   }
 
   //아이디 중복 검사
-  duplicateTest(){
-    if(this.signupForm?.form.value.id?.length >= 3){
+  duplicateTest() {
+    this.message = ""
+    let pattern = /[\s]/g; // 공백 체크 정규 표현식
+    if(pattern.test(this.signupForm?.form.value.id)){
+      this.duplicationConfirm = false;
+      this.duplicationConfirmReject = true;
+      return
+    }
+
+    if(this.signupForm?.form.value.id?.length >= 3) {
       this.apiService.duplicationReq(this.signupForm?.form.value.id).subscribe((data)=>{
-        console.log(data)
         if(data == 1){
           this.duplicationConfirm = false;
           this.duplicationConfirmReject = true;
+          this.confirm = false;
         }else{
           this.duplicationConfirmReject = false;
           this.duplicationConfirm = true;
+          this.confirm = true;
         }
       })
     }else{
-      console.log("3글자 이상 작성해주세요.")
     }
   }
 }

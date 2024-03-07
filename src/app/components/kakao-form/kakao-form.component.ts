@@ -16,7 +16,6 @@ export class KakaoFormComponent{
   place: any = [];
 
   regiDataSetting(data:any){
-    console.log(data);
     this.regiDataStatus.emit(data)
   }
 

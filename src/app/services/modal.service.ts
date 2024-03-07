@@ -9,7 +9,6 @@ export class ModalService {
   //모달 open 상태 변경
 
   modalOpen(data:any){
-    console.log(data)
   }
 
   modalClose(){

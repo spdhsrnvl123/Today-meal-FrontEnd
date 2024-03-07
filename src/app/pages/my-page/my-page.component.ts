@@ -30,7 +30,6 @@ export class MyPageComponent implements OnInit{
 
     this.userId = sessionStorage.getItem('userId');
     this.userName = sessionStorage.getItem('username');
-    console.log(this.password)
   }
 
   pathMOveStatusHandler(status:any){
@@ -53,14 +52,13 @@ export class MyPageComponent implements OnInit{
   }
 
   //회원탈퇴 요청
-  userChangeHandler(){
+  userLeaveHandler(){
     let data = {
       "user_id" : sessionStorage.getItem('userId'),
       "password" : this.password
     }
 
     this.apiService.userLeave(data).subscribe((data)=>{
-      console.log(data);
       if(data == 1){
         this.router.navigate(["/start/signin"]);
       }else{
@@ -68,5 +66,4 @@ export class MyPageComponent implements OnInit{
       }
     })
   }
-
 }

@@ -21,8 +21,8 @@ export class ReviewCardComponent implements AfterViewInit{
   @ViewChild("greet") greet : TemplateRef<any> | undefined
 
   ngAfterViewInit() {
-    console.log(this.greet?.elementRef)
-    console.log(this.real?.elementRef?.nativeElement)
+    // console.log(this.greet?.elementRef)
+    // console.log(this.real?.elementRef?.nativeElement)
   }
 
   open(id:any){

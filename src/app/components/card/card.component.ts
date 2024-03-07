@@ -61,7 +61,6 @@ export class CardComponent implements OnInit {
 
       //데이터 보내주기(투표하기)
       this.apiService.vote(voteData).subscribe((res) => {
-        console.log(res)
       });
 
       this.voteItemId = item[0].id;
@@ -76,7 +75,6 @@ export class CardComponent implements OnInit {
 
       //데이터 보내주기(투표하기)
       this.apiService.vote(voteData).subscribe((res) => {
-        console.log(res)
       });
 
       this.voteItemId = item[0].id;

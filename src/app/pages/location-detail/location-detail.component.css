@@ -10,7 +10,7 @@
   text-align: center;
   display: inline-block; /* 추가 */
   position: relative;
-  height: 136px;
+  /*height: 136px;*/
   top:0%;
   left:50%;
   transform: translate(-50%,50px);
@@ -38,6 +38,7 @@
   padding-left: 40px;
   padding-right: 40px;
   /*padding-bottom: 40px;*/
+  margin-top: 96px;
 }
 .modalContent .descBox .imgBox {
   width:400px;
@@ -223,11 +224,6 @@
   top:30px;
   left:0;
 }
-
-/*------------------------------------*/
-
-
-
 
 /*별점*/
 :host {

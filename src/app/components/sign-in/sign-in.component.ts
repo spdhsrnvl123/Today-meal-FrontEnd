@@ -28,7 +28,6 @@ export class SignInComponent {
 
       // FormData를 API 서비스로 전달
       this.apiService.loginReq(formData).subscribe((response: any) => {
-        console.log(response)
         if (response) {
           sessionStorage.setItem('userId', response.username);
           sessionStorage.setItem('username',response.name);

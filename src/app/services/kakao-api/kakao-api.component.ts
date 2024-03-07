@@ -74,7 +74,6 @@ export class KakaoAPIComponent implements OnInit {
         content: iwContent,
       });
 
-      console.log(place);
       let imgOptions = {
         spriteSize: new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
         spriteOrigin: new kakao.maps.Point(0, idx * 46 + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
