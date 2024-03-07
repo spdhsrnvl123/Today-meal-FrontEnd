@@ -16,7 +16,6 @@ export class MyPageComponent implements OnInit{
   pathMoveStatus = false;
   password = '';
   message : string  = '';
-
   userId : any;
   userName : any;
 

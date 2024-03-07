@@ -24,19 +24,7 @@
             <img class="myVoteImg" [src]="myVoteLocationData?.img"/>
             <div class="description">
               <h2>{{myVoteLocationData?.title}}</h2>
-<!--              <div class="starBox">-->
-<!--                <img src="app/assets/starFill.png" alt="foodRainOne"/>-->
-<!--                <span>4</span>-->
-<!--              </div>-->
               <div class="category">{{myVoteLocationData?.category}}</div>
-<!--              <p>-->
-<!--                운영시간-->
-<!--              </p>-->
-<!--              <span>준비예정</span>-->
-<!--              <p>-->
-<!--                휴게시간-->
-<!--              </p>-->
-<!--              <span>준비예정</span>-->
               <mat-card-actions class="buttonBox">
                 <button
                   mat-raised-button
@@ -82,17 +70,6 @@
           />
         </div>
       </div>
-      <!--   투표가 끝났을때의 UI를 표현하기 위해   -->
-<!--      <div class="section003-voteTerminate" *ngIf="!voteStatus">-->
-<!--        <div class="subTitleBox">-->
-<!--          <app-sub-title>-->
-<!--            <h2>지난 투표 결과</h2>-->
-<!--          </app-sub-title>-->
-<!--        </div>-->
-<!--        <app-review-card-->
-<!--          (reviewCardInfo)="reviewRegisterModal($event)"-->
-<!--        />-->
-<!--      </div>-->
     </section>
     <div class="subTitleBox voteLocation" *ngIf="voteStatus">
       <app-sub-title>
@@ -153,7 +130,9 @@
       *ngIf="modalContent2 == 'modalVoteChange'"
     >
       <div class="questionBox">
-        👍
+        <svg width="80" height="80" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.6 10.9999C20.6 16.3018 16.302 20.5999 11 20.5999C5.69809 20.5999 1.40002 16.3018 1.40002 10.9999C1.40002 5.69797 5.69809 1.3999 11 1.3999C12.5062 1.3999 13.9314 1.74677 15.2 2.36498M18.8 4.9999L10.4 13.3999L8.00002 10.9999" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
       <h2 class="confirm">투표 장소가 "{{myVoteLocationData?.title}}" 장소로<br /> 변경되었습니다.</h2>
     </app-modal>

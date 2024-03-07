@@ -100,11 +100,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.status = status;
     this.modalContent2 = "modalVoteChange"
 
-    // 내가 투표한 장소 요청
-    this.myVoteReq();
-    // 전체 투표한 장소, 회원 정보 요청
-    this.voteGetData();
-
     //1초 뒤 종료
     setTimeout(()=>{
       // @ts-ignore
@@ -161,7 +156,7 @@ export class MainPageComponent implements OnInit, AfterViewInit {
     this.date = `${year}.${month}.${date}`;
 
     // @ts-ignore
-    if (hours >= 9 && hours < 11) {
+    if (hours >= 9 && hours < 22) {
       this.voteStatus = true;
     } else {
       this.voteStatus = false;
@@ -195,15 +190,26 @@ export class MainPageComponent implements OnInit, AfterViewInit {
       });
     // 내가 투표한 장소 요청
     this.myVoteReq();
-    // 전체 투표한 장소, 회원 정보 요청
-    this.voteGetData();
-
     this.myVoteLocationData = null;
   }
 
   myVoteIdHandler(id: any) {
     this.myVoteId = id;
     this.myVoteStatus = true;
-    this.locationGetDataHandler(this.myVoteId);
+    // this.locationGetDataHandler(this.myVoteId);
+    console.log(this.myVoteId);
+
+    let voteData = {
+      "user_id": sessionStorage.getItem('userId'),
+      "location_id": id
+    }
+
+    //데이터 보내주기(투표하기)
+    this.apiService.vote(voteData).subscribe(data => {
+      // 내가 투표한 장소 요청
+      this.myVoteReq();
+      // 전체 투표한 장소, 회원 정보 요청
+      this.voteGetData();
+    })
   }
 }

@@ -21,16 +21,9 @@ export class CardComponent implements OnInit {
   @Output() delItemModalAction = new EventEmitter<string>();
   @Output() myVoteId  = new EventEmitter<string>();
   @Output() status2 = new EventEmitter<Boolean>();
-
   voteItemId : any; //각 장소에서 투표버튼을 누른 장소에 따라서 현재 일치하는 id값에 따라서 버튼상태를 다르게 보여주기 위한 값
 
-  constructor(private apiService: ApiService) {
-  }
-
   ngOnInit() {
-    if(sessionStorage.getItem('voteLocation')){
-      this.voteItemId = sessionStorage.getItem('voteLocation')
-    }
   }
 
   //부모컴포넌트에게 삭제 id값 넘겨주는 메소드
@@ -49,37 +42,7 @@ export class CardComponent implements OnInit {
 
   //투표하기
   voteClickStatusHandler(itemId:any){
-    let voteData = {
-      "user_id": sessionStorage.getItem('userId'),
-      "location_id": itemId
-    }
-
-    if(sessionStorage.getItem('voteLocation')){
-      let item = this.data.filter((data :any)=>{
-        return data.id == itemId;
-      })
-
-      //데이터 보내주기(투표하기)
-      this.apiService.vote(voteData).subscribe((res) => {
-      });
-
-      this.voteItemId = item[0].id;
-      this.myVoteId.emit(item[0].id)
-      this.status2.emit(true);
-
-    }else{
-      //투표하기 버튼을 누른 아이템을 id값을 가지고 일치하는 데이터 추출
-      let item = this.data.filter((data :any)=>{
-        return data.id == itemId;
-      })
-
-      //데이터 보내주기(투표하기)
-      this.apiService.vote(voteData).subscribe((res) => {
-      });
-
-      this.voteItemId = item[0].id;
-      sessionStorage.setItem('voteLocation', this.voteItemId);
-      this.myVoteId.emit(item[0].id)
+    this.myVoteId.emit(itemId);
+    this.status2.emit(true);
     }
   }
-}
