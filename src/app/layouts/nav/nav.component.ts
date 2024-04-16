@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
-  host:{class: 'rrrrrr'}
 })
 export class NavComponent {
   constructor(private router: Router) {}
@@ -24,6 +23,6 @@ export class NavComponent {
   //로그아웃 진행
   logOutHandler() {
     sessionStorage.clear();
-    this.router.navigate(['/start/signin']);
+    this.router.navigate(['/login']);
   }
 }

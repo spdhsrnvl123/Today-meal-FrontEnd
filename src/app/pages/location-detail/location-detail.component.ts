@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api/api.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-location-detail',
@@ -20,7 +19,7 @@ export class LocationDetailComponent implements OnInit, OnChanges{
   @Input() changeInfo : any = false;
 
   ngOnInit() {
-    // //각 장소 조회
+    //각 장소 조회
     this.apiService.locationEachData(this.id).subscribe((data: any) => {
       this.data = data[0];
     });

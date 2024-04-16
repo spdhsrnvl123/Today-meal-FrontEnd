@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
-import {KakaoMapApiService} from "../../services/kakao-map-api/kakao-map-api.service";
+import {KakaoMapApiService} from "../../services/kakao-map-api.service";
 
 declare let kakao: any;
 @Component({

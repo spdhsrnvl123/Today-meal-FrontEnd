@@ -1,0 +1,90 @@
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+
+.title-box {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.sign-box {
+  /*border-left: 1px dotted;*/
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.sign-up-content {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*제목*/
+.sign-up-content h1 {
+  text-align: center;
+  margin-bottom: 80px;
+  color: #043133;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+/*입력박스*/
+.sign-up-content mat-form-field {
+  width: 600px;
+  margin-bottom: 25px;
+  margin-top: 5px;
+}
+
+.sign-up-content mat-label {
+  font-size: 20px;
+  color: #838383;
+}
+
+.sign-up-content mat-form-field input {
+  font-size: 26px;
+  height: 30px;
+}
+
+
+form span {
+  font-size: 20px;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+.duplication{
+  position: absolute;
+  z-index: 99;
+  top:276px;
+  border-radius: 0;
+  right: -1px;
+  font-size: 26px;
+  font-weight: bold;
+  height: 63px;
+}
+
+.generate{
+  position: absolute;
+  bottom: -13%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size: 26px;
+  padding: 30px;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+a {
+  position: absolute;
+  bottom: -17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #4D5959;
+}
